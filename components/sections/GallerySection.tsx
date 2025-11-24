@@ -1,0 +1,58 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { GALLERY_FILTERS, GALLERY_ITEMS, type GalleryFilter } from "@/lib/constants";
+import { Container } from "@/components/layout/Container";
+import { SectionHeader } from "@/components/layout/SectionHeader";
+import { cn } from "@/lib/utils";
+
+export const GallerySection = () => {
+  const [filter, setFilter] = useState<GalleryFilter>("All");
+  const filteredItems =
+    filter === "All" ? GALLERY_ITEMS : GALLERY_ITEMS.filter((item) => item.category === filter);
+
+  return (
+    <section id="gallery" className="bg-sand py-16 sm:py-24">
+      <Container>
+        <SectionHeader
+          eyebrow="Gallery"
+          title="Visual stories from Theos"
+          description="Warm brick, golden light, and gatherings that feel cinematic. Filter to explore the vibe for your event."
+        />
+        <div className="mb-10 flex flex-wrap justify-center gap-3">
+          {GALLERY_FILTERS.map((option) => (
+            <button
+              key={option}
+              className={cn(
+                "rounded-full border px-5 py-2 text-sm",
+                filter === option
+                  ? "border-charcoal bg-charcoal text-parchment"
+                  : "border-charcoal/20 text-charcoal hover:border-charcoal/60",
+              )}
+              onClick={() => setFilter(option)}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredItems.map((item) => (
+            <figure key={item.src} className="group overflow-hidden rounded-3xl">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={500}
+                height={600}
+                className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <figcaption className="mt-3 text-xs uppercase tracking-[0.2em] text-charcoal/60">
+                {item.category}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+};

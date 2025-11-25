@@ -12,3 +12,4 @@ const nextConfig = {
 export default nextConfig;
 // Deployment: All images included and optimized
 // Production deployment
+// Test deployment trigger

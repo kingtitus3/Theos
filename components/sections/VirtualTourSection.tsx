@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { VIRTUAL_TOUR_CONTENT } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
 
 export const VirtualTourSection = () => {
-  const [videoFailed, setVideoFailed] = useState(false);
 
   return (
   <section id="virtual-tour" className="bg-white py-12 sm:py-16 lg:py-24">
@@ -22,23 +20,12 @@ export const VirtualTourSection = () => {
       />
       <div className="overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal">
         <div className="relative aspect-video w-full flex items-center justify-center">
-          {videoFailed ? (
-            <div className="absolute inset-0 flex items-center justify-center text-center text-parchment">
-              <div>
-                <p className="text-2xl font-serif mb-2">Coming Soon</p>
-                <p className="text-sm uppercase tracking-wider">Video Coming Soon</p>
-              </div>
+          <div className="absolute inset-0 flex items-center justify-center text-center text-parchment">
+            <div>
+              <p className="text-2xl font-serif mb-2">Coming Soon</p>
+              <p className="text-sm uppercase tracking-wider text-parchment/80">Virtual tour video coming soon</p>
             </div>
-          ) : (
-            <video 
-              className="h-full w-full" 
-              controls 
-              poster="/images/spaces/main-hall.jpg"
-              onError={() => setVideoFailed(true)}
-            >
-              <source src={VIRTUAL_TOUR_CONTENT.videoSrc} type="video/mp4" />
-            </video>
-          )}
+          </div>
         </div>
       </div>
     </Container>

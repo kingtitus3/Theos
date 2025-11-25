@@ -90,6 +90,38 @@ export const GALLERY_ITEMS: {
   alt: string;
   category: GalleryFilter;
 }[] = [
+  // Wedding Events
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-1.jpg",
+    alt: "Elegant white wedding ceremony at Theos with chandeliers, floral arrangements, and draped ceiling in downtown Galveston.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-2.jpg",
+    alt: "Beautiful wedding reception setup at Theos historic brick venue with white drapes and candlelit aisle.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-3.jpg",
+    alt: "Wedding celebration at Theos event space with elegant table settings and floral centerpieces.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-4.jpg",
+    alt: "Romantic wedding decor at Theos featuring white flowers, crystal chandeliers, and warm lighting.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-5.jpg",
+    alt: "Wedding event at Theos brick venue with sophisticated white and gold decor in downtown Galveston.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding mockup.png",
+    alt: "Wedding mockup showing elegant event setup at Theos historic brick venue.",
+    category: "Events",
+  },
+  // Social Events
   {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-1.jpg",
     alt: "Birthday or social event at Theos, historic brick venue in downtown Galveston, with bar setup and guests mingling.",
@@ -105,10 +137,48 @@ export const GALLERY_ITEMS: {
     alt: "Celebration event inside Theos, a 3,200 sq ft historic brick event space in downtown Galveston.",
     category: "Events",
   },
+  // Corporate Events
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-2.jpg",
-    alt: "Additional social event photo at Theos, Galveston brick event venue with warm lighting.",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate-1.jpg",
+    alt: "Corporate networking event at Theos with professionals mingling in the main brick hall.",
     category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate-2.jpg",
+    alt: "Business event at Theos event venue featuring professional gathering and networking.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate mockup 1.png",
+    alt: "Corporate event mockup at Theos showing professional event setup in the brick venue.",
+    category: "Events",
+  },
+  // Special Events
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/Quince mock up.png",
+    alt: "Quinceañera celebration at Theos with pink and gold decor, floral arrangements, and elegant table settings.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/red carpet entry.png",
+    alt: "Elegant red carpet entrance at Theos with golden gates, floral archway, and welcome sign.",
+    category: "Events",
+  },
+  // Main Hall Details
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-1.jpg",
+    alt: "Architectural details of Theos main brick hall showing historic brick walls and warm lighting.",
+    category: "Main Hall",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-2.jpg",
+    alt: "Interior details of Theos event venue highlighting the brick architecture and industrial design.",
+    category: "Main Hall",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-3.jpg",
+    alt: "Detailed view of Theos brick venue showing the unique character and ambiance of the space.",
+    category: "Main Hall",
   },
 ];
 

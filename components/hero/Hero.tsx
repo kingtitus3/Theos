@@ -1,40 +1,25 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { HERO_CONTENT } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
-import { Modal } from "@/components/ui/Modal";
 import { scrollToTarget } from "@/lib/utils";
 
 export const Hero = () => {
-  const [openTour, setOpenTour] = useState(false);
-  const [videoFailed, setVideoFailed] = useState(false);
-
   return (
     <section id="hero" className="relative h-[90vh] min-h-[640px] w-full overflow-hidden bg-charcoal text-parchment">
-      {!videoFailed ? (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/images/spaces/main-hall.jpg"
-          onError={() => setVideoFailed(true)}
-        >
-          <source src="/media/hero.mp4" type="video/mp4" />
-        </video>
-      ) : (
-        <div className="absolute inset-0 bg-charcoal flex items-center justify-center">
-          <div className="text-center text-parchment/60">
-            <p className="text-2xl font-serif mb-2">Video Coming Soon</p>
-            <p className="text-sm uppercase tracking-wider">Hero video will be available soon</p>
-          </div>
-        </div>
-      )}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/main-hall.jpg"
+      >
+        <source src="/media/herofixed.MOV" type="video/quicktime" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4 pt-32 sm:pt-40 lg:pt-0">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,11 +65,19 @@ export const Hero = () => {
             size="lg"
             variant="ghost"
             className="border border-parchment"
-            onClick={() => setOpenTour(true)}
+            onClick={() => scrollToTarget("#pricing")}
           >
             {HERO_CONTENT.ctaSecondary}
           </Button>
         </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55, duration: 0.8 }}
+          className="mt-4 text-sm text-parchment/80"
+        >
+          ⭐ Fast responses • ⭐ Transparent pricing • ⭐ Tours by appointment only
+        </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,13 +97,6 @@ export const Hero = () => {
           Scroll to explore ↓
         </div>
       </div>
-      <Modal isOpen={openTour} onClose={() => setOpenTour(false)} ariaLabel="Watch tour">
-        <div className="aspect-video w-full rounded-3xl overflow-hidden">
-          <video className="h-full w-full object-cover" controls>
-            <source src="/media/virtual-tour.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </Modal>
     </section>
   );
 };

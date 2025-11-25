@@ -1,24 +1,31 @@
 import { google } from "googleapis";
 
-const calendarIdEnv = process.env.GOOGLE_CALENDAR_ID;
+const calendarId = process.env.GOOGLE_CALENDAR_ID;
 const clientEmail = process.env.GOOGLE_CALENDAR_CLIENT_EMAIL;
 const privateKey = process.env.GOOGLE_CALENDAR_PRIVATE_KEY;
 
-if (!calendarIdEnv || !clientEmail || !privateKey) {
-  throw new Error("Missing Google Calendar environment variables");
+const hasCalendarConfig = Boolean(calendarId && clientEmail && privateKey);
+
+const calendar = hasCalendarConfig
+  ? google.calendar({
+      version: "v3",
+      auth: new google.auth.JWT({
+        email: clientEmail!,
+        key: privateKey!.replace(/\\n/g, "\n"),
+        scopes: ["https://www.googleapis.com/auth/calendar"],
+      }),
+    })
+  : null;
+
+function ensureConfigured() {
+  if (!hasCalendarConfig || !calendar || !calendarId) {
+    throw new Error("Google Calendar is not configured. Please set the required environment variables.");
+  }
 }
 
-const calendarId = calendarIdEnv as string;
-
-const auth = new google.auth.JWT({
-  email: clientEmail,
-  key: privateKey.replace(/\\n/g, "\n"),
-  scopes: ["https://www.googleapis.com/auth/calendar"],
-});
-
-const calendar = google.calendar({ version: "v3", auth });
-
 export async function getAvailability(startISO: string, endISO: string) {
+  ensureConfigured();
+
   const res = await calendar.freebusy.query({
     requestBody: {
       timeMin: startISO,
@@ -45,6 +52,8 @@ export async function createCalendarEvent({
   summary,
   description,
 }: CreateEventOptions) {
+  ensureConfigured();
+
   await calendar.events.insert({
     calendarId,
     requestBody: {

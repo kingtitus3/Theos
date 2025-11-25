@@ -123,7 +123,7 @@ export async function POST(request: Request) {
 
     // Send email to venue owner
     await resend.emails.send({
-      from: "Theos Website <hello@theosgalveston.com>",
+      from: "Theos <bookings@theosgalveston.com>",
       to: CONTACT_INFO.email,
       replyTo: formData.email,
       subject: `New Event Inquiry: ${formData.eventType} from ${formData.fullName}`,
@@ -263,14 +263,14 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
       `;
 
     await resend.emails.send({
-      from: "Titus at Theos <titus@theosgalveston.com>",
+      from: "Titus at Theos <bookings@theosgalveston.com>",
       to: formData.email,
       replyTo: CONTACT_INFO.email,
       subject: `Re: Your ${formData.eventType} inquiry at Theos Event Venue`,
       html: customerEmailHtml,
     });
 
-    return NextResponse.json({ success: true });
+  return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email sending failed:", error);
     // Still return success to user, but log the error

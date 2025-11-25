@@ -153,6 +153,7 @@ export const ChatConcierge = () => {
         return {
           role: "assistant" as const,
           content: "I&apos;d love to book that for you! I need a few details:\n- Your full name\n- Your email address\n\nYou can say something like: &apos;My name is John Doe and my email is john@example.com&apos;",
+          timestamp: new Date(),
         };
       }
 
@@ -178,12 +179,14 @@ export const ChatConcierge = () => {
         return {
           role: "assistant" as const,
           content: `Perfect! I&apos;ve booked your tour for ${bookingData.date} at ${bookingData.time}. You&apos;ll receive a confirmation email shortly. Is there anything else I can help you with?`,
+          timestamp: new Date(),
         };
       } catch (error) {
         console.error(error);
         return {
           role: "assistant" as const,
           content: "I&apos;m sorry, I couldn&apos;t complete the booking. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com",
+          timestamp: new Date(),
         };
       } finally {
         setIsProcessing(false);
@@ -203,11 +206,13 @@ export const ChatConcierge = () => {
           return {
             role: "assistant" as const,
             content: `Great news! ${bookingData.date} is available. Would you like to book a tour? Just let me know your preferred time and your name and email.`,
+            timestamp: new Date(),
           };
         } else {
           return {
             role: "assistant" as const,
             content: `I&apos;m sorry, ${bookingData.date} is not available. Would you like to check another date?`,
+            timestamp: new Date(),
           };
         }
       } catch (error) {
@@ -215,6 +220,7 @@ export const ChatConcierge = () => {
         return {
           role: "assistant" as const,
           content: "I couldn&apos;t check availability right now. Please try again in a moment.",
+          timestamp: new Date(),
         };
       } finally {
         setIsProcessing(false);
@@ -225,37 +231,44 @@ export const ChatConcierge = () => {
         return {
           role: "assistant" as const,
           content: "Our pricing varies by day of the week and event type. Weekend events typically range from $3,000-$6,000, with weekday options starting around $2,000. The Loft Suite add-on is $300-$500. Would you like to check availability for a specific date?",
+          timestamp: new Date(),
         };
       } else if (lowerText.includes("capacity") || lowerText.includes("guests") || lowerText.includes("people")) {
         return {
           role: "assistant" as const,
           content: "Theos can accommodate up to 180 guests standing, or 120-140 for seated receptions. The main hall is 3,200 sq ft (80 × 40). Would you like to book a tour to see the space?",
+          timestamp: new Date(),
         };
       } else if (lowerText.includes("location") || lowerText.includes("address") || lowerText.includes("where")) {
         return {
           role: "assistant" as const,
           content: "Theos is located at 2527 Market St, Galveston, TX 77550, right in downtown Galveston near the Strand. Would you like to schedule a tour?",
+          timestamp: new Date(),
         };
       } else if (lowerText.includes("loft") || lowerText.includes("suite")) {
         return {
           role: "assistant" as const,
           content: "The Loft Suite is a private 1 bed / 1 bath apartment above the main hall, perfect for getting ready, overnight stays, or VIP hosting. It&apos;s available as an add-on for $300-$500. Would you like to include it in your tour?",
+          timestamp: new Date(),
         };
       } else {
         return {
           role: "assistant" as const,
           content: "Theos is a 3,200 sq ft historic brick event venue in downtown Galveston, perfect for weddings, social events, and corporate gatherings. We have a main hall and an optional Loft Suite. Would you like to book a tour or check availability?",
+          timestamp: new Date(),
         };
       }
     } else if (isBookingIntent) {
       return {
         role: "assistant" as const,
         content: "I&apos;d be happy to help you book a tour! Please tell me:\n- Your preferred date (e.g., &apos;December 15th&apos; or &apos;next Friday&apos;)\n- Your preferred time (e.g., &apos;3 PM&apos; or &apos;afternoon&apos;)\n- Your name and email",
+        timestamp: new Date(),
       };
     } else {
       return {
         role: "assistant" as const,
         content: "I can help you book a tour, check availability, or answer questions about Theos. What would you like to do?",
+        timestamp: new Date(),
       };
     }
   };

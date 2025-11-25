@@ -123,7 +123,7 @@ export async function POST(request: Request) {
 
     // Send email to venue owner
     await resend.emails.send({
-      from: "Theos Website <noreply@theosgalveston.com>",
+      from: "Theos Website <hello@theosgalveston.com>",
       to: CONTACT_INFO.email,
       replyTo: formData.email,
       subject: `New Event Inquiry: ${formData.eventType} from ${formData.fullName}`,
@@ -263,7 +263,7 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
       `;
 
     await resend.emails.send({
-      from: "Theos <noreply@theosgalveston.com>",
+      from: "Titus at Theos <titus@theosgalveston.com>",
       to: formData.email,
       replyTo: CONTACT_INFO.email,
       subject: `Re: Your ${formData.eventType} inquiry at Theos Event Venue`,

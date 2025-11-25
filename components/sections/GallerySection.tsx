@@ -9,8 +9,13 @@ import { cn } from "@/lib/utils";
 
 export const GallerySection = () => {
   const [filter, setFilter] = useState<GalleryFilter>("All");
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
   const filteredItems =
     filter === "All" ? GALLERY_ITEMS : GALLERY_ITEMS.filter((item) => item.category === filter);
+
+  const handleImageError = (src: string) => {
+    setFailedImages((prev) => new Set(prev).add(src));
+  };
 
   return (
     <section id="gallery" className="bg-sand py-16 sm:py-24">
@@ -39,13 +44,24 @@ export const GallerySection = () => {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredItems.map((item) => (
             <figure key={item.src} className="group overflow-hidden rounded-3xl">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={500}
-                height={600}
-                className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
-              />
+              <div className="relative h-80 w-full bg-charcoal/5 flex items-center justify-center">
+                {failedImages.has(item.src) ? (
+                  <div className="text-center">
+                    <p className="text-xl font-serif text-charcoal/40 mb-2">Coming Soon</p>
+                    <p className="text-sm text-charcoal/30 uppercase tracking-wider">Photo Coming Soon</p>
+                  </div>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={500}
+                    height={600}
+                    className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+                    onError={() => handleImageError(item.src)}
+                    unoptimized
+                  />
+                )}
+              </div>
               <figcaption className="mt-3 text-xs uppercase tracking-[0.2em] text-charcoal/60">
                 {item.category}
               </figcaption>

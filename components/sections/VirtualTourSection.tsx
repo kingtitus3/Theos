@@ -15,9 +15,29 @@ export const VirtualTourSection = () => (
         description={VIRTUAL_TOUR_CONTENT.description}
       />
       <div className="overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal">
-        <video className="h-full w-full" controls poster="/images/spaces/main-hall.jpg">
-          <source src={VIRTUAL_TOUR_CONTENT.videoSrc} type="video/mp4" />
-        </video>
+        <div className="relative aspect-video w-full flex items-center justify-center">
+          <video 
+            className="h-full w-full" 
+            controls 
+            poster="/images/spaces/main-hall.jpg"
+            onError={(e) => {
+              const video = e.target as HTMLVideoElement;
+              video.style.display = "none";
+              const placeholder = video.parentElement?.querySelector(".coming-soon-video");
+              if (placeholder) {
+                (placeholder as HTMLElement).style.display = "flex";
+              }
+            }}
+          >
+            <source src={VIRTUAL_TOUR_CONTENT.videoSrc} type="video/mp4" />
+          </video>
+          <div className="coming-soon-video hidden absolute inset-0 flex items-center justify-center text-center text-parchment">
+            <div>
+              <p className="text-2xl font-serif mb-2">Coming Soon</p>
+              <p className="text-sm uppercase tracking-wider">Video Coming Soon</p>
+            </div>
+          </div>
+        </div>
       </div>
     </Container>
   </section>

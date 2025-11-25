@@ -9,19 +9,30 @@ import { scrollToTarget } from "@/lib/utils";
 
 export const Hero = () => {
   const [openTour, setOpenTour] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   return (
     <section id="hero" className="relative h-[90vh] min-h-[640px] w-full overflow-hidden bg-charcoal text-parchment">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/images/spaces/main-hall.jpg"
-      >
-        <source src="/media/hero.mp4" type="video/mp4" />
-      </video>
+      {!videoFailed ? (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/spaces/main-hall.jpg"
+          onError={() => setVideoFailed(true)}
+        >
+          <source src="/media/hero.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <div className="absolute inset-0 bg-charcoal flex items-center justify-center">
+          <div className="text-center text-parchment/60">
+            <p className="text-2xl font-serif mb-2">Video Coming Soon</p>
+            <p className="text-sm uppercase tracking-wider">Hero video will be available soon</p>
+          </div>
+        </div>
+      )}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4">
         <motion.p

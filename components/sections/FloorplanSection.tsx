@@ -1,10 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { CAPACITY_CHART, FLOORPLAN_CONTENT, FLOORPLAN_NOTES } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Card } from "@/components/ui/Card";
 
-export const FloorplanSection = () => (
+export const FloorplanSection = () => {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  return (
   <section id="floorplan" className="bg-sand py-16 sm:py-24">
     <Container>
       <SectionHeader
@@ -14,8 +20,23 @@ export const FloorplanSection = () => (
       />
       <div className="grid gap-8 lg:grid-cols-2">
         <Card className="space-y-6">
-          <div className="aspect-video w-full overflow-hidden rounded-2xl bg-charcoal/5">
-            <Image src={FLOORPLAN_CONTENT.imageSrc} alt="Floorplan" width={800} height={600} className="h-full w-full object-cover" />
+          <div className="aspect-video w-full overflow-hidden rounded-2xl bg-charcoal/5 flex items-center justify-center">
+            {imageFailed ? (
+              <div className="text-center">
+                <p className="text-xl font-serif text-charcoal/40 mb-2">Coming Soon</p>
+                <p className="text-sm text-charcoal/30 uppercase tracking-wider">Floorplan Coming Soon</p>
+              </div>
+            ) : (
+              <Image 
+                src={FLOORPLAN_CONTENT.imageSrc} 
+                alt="Floorplan" 
+                width={800} 
+                height={600} 
+                className="h-full w-full object-cover" 
+                onError={() => setImageFailed(true)}
+                unoptimized
+              />
+            )}
           </div>
           <a
             href={FLOORPLAN_CONTENT.downloadHref}
@@ -45,4 +66,5 @@ export const FloorplanSection = () => (
       </div>
     </Container>
   </section>
-);
+  );
+};

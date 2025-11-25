@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [],
+    unoptimized: true,
   },
   experimental: {
     typedRoutes: true,
@@ -9,3 +10,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+/* Force image deployment */

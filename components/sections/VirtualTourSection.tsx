@@ -1,9 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import { VIRTUAL_TOUR_CONTENT } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
 
-export const VirtualTourSection = () => (
+export const VirtualTourSection = () => {
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  return (
   <section id="virtual-tour" className="bg-white py-16 sm:py-24">
     <Container>
       <Badge className="mx-auto mb-4 bg-accent-brick/10 text-accent-brick">
@@ -16,29 +22,26 @@ export const VirtualTourSection = () => (
       />
       <div className="overflow-hidden rounded-3xl border border-charcoal/10 bg-charcoal">
         <div className="relative aspect-video w-full flex items-center justify-center">
-          <video 
-            className="h-full w-full" 
-            controls 
-            poster="/images/spaces/main-hall.jpg"
-            onError={(e) => {
-              const video = e.target as HTMLVideoElement;
-              video.style.display = "none";
-              const placeholder = video.parentElement?.querySelector(".coming-soon-video");
-              if (placeholder) {
-                (placeholder as HTMLElement).style.display = "flex";
-              }
-            }}
-          >
-            <source src={VIRTUAL_TOUR_CONTENT.videoSrc} type="video/mp4" />
-          </video>
-          <div className="coming-soon-video hidden absolute inset-0 flex items-center justify-center text-center text-parchment">
-            <div>
-              <p className="text-2xl font-serif mb-2">Coming Soon</p>
-              <p className="text-sm uppercase tracking-wider">Video Coming Soon</p>
+          {videoFailed ? (
+            <div className="absolute inset-0 flex items-center justify-center text-center text-parchment">
+              <div>
+                <p className="text-2xl font-serif mb-2">Coming Soon</p>
+                <p className="text-sm uppercase tracking-wider">Video Coming Soon</p>
+              </div>
             </div>
-          </div>
+          ) : (
+            <video 
+              className="h-full w-full" 
+              controls 
+              poster="/images/spaces/main-hall.jpg"
+              onError={() => setVideoFailed(true)}
+            >
+              <source src={VIRTUAL_TOUR_CONTENT.videoSrc} type="video/mp4" />
+            </video>
+          )}
         </div>
       </div>
     </Container>
   </section>
-);
+  );
+};

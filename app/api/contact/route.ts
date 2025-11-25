@@ -54,17 +54,20 @@ VENUE INFO:
 - Location: 2527 Market St, Galveston, TX 77550
 - Optional Loft Suite: 1 bed / 1 bath apartment ($300-$500 add-on)
 - Pricing: Weekend $3,000-$6,000, Weekday $2,000+
+- Phone: (409) 765-5539
+- Website: https://theos.live
 
-Write a professional, warm, and helpful email response that:
-1. Thanks them for their inquiry
+Write a professional, warm, and helpful email response in HTML format that:
+1. Thanks them for their inquiry by name
 2. Acknowledges their event type and any specific details they mentioned
-3. Addresses availability if they provided a date
-4. Offers to schedule a tour
-5. Provides next steps
-6. Is concise (2-3 short paragraphs)
-7. Signs off as "Titus" from Theos
+3. Addresses availability if they provided a date (mention if available or suggest alternatives)
+4. Offers to schedule a tour or discuss details
+5. Provides clear next steps
+6. Includes contact information
+7. Is 2-3 paragraphs, warm and conversion-focused
+8. Signs off as "Titus" from Theos
 
-Keep it warm, professional, and conversion-focused. Don't be overly salesy.`;
+Format as clean HTML with proper paragraph tags. Keep it warm, professional, and helpful. Don't be overly salesy.`;
 
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -153,18 +156,25 @@ export async function POST(request: Request) {
 
           ${aiResponse ? `
           <div style="background: #e8f4f8; border-left: 4px solid #8B4513; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="margin-top: 0; color: #333;">🤖 AI-Generated Suggested Response</h3>
+            <h3 style="margin-top: 0; color: #333;">🤖 AI Auto-Response Sent</h3>
             <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
-              Copy, edit, or use this as a starting point for your reply:
+              An AI-generated personalized response was automatically sent to ${formData.fullName}. Review the response below:
             </p>
             <div style="background: white; padding: 15px; border-radius: 4px; white-space: pre-wrap; font-family: Arial, sans-serif; color: #333; border: 1px solid #ddd;">
-${aiResponse}
+${aiResponse.replace(/<[^>]*>/g, '')}
             </div>
             <p style="color: #666; font-size: 12px; margin-top: 10px; margin-bottom: 0;">
-              💡 Tip: Click "Reply" above and paste this response, then edit as needed.
+              💡 You can still follow up with additional information if needed.
             </p>
           </div>
-          ` : ""}
+          ` : `
+          <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #333;">⚠️ Generic Auto-Reply Sent</h3>
+            <p style="color: #666; font-size: 14px; margin-bottom: 0;">
+              AI response generation failed, so a generic auto-reply was sent. Please follow up manually.
+            </p>
+          </div>
+          `}
 
           <p style="margin-top: 30px; color: #666; font-size: 14px;">
             Reply directly to this email to respond to ${formData.fullName}.
@@ -173,12 +183,36 @@ ${aiResponse}
       `,
     });
 
-    // Send auto-reply to customer
-    await resend.emails.send({
-      from: "Theos <noreply@theos.live>",
-      to: formData.email,
-      subject: "Thank you for your inquiry – Theos Event Venue",
-      html: `
+    // Send AI-generated response to customer (or fallback to generic if AI fails)
+    // Clean and format AI response
+    let formattedAiResponse = aiResponse;
+    if (aiResponse) {
+      // If AI returns plain text, convert to HTML paragraphs
+      if (!aiResponse.includes('<p>') && !aiResponse.includes('<div>')) {
+        formattedAiResponse = aiResponse
+          .split('\n\n')
+          .filter(p => p.trim())
+          .map(p => `<p style="margin: 15px 0; line-height: 1.6; color: #333;">${p.trim().replace(/\n/g, '<br>')}</p>`)
+          .join('');
+      }
+    }
+
+    const customerEmailHtml = aiResponse
+      ? `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #8B4513; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">
+            Thank you for your inquiry!
+          </h2>
+          ${formattedAiResponse}
+          <p style="color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+            <strong>Theos Event Venue</strong><br>
+            ${CONTACT_INFO.addressLine}<br>
+            Phone: <a href="tel:${CONTACT_INFO.phone}" style="color: #8B4513;">${CONTACT_INFO.phone}</a><br>
+            <a href="https://theos.live" style="color: #8B4513;">theos.live</a>
+          </p>
+        </div>
+      `
+      : `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #8B4513; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">
             Thank you for your inquiry!
@@ -226,7 +260,14 @@ ${aiResponse}
             <a href="https://theos.live" style="color: #8B4513;">theos.live</a>
           </p>
         </div>
-      `,
+      `;
+
+    await resend.emails.send({
+      from: "Theos <noreply@theos.live>",
+      to: formData.email,
+      replyTo: CONTACT_INFO.email,
+      subject: `Re: Your ${formData.eventType} inquiry at Theos Event Venue`,
+      html: customerEmailHtml,
     });
 
     return NextResponse.json({ success: true });

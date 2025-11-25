@@ -1,3 +1,4 @@
+# Only exclude source Images folder, not public/images
 Images/
 .git/
 .git.backup/

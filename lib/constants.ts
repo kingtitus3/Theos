@@ -92,11 +92,6 @@ export const GALLERY_ITEMS: {
 }[] = [
   // Wedding Events
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-1.jpg",
-    alt: "Elegant white wedding ceremony at Theos with chandeliers, floral arrangements, and draped ceiling in downtown Galveston.",
-    category: "Events",
-  },
-  {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-2.jpg",
     alt: "Beautiful wedding reception setup at Theos historic brick venue with white drapes and candlelit aisle.",
     category: "Events",

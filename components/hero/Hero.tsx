@@ -16,7 +16,7 @@ export const Hero = () => {
         playsInline
         poster="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/main-hall.jpg"
       >
-        <source src="/media/herofixed.MOV" type="video/quicktime" />
+        <source src="/media/herofixed.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4 pt-32 sm:pt-40 lg:pt-0">

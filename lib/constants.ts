@@ -123,11 +123,6 @@ export const GALLERY_ITEMS: {
   },
   // Social Events
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-1.jpg",
-    alt: "Birthday or social event at Theos, historic brick venue in downtown Galveston, with bar setup and guests mingling.",
-    category: "Events",
-  },
-  {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-2.jpg",
     alt: "Social gathering at Theos event venue in downtown Galveston with guests enjoying the main brick hall.",
     category: "Events",
@@ -141,11 +136,6 @@ export const GALLERY_ITEMS: {
   {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate-1.jpg",
     alt: "Corporate networking event at Theos with professionals mingling in the main brick hall.",
-    category: "Events",
-  },
-  {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate-2.jpg",
-    alt: "Business event at Theos event venue featuring professional gathering and networking.",
     category: "Events",
   },
   {

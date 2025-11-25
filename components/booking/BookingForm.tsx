@@ -172,7 +172,7 @@ export const BookingForm = ({ onSuccess }: BookingFormProps) => {
         </Button>
 
         <p className="text-xs text-charcoal/60 text-center">
-          We'll confirm your tour via email within a few minutes.
+          We&apos;ll confirm your tour via email within a few minutes.
         </p>
       </form>
     </Card>

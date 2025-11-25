@@ -17,7 +17,7 @@ export const ChatConcierge = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hi! I'm here to help you book a tour or answer questions about Theos. What would you like to know?",
+      content: "Hi! I&apos;m here to help you book a tour or answer questions about Theos. What would you like to know?",
       timestamp: new Date(),
     },
   ]);
@@ -152,7 +152,7 @@ export const ChatConcierge = () => {
       if (!bookingData.name || !bookingData.email) {
         return {
           role: "assistant" as const,
-          content: "I'd love to book that for you! I need a few details:\n- Your full name\n- Your email address\n\nYou can say something like: 'My name is John Doe and my email is john@example.com'",
+          content: "I&apos;d love to book that for you! I need a few details:\n- Your full name\n- Your email address\n\nYou can say something like: &apos;My name is John Doe and my email is john@example.com&apos;",
         };
       }
 
@@ -177,13 +177,13 @@ export const ChatConcierge = () => {
         addToast({ title: "Tour booked successfully!", variant: "success" });
         return {
           role: "assistant" as const,
-          content: `Perfect! I've booked your tour for ${bookingData.date} at ${bookingData.time}. You'll receive a confirmation email shortly. Is there anything else I can help you with?`,
+          content: `Perfect! I&apos;ve booked your tour for ${bookingData.date} at ${bookingData.time}. You&apos;ll receive a confirmation email shortly. Is there anything else I can help you with?`,
         };
       } catch (error) {
         console.error(error);
         return {
           role: "assistant" as const,
-          content: "I'm sorry, I couldn't complete the booking. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com",
+          content: "I&apos;m sorry, I couldn&apos;t complete the booking. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com",
         };
       } finally {
         setIsProcessing(false);
@@ -207,14 +207,14 @@ export const ChatConcierge = () => {
         } else {
           return {
             role: "assistant" as const,
-            content: `I'm sorry, ${bookingData.date} is not available. Would you like to check another date?`,
+            content: `I&apos;m sorry, ${bookingData.date} is not available. Would you like to check another date?`,
           };
         }
       } catch (error) {
         console.error(error);
         return {
           role: "assistant" as const,
-          content: "I couldn't check availability right now. Please try again in a moment.",
+          content: "I couldn&apos;t check availability right now. Please try again in a moment.",
         };
       } finally {
         setIsProcessing(false);
@@ -239,7 +239,7 @@ export const ChatConcierge = () => {
       } else if (lowerText.includes("loft") || lowerText.includes("suite")) {
         return {
           role: "assistant" as const,
-          content: "The Loft Suite is a private 1 bed / 1 bath apartment above the main hall, perfect for getting ready, overnight stays, or VIP hosting. It's available as an add-on for $300-$500. Would you like to include it in your tour?",
+          content: "The Loft Suite is a private 1 bed / 1 bath apartment above the main hall, perfect for getting ready, overnight stays, or VIP hosting. It&apos;s available as an add-on for $300-$500. Would you like to include it in your tour?",
         };
       } else {
         return {
@@ -250,7 +250,7 @@ export const ChatConcierge = () => {
     } else if (isBookingIntent) {
       return {
         role: "assistant" as const,
-        content: "I'd be happy to help you book a tour! Please tell me:\n- Your preferred date (e.g., 'December 15th' or 'next Friday')\n- Your preferred time (e.g., '3 PM' or 'afternoon')\n- Your name and email",
+        content: "I&apos;d be happy to help you book a tour! Please tell me:\n- Your preferred date (e.g., &apos;December 15th&apos; or &apos;next Friday&apos;)\n- Your preferred time (e.g., &apos;3 PM&apos; or &apos;afternoon&apos;)\n- Your name and email",
       };
     } else {
       return {

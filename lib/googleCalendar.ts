@@ -28,8 +28,14 @@ function getCalendarClient(): calendar_v3.Calendar {
   return calendarClient!;
 }
 
+function getCalendarId(): string {
+  ensureConfigured();
+  return calendarId!;
+}
+
 export async function getAvailability(startISO: string, endISO: string) {
   const calendar = getCalendarClient();
+  const id = getCalendarId();
 
   const res = await calendar.freebusy.query({
     requestBody: {
@@ -40,7 +46,7 @@ export async function getAvailability(startISO: string, endISO: string) {
     },
   });
 
-  const busy = res.data.calendars?.[calendarId]?.busy ?? [];
+  const busy = res.data.calendars?.[id]?.busy ?? [];
   return busy.length === 0;
 }
 
@@ -60,7 +66,7 @@ export async function createCalendarEvent({
   const calendar = getCalendarClient();
 
   await calendar.events.insert({
-    calendarId,
+    calendarId: getCalendarId(),
     requestBody: {
       summary,
       description,

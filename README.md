@@ -101,6 +101,36 @@ Both forms currently log to console. To integrate email:
 2. Update `/app/api/contact/route.ts` to send emails
 3. Add environment variables for API keys
 
+## Google Calendar Booking
+
+Real-time booking and availability are powered by Google Calendar via service account credentials.
+
+### Environment Variables
+
+Add the following to `.env.local` (escaping newline characters in the private key):
+
+```
+GOOGLE_CALENDAR_CLIENT_EMAIL=your-service-account@project.iam.gserviceaccount.com
+GOOGLE_CALENDAR_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOURKEY\n-----END PRIVATE KEY-----\n"
+GOOGLE_CALENDAR_ID=c_4a0d6a426088164c5c84add3d0a6b0fa2538caa9eacb30ca64646fe930c0f258@group.calendar.google.com
+```
+
+Share the calendar with the service account email and deploy the same variables in Vercel.
+
+### API Routes
+
+- `POST /api/availability` &mdash; checks if a date block (default 8 hours starting 10am) is open.
+- `POST /api/book-tour` &mdash; schedules a 60-minute site tour.
+- `POST /api/book-event` &mdash; books multi-hour events and optionally flags Loft Suite interest (auto checks availability).
+
+### External Calendar Sync
+
+Use the private iCal feed below when connecting Airbnb, Peerspace, or other OTA platforms so all bookings stay in sync:
+
+```
+https://calendar.google.com/calendar/ical/c_4a0d6a426088164c5c84add3d0a6b0fa2538caa9eacb30ca64646fe930c0f258%40group.calendar.google.com/private-40c55da839ebdddd1bb67643cfda6234/basic.ics
+```
+
 ## Media Assets
 
 Replace placeholder files with real assets:

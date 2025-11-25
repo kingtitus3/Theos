@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   description:
     "A cinematic brick event venue in downtown Galveston with an 80 × 40 hall and private Loft Suite add-on.",
   metadataBase: new URL("https://theos.example.com"),
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   openGraph: {
     title: "Theos | Historic Galveston Event Venue",
     description:

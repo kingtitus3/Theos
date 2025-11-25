@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn, scrollToTarget } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
@@ -34,8 +35,15 @@ export const Navbar = () => {
       )}
     >
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-4 py-4 text-sm uppercase tracking-wide text-parchment">
-        <Link href="#hero" onClick={() => scrollToTarget("#hero")} className="font-serif text-2xl">
-          Theos
+        <Link href="#hero" onClick={() => scrollToTarget("#hero")} className="relative h-10 w-32">
+          <Image 
+            src="/images/logo.png" 
+            alt="Theos Event Space" 
+            fill 
+            className="object-contain"
+            unoptimized
+            priority
+          />
         </Link>
         <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
           {NAV_LINKS.map((link) => (

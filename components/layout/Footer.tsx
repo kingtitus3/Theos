@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CONTACT_INFO } from "@/lib/constants";
 
 const SOCIAL_LINKS = [
@@ -10,7 +11,15 @@ export const Footer = () => (
   <footer className="bg-charcoal text-parchment">
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-12 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h3 className="font-serif text-3xl">Theos</h3>
+        <div className="relative h-12 w-40 mb-2">
+          <Image 
+            src="/images/logo.png" 
+            alt="Theos Event Space" 
+            fill 
+            className="object-contain brightness-0 invert"
+            unoptimized
+          />
+        </div>
         <p className="mt-2 text-sm text-parchment/70">
           Historic brick venue for modern gatherings.
         </p>

@@ -23,7 +23,14 @@ export const SpacesSection = () => (
                   <p className="text-sm text-charcoal/30 uppercase tracking-wider">Photo Coming Soon</p>
                 </div>
               ) : (
-                <Image src={space.image} alt={space.name} fill className="object-cover" />
+                <Image 
+                  src={space.image} 
+                  alt={space.name} 
+                  fill 
+                  className="object-cover" 
+                  unoptimized
+                  priority={space.id === "main-hall"}
+                />
               )}
             </div>
             <div className="space-y-4 p-6">

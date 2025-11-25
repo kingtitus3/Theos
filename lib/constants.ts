@@ -94,8 +94,33 @@ export const GALLERY_ITEMS: {
     category: "Weddings",
   },
   {
+    src: "/images/gallery/wedding-3.jpg",
+    alt: "Wedding celebration at Theos showing the historic brick venue.",
+    category: "Weddings",
+  },
+  {
+    src: "/images/gallery/wedding-4.jpg",
+    alt: "Elegant wedding event in the main brick hall at Theos.",
+    category: "Weddings",
+  },
+  {
+    src: "/images/gallery/wedding-5.jpg",
+    alt: "Beautiful wedding reception showcasing the warm ambiance of Theos.",
+    category: "Weddings",
+  },
+  {
     src: "/images/gallery/social-1.jpg",
     alt: "Birthday or social event with bar setup and guests mingling.",
+    category: "Social Events",
+  },
+  {
+    src: "/images/gallery/social-2.jpg",
+    alt: "Social gathering at Theos with guests enjoying the space.",
+    category: "Social Events",
+  },
+  {
+    src: "/images/gallery/social-3.jpg",
+    alt: "Celebration event in the historic brick venue.",
     category: "Social Events",
   },
   {
@@ -104,8 +129,23 @@ export const GALLERY_ITEMS: {
     category: "Corporate",
   },
   {
+    src: "/images/gallery/corporate-2.jpg",
+    alt: "Corporate event setup at Theos showcasing the versatile space.",
+    category: "Corporate",
+  },
+  {
     src: "/images/gallery/detail-1.jpg",
     alt: "Detail shot of brick wall, candles, and decor at Theos.",
+    category: "Styled Shoots",
+  },
+  {
+    src: "/images/gallery/detail-2.jpg",
+    alt: "Architectural detail of the historic brick walls at Theos.",
+    category: "Styled Shoots",
+  },
+  {
+    src: "/images/gallery/detail-3.jpg",
+    alt: "Stylized detail showcasing the character of Theos venue.",
     category: "Styled Shoots",
   },
 ];
@@ -268,8 +308,8 @@ export const CONTACT_INFO = {
   heading: "Ready to see Theos in person?",
   description:
     "Share a few details about your event and we’ll follow up with availability, pricing, and a time to tour the space.",
-  phone: "(409) 555-0123",
-  email: "hello@theosgalveston.com",
-  addressLine: "Downtown Galveston, TX",
+  phone: "(409) 765-5539",
+  email: "titus.edwardsiii@3910enterprises.com",
+  addressLine: "2527 Market St, Galveston, TX 77550",
   mapEmbedSrc: "",
 };

@@ -2,8 +2,99 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/validation";
 import { CONTACT_INFO } from "@/lib/constants";
+import { getAvailability } from "@/lib/googleCalendar";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+async function generateEmailResponse(formData: {
+  fullName: string;
+  email: string;
+  phone?: string;
+  eventType: string;
+  preferredDate?: string;
+  guestCount?: string;
+  loftSuite: string;
+  referral?: string;
+  message: string;
+}): Promise<string> {
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  if (!apiKey) {
+    return ""; // Return empty if no API key
+  }
+
+  // Check availability if date provided
+  let availabilityInfo = "";
+  if (formData.preferredDate) {
+    try {
+      const start = new Date(`${formData.preferredDate}T10:00:00-06:00`);
+      const end = new Date(start.getTime() + 8 * 60 * 60 * 1000); // 8 hours
+      const available = await getAvailability(start.toISOString(), end.toISOString());
+      availabilityInfo = available
+        ? `\n- Date Availability: ${formData.preferredDate} is AVAILABLE`
+        : `\n- Date Availability: ${formData.preferredDate} is NOT available (suggest checking alternative dates)`;
+    } catch (error) {
+      console.error("Error checking availability:", error);
+    }
+  }
+
+  const prompt = `You are writing a professional, warm email response for Theos Event Venue in downtown Galveston, Texas.
+
+INQUIRY DETAILS:
+- Name: ${formData.fullName}
+- Event Type: ${formData.eventType}
+${formData.preferredDate ? `- Preferred Date: ${formData.preferredDate}` : ""}
+${formData.guestCount ? `- Guest Count: ${formData.guestCount}` : ""}
+- Loft Suite Interest: ${formData.loftSuite === "yes" ? "Yes" : formData.loftSuite === "no" ? "No" : "Undecided"}
+${formData.message ? `- Their Message: ${formData.message}` : ""}
+${availabilityInfo}
+
+VENUE INFO:
+- 3,200 sq ft (80 × 40) historic brick hall
+- Capacity: Up to 180 standing, 120-140 seated
+- Location: 2527 Market St, Galveston, TX 77550
+- Optional Loft Suite: 1 bed / 1 bath apartment ($300-$500 add-on)
+- Pricing: Weekend $3,000-$6,000, Weekday $2,000+
+
+Write a professional, warm, and helpful email response that:
+1. Thanks them for their inquiry
+2. Acknowledges their event type and any specific details they mentioned
+3. Addresses availability if they provided a date
+4. Offers to schedule a tour
+5. Provides next steps
+6. Is concise (2-3 short paragraphs)
+7. Signs off as "Titus" from Theos
+
+Keep it warm, professional, and conversion-focused. Don't be overly salesy.`;
+
+  try {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+        "HTTP-Referer": "https://theos.live",
+        "X-Title": "Theos Event Venue",
+      },
+      body: JSON.stringify({
+        model: "x-ai/grok-4.1-fast",
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.7,
+        max_tokens: 500,
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("OpenRouter error:", await response.text());
+      return "";
+    }
+
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || "";
+  } catch (error) {
+    console.error("Error generating email response:", error);
+    return "";
+  }
+}
 
 export async function POST(request: Request) {
   const data = await request.json();
@@ -19,6 +110,14 @@ export async function POST(request: Request) {
   const formData = parsed.data;
 
   try {
+    // Generate AI response (non-blocking - don't wait if it fails)
+    let aiResponse = "";
+    try {
+      aiResponse = await generateEmailResponse(formData);
+    } catch (error) {
+      console.error("AI response generation failed (non-critical):", error);
+    }
+
     // Send email to venue owner
     await resend.emails.send({
       from: "Theos Website <noreply@theos.live>",
@@ -51,6 +150,21 @@ export async function POST(request: Request) {
             <h3 style="margin-top: 0; color: #333;">Message</h3>
             <p style="white-space: pre-wrap;">${formData.message}</p>
           </div>
+
+          ${aiResponse ? `
+          <div style="background: #e8f4f8; border-left: 4px solid #8B4513; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #333;">🤖 AI-Generated Suggested Response</h3>
+            <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+              Copy, edit, or use this as a starting point for your reply:
+            </p>
+            <div style="background: white; padding: 15px; border-radius: 4px; white-space: pre-wrap; font-family: Arial, sans-serif; color: #333; border: 1px solid #ddd;">
+${aiResponse}
+            </div>
+            <p style="color: #666; font-size: 12px; margin-top: 10px; margin-bottom: 0;">
+              💡 Tip: Click "Reply" above and paste this response, then edit as needed.
+            </p>
+          </div>
+          ` : ""}
 
           <p style="margin-top: 30px; color: #666; font-size: 14px;">
             Reply directly to this email to respond to ${formData.fullName}.

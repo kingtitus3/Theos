@@ -72,8 +72,8 @@ export const SPACES: ReadonlyArray<Space> = [
     id: "entry",
     name: "Front Entry & Welcome Area",
     image:
-      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/entry.jpg",
-    alt: "Front entry and welcome area at Theos, a downtown Galveston brick event space.",
+      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/red%20carpet%20entry.png",
+    alt: "Elegant red carpet entrance at Theos with golden gates, floral archway, crystal chandelier, and welcome sign in downtown Galveston.",
     capacity: "Flexible guest flow",
     description:
       "A welcoming entry that sets the tone as guests arrive, ideal for signage, welcome drinks, or a photo moment.",

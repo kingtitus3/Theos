@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
 import { useToast } from "@/components/ui/Toast";
 
 interface Message {
@@ -324,12 +323,13 @@ export const ChatConcierge = () => {
 
       <form onSubmit={handleSubmit} className="p-4 border-t border-charcoal/10">
         <div className="flex gap-2">
-          <Input
+          <input
+            type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
             disabled={isProcessing}
-            className="flex-1"
+            className="flex-1 w-full rounded-xl border border-charcoal/10 bg-white/80 px-4 py-3 text-base text-charcoal placeholder:text-charcoal/50 focus:border-accent-brick focus:outline-none focus:ring-2 focus:ring-accent-brick/30"
           />
           <Button type="submit" disabled={isProcessing || !input.trim()}>
             Send

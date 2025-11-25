@@ -13,8 +13,8 @@ export const SpacesSection = () => (
         title="The spaces inside Theos"
         description="Choose the main brick hall for your celebration and elevate the experience with the private Loft Suite."
       />
-      <div className="grid gap-8 md:grid-cols-2">
-        {SPACES.map((space) => (
+            <div className="grid gap-8 md:grid-cols-2">
+              {SPACES.map((space: (typeof SPACES)[number]) => (
           <Card key={space.id} className="overflow-hidden p-0">
             <div className="relative h-64 w-full bg-charcoal/5 flex items-center justify-center">
               {space.id === "loft-suite" ? (
@@ -23,9 +23,9 @@ export const SpacesSection = () => (
                   <p className="text-sm text-charcoal/30 uppercase tracking-wider">Photo Coming Soon</p>
                 </div>
               ) : (
-                <Image 
-                  src={space.image} 
-                  alt={space.name} 
+                      <Image
+                        src={space.image}
+                        alt={space.alt ?? space.name}
                   fill 
                   className="object-cover" 
                   unoptimized

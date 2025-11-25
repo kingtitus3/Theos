@@ -12,10 +12,10 @@ export const Footer = () => (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-12 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <div className="relative h-12 w-40 mb-2">
-          <Image 
-            src="/images/logo.png" 
-            alt="Theos Event Space" 
-            fill 
+          <Image
+            src="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/logo.png"
+            alt="Theos Event Space"
+            fill
             className="object-contain brightness-0 invert"
             unoptimized
           />

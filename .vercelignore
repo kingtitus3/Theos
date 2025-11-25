@@ -1,9 +1,9 @@
-# Only exclude source Images folder, not public/images
-Images/
-.git/
-.git.backup/
 node_modules/
 .next/
+.git/
+.git.backup/
 *.log
 .DS_Store
+Images/
+
 

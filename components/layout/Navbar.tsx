@@ -36,10 +36,10 @@ export const Navbar = () => {
     >
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-4 py-4 text-sm uppercase tracking-wide text-parchment">
         <Link href="#hero" onClick={() => scrollToTarget("#hero")} className="relative h-10 w-32">
-          <Image 
-            src="/images/logo.png" 
-            alt="Theos Event Space" 
-            fill 
+          <Image
+            src="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/logo.png"
+            alt="Theos Event Space"
+            fill
             className="object-contain"
             unoptimized
             priority

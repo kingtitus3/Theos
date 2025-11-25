@@ -1,18 +1,15 @@
 export const HERO_CONTENT = {
-  title: "Theos",
-  subtitle: "A historic brick event venue in downtown Galveston.",
+  title: "Host Your Event in a Historic Brick Venue in Downtown Galveston",
+  subtitle: "3,200 sq ft of warm brick, golden light, and a private Loft Suite upstairs.",
   description:
-    "Original masonry, warm lighting, and an 80 × 40 open layout set the stage for unforgettable celebrations just steps from the Strand.",
+    "Theos is an 80 × 40 open hall with original masonry, modern comforts, and a 1 bed / 1 bath Loft Suite — perfect for weddings, receptions, parties, and corporate events just steps from the Strand.",
   stats: [
     { label: "Size", value: "3,200 sq ft (80 × 40)" },
     { label: "Capacity", value: "Up to 180 guests" },
-    {
-      label: "Events",
-      value: "Weddings • Social • Corporate • Productions",
-    },
+    { label: "Spaces", value: "Main Hall + Loft Suite" },
   ],
-  ctaPrimary: "Check Availability",
-  ctaSecondary: "Watch Tour",
+  ctaPrimary: "Book a Tour",
+  ctaSecondary: "Check Availability",
 };
 
 export const ABOUT_CONTENT = {
@@ -38,11 +35,23 @@ export const ABOUT_CONTENT = {
   },
 };
 
-export const SPACES = [
+type Space = {
+  id: string;
+  name: string;
+  image: string;
+  alt: string;
+  capacity: string;
+  description: string;
+  tags: readonly string[];
+};
+
+export const SPACES: ReadonlyArray<Space> = [
   {
     id: "main-hall",
     name: "Main Brick Hall",
-    image: "/images/spaces/main-hall.jpg",
+    image:
+      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/main-hall.jpg",
+    alt: "Main Brick Hall at Theos, a 3,200 sq ft historic brick wedding venue in downtown Galveston.",
     capacity: "Up to 180 guests",
     description:
       "The primary 3,200 sq ft event hall featuring original brick, warm lighting, and an 80 × 40 rectangular layout that’s easy to stage for ceremonies, receptions, and corporate events.",
@@ -51,7 +60,9 @@ export const SPACES = [
   {
     id: "loft-suite",
     name: "Theos Loft Suite",
-    image: "/images/spaces/loft.jpg",
+    image:
+      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/loft.jpg",
+    alt: "Loft Suite upstairs at Theos event venue in Galveston, perfect for getting-ready or overnight stays.",
     capacity: "1 bed • 1 bath",
     description:
       "A private upstairs 1-bed, 1-bath apartment perfect for getting ready, overnight stays, VIP hosting, or multi-day content shoots. Includes bedroom, full bathroom, kitchen, and lounge area.",
@@ -60,21 +71,17 @@ export const SPACES = [
   {
     id: "entry",
     name: "Front Entry & Welcome Area",
-    image: "/images/spaces/entry.jpg",
+    image:
+      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/entry.jpg",
+    alt: "Front entry and welcome area at Theos, a downtown Galveston brick event space.",
     capacity: "Flexible guest flow",
     description:
       "A welcoming entry that sets the tone as guests arrive, ideal for signage, welcome drinks, or a photo moment.",
     tags: ["Entry", "Arrival", "Photo Moment"],
   },
-] as const;
+];
 
-export const GALLERY_FILTERS = [
-  "All",
-  "Weddings",
-  "Social Events",
-  "Corporate",
-  "Styled Shoots",
-] as const;
+export const GALLERY_FILTERS = ["All", "Main Hall", "Loft Suite", "Events", "Details"] as const;
 
 export type GalleryFilter = (typeof GALLERY_FILTERS)[number];
 
@@ -84,69 +91,24 @@ export const GALLERY_ITEMS: {
   category: GalleryFilter;
 }[] = [
   {
-    src: "/images/gallery/wedding-1.jpg",
-    alt: "Candlelit wedding reception at Theos with brick walls and string lights.",
-    category: "Weddings",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-1.jpg",
+    alt: "Birthday or social event at Theos, historic brick venue in downtown Galveston, with bar setup and guests mingling.",
+    category: "Events",
   },
   {
-    src: "/images/gallery/wedding-2.jpg",
-    alt: "Ceremony setup in the main brick hall with an aisle and floral backdrop.",
-    category: "Weddings",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-2.jpg",
+    alt: "Social gathering at Theos event venue in downtown Galveston with guests enjoying the main brick hall.",
+    category: "Events",
   },
   {
-    src: "/images/gallery/wedding-3.jpg",
-    alt: "Wedding celebration at Theos showing the historic brick venue.",
-    category: "Weddings",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-3.jpg",
+    alt: "Celebration event inside Theos, a 3,200 sq ft historic brick event space in downtown Galveston.",
+    category: "Events",
   },
   {
-    src: "/images/gallery/wedding-4.jpg",
-    alt: "Elegant wedding event in the main brick hall at Theos.",
-    category: "Weddings",
-  },
-  {
-    src: "/images/gallery/wedding-5.jpg",
-    alt: "Beautiful wedding reception showcasing the warm ambiance of Theos.",
-    category: "Weddings",
-  },
-  {
-    src: "/images/gallery/social-1.jpg",
-    alt: "Birthday or social event with bar setup and guests mingling.",
-    category: "Social Events",
-  },
-  {
-    src: "/images/gallery/social-2.jpg",
-    alt: "Social gathering at Theos with guests enjoying the space.",
-    category: "Social Events",
-  },
-  {
-    src: "/images/gallery/social-3.jpg",
-    alt: "Celebration event in the historic brick venue.",
-    category: "Social Events",
-  },
-  {
-    src: "/images/gallery/corporate-1.jpg",
-    alt: "Corporate mixer with cocktail tables and branded signage.",
-    category: "Corporate",
-  },
-  {
-    src: "/images/gallery/corporate-2.jpg",
-    alt: "Corporate event setup at Theos showcasing the versatile space.",
-    category: "Corporate",
-  },
-  {
-    src: "/images/gallery/detail-1.jpg",
-    alt: "Detail shot of brick wall, candles, and decor at Theos.",
-    category: "Styled Shoots",
-  },
-  {
-    src: "/images/gallery/detail-2.jpg",
-    alt: "Architectural detail of the historic brick walls at Theos.",
-    category: "Styled Shoots",
-  },
-  {
-    src: "/images/gallery/detail-3.jpg",
-    alt: "Stylized detail showcasing the character of Theos venue.",
-    category: "Styled Shoots",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-2.jpg",
+    alt: "Additional social event photo at Theos, Galveston brick event venue with warm lighting.",
+    category: "Events",
   },
 ];
 
@@ -159,57 +121,89 @@ export const VIRTUAL_TOUR_CONTENT = {
   matterportEmbedUrl: "",
 };
 
-export const PRICING_PACKAGES = [
-  {
-    name: "Weekday Evenings",
-    price: "Starting at $2,000",
-    details: [
-      "Up to 6 hours of event time",
-      "Access to Main Brick Hall",
-      "Standard tables and chairs",
-      "On-site venue host",
-    ],
-    note: "Perfect for rehearsals, corporate mixers, and intimate celebrations.",
+export const PRICING_BREAKDOWN = {
+  headline: "Transparent, Simple Pricing",
+  subheadline:
+    "Theos is priced to stay competitive in Galveston while maximizing value for weddings, private events, and corporate gatherings. Weekend dates and the Loft Suite book quickly.",
+  snapshot: {
+    text: "Most couples and hosts spend between $3,000–$6,000 for their event at Theos, depending on the day of week and whether the Loft Suite is added.",
   },
-  {
-    name: "Weekend Evenings",
-    price: "Starting at $3,500",
-    details: [
-      "Up to 8 hours of event time",
-      "Full access to Main Brick Hall",
-      "Standard tables and chairs",
-      "Basic sound system",
-      "On-site venue host",
+  packages: [
+    {
+      name: "Saturday Events (Peak)",
+      price: "$4,250",
+      details: [
+        "Full 8–10 hour rental",
+        "3,200 sq ft brick main hall (80 × 40)",
+        "Tables, chairs, venue host, basic sound",
+        "Perfect for weddings & receptions",
+      ],
+      addOns: ["Loft Suite: +$500", "Additional hour: +$250/hr"],
+      notes: "Saturdays are the highest-demand dates and typically book months in advance.",
+    },
+    {
+      name: "Friday & Sunday",
+      price: "$3,250",
+      details: [
+        "6–8 hour rental",
+        "Full access to main hall",
+        "Tables, chairs & venue host included",
+      ],
+      addOns: ["Loft Suite: +$400"],
+      notes: "Ideal for weddings, parties, receptions, and corporate socials. Strong value without Saturday pricing.",
+    },
+    {
+      name: "Weekday Evenings (Mon–Thu)",
+      price: "$1,950",
+      details: [
+        "5–6 hour rental",
+        "Great for corporate events, showers, rehearsal dinners, and mixers",
+        "Tables & chairs included",
+      ],
+      addOns: ["Loft Suite: +$300"],
+      notes: "Most cost-effective option for private events.",
+    },
+    {
+      name: "Weekday Micro-Events (3–4 Hours)",
+      price: "$1,350",
+      details: [
+        "3–4 hour block",
+        "Up to ~60 guests",
+        "Perfect for micro-weddings, elopements, showers, & intimate gatherings",
+      ],
+      addOns: ["Loft Suite available upon request"],
+      notes:
+        "Designed for smaller groups who want a high-vibe historic venue without the full-day rates.",
+    },
+    {
+      name: "Hourly / Content / Short Rentals",
+      price: "$175–$250/hr (3 hr min)",
+      details: [
+        "Best for photo/video shoots, pop-ups, content days",
+        "Use of main hall only",
+      ],
+      addOns: ["Peak/last-minute hours: $350–$400/hr"],
+      notes: "Priced below resort & hotel rates but above basic halls to reflect the unique brick aesthetic.",
+    },
+  ],
+  loftSuite: {
+    name: "The Loft Suite Add-On",
+    price: "$300–$600",
+    description:
+      "1 bed / 1 bath upstairs apartment — perfect for weddings (getting ready), overnight guests, photography prep, or VIPs.",
+    benefits: [
+      "Elevated convenience for wedding parties",
+      "Great for travelling hosts",
+      "Adds privacy and luxury to your event day",
+      "High-value, high-margin add-on",
     ],
-    note: "Most popular for weddings and milestone events.",
   },
-  {
-    name: "Hourly / Micro Events",
-    price: "Starting at $400/hr",
-    details: [
-      "Minimum 3-hour booking",
-      "Ideal for shoots and pop-ups",
-      "Flexible daytime or weeknight slots",
-    ],
-    note: "Great for styled shoots, content days, and smaller gatherings.",
-  },
-  {
-    name: "Theos Loft Suite Add-On",
-    price: "Starting at $300–$500",
-    details: [
-      "Private 1 bed / 1 bath loft upstairs",
-      "Great for getting-ready or overnight stays",
-      "Includes kitchen and lounge area",
-      "Available with select event bookings",
-    ],
-    note: "Limited availability; can be bundled with event packages.",
-  },
-];
-
-export const AVAILABILITY_FORM_COPY = {
-  heading: "Check availability & get a ballpark estimate.",
-  description:
-    "Share a few details about your event and we’ll follow up with date availability, a ballpark rate, and next steps.",
+  notes: [
+    "No hidden fees — all taxes and costs are disclosed before booking.",
+    "Deposit required to secure your date.",
+    "Payment plans available for qualifying bookings.",
+    "Tours available by appointment only.",
+  ],
 };
 
 export const AMENITIES = [
@@ -229,7 +223,8 @@ export const FLOORPLAN_CONTENT = {
     "Theos is a single 80 × 40 open brick hall that can be staged for ceremonies, seated receptions, cocktail-style mixers, or corporate setups. The clean rectangular footprint makes planning straightforward for you and your vendors.",
   downloadLabel: "Download floorplan PDF",
   downloadHref: "/docs/floorplan.pdf",
-  imageSrc: "/images/floorplan.jpg",
+  imageSrc:
+    "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/floorplan.jpg",
 };
 
 export const CAPACITY_CHART = [
@@ -285,7 +280,7 @@ export const FAQS = [
   {
     question: "What time do events need to end?",
     answer:
-      "Most events end by 11:00 PM to respect downtown noise guidelines, but exact timing depends on the day of the week and your event type.",
+      "Most events wrap by 2:00 AM to respect downtown guidelines, but exact timing depends on the day of the week and your event type.",
   },
   {
     question: "Is there parking available?",
@@ -305,9 +300,9 @@ export const FAQS = [
 ];
 
 export const CONTACT_INFO = {
-  heading: "Ready to see Theos in person?",
+  heading: "Book a Tour or Check Your Date",
   description:
-    "Share a few details about your event and we’ll follow up with availability, pricing, and a time to tour the space.",
+    "Share a few details about your event and we’ll respond quickly with date availability, pricing, and a time to walk the space with you. Weekend dates and the Loft Suite book up fast.",
   phone: "(409) 765-5539",
   email: "titus.edwardsiii@3910enterprises.com",
   addressLine: "2527 Market St, Galveston, TX 77550",

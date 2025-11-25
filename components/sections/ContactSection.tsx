@@ -137,8 +137,12 @@ export const ContactSection = () => {
                 error={form.formState.errors.message?.message}
               />
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Request info"}
+                {isSubmitting ? "Sending..." : "Request Tour & Availability"}
               </Button>
+              <p className="mt-3 text-xs text-parchment/70">
+                We typically respond within a few minutes during business hours. Tours are by
+                appointment only.
+              </p>
             </form>
           </Card>
           <div className="space-y-6 text-sm text-parchment/80">

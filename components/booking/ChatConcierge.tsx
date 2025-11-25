@@ -16,7 +16,7 @@ export const ChatConcierge = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hi! I&apos;m here to help you book a tour or answer questions about Theos. What would you like to know?",
+      content: "Hi! I'm here to help you book a tour or answer questions about Theos. What would you like to know?",
       timestamp: new Date(),
     },
   ]);
@@ -32,259 +32,60 @@ export const ChatConcierge = () => {
     scrollToBottom();
   }, [messages]);
 
-  const extractDate = (text: string): string | null => {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    const datePatterns = [
-      { pattern: /(\d{4}-\d{2}-\d{2})/, extract: (m: RegExpMatchArray) => m[1] },
-      { pattern: /tomorrow/i, extract: () => tomorrow.toISOString().split("T")[0] },
-      { pattern: /today/i, extract: () => today.toISOString().split("T")[0] },
-      {
-        pattern: /(\w+day)/i,
-        extract: (m: RegExpMatchArray) => {
-          const dayName = m[1].toLowerCase();
-          const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-          const targetDay = days.indexOf(dayName);
-          if (targetDay === -1) return null;
-          const currentDay = today.getDay();
-          let daysToAdd = targetDay - currentDay;
-          if (daysToAdd <= 0) daysToAdd += 7;
-          const targetDate = new Date(today);
-          targetDate.setDate(today.getDate() + daysToAdd);
-          return targetDate.toISOString().split("T")[0];
-        },
-      },
-    ];
-
-    for (const { pattern, extract } of datePatterns) {
-      const match = text.match(pattern);
-      if (match) {
-        const date = extract(match);
-        if (date) return date;
-      }
-    }
-    return null;
-  };
-
-  const extractTime = (text: string): string | null => {
-    const timePatterns = [
-      { pattern: /(\d{1,2}):(\d{2})\s*(am|pm)?/i, extract: (m: RegExpMatchArray) => {
-          let hours = parseInt(m[1]);
-          const minutes = m[2];
-          const period = m[3]?.toLowerCase();
-          if (period === "pm" && hours !== 12) hours += 12;
-          if (period === "am" && hours === 12) hours = 0;
-          return `${hours.toString().padStart(2, "0")}:${minutes}`;
-        }},
-      { pattern: /(\d{1,2})\s*(am|pm)/i, extract: (m: RegExpMatchArray) => {
-          let hours = parseInt(m[1]);
-          const period = m[2].toLowerCase();
-          if (period === "pm" && hours !== 12) hours += 12;
-          if (period === "am" && hours === 12) hours = 0;
-          return `${hours.toString().padStart(2, "0")}:00`;
-        }},
-      { pattern: /morning/i, extract: () => "10:00" },
-      { pattern: /afternoon/i, extract: () => "14:00" },
-      { pattern: /evening/i, extract: () => "17:00" },
-    ];
-
-    for (const { pattern, extract } of timePatterns) {
-      const match = text.match(pattern);
-      if (match) {
-        return extract(match);
-      }
-    }
-    return null;
-  };
-
-  const extractEmail = (text: string): string | null => {
-    const emailMatch = text.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/);
-    return emailMatch ? emailMatch[0] : null;
-  };
-
-  const extractName = (text: string): string | null => {
-    const namePatterns = [
-      { pattern: /(?:my name is|i'm|i am|call me)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i, extract: (m: RegExpMatchArray) => m[1] },
-      { pattern: /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/, extract: (m: RegExpMatchArray) => m[1] },
-    ];
-
-    for (const { pattern, extract } of namePatterns) {
-      const match = text.match(pattern);
-      if (match) {
-        return extract(match);
-      }
-    }
-    return null;
-  };
-
-  const processMessage = async (userMessage: string) => {
-    const lowerText = userMessage.toLowerCase();
-    let bookingData: { name?: string; email?: string; date?: string; time?: string } = {};
-
-    // Extract information
-    const extractedDate = extractDate(userMessage);
-    const extractedTime = extractTime(userMessage);
-    const extractedEmail = extractEmail(userMessage);
-    const extractedName = extractName(userMessage);
-
-    if (extractedDate) bookingData.date = extractedDate;
-    if (extractedTime) bookingData.time = extractedTime;
-    if (extractedEmail) bookingData.email = extractedEmail;
-    if (extractedName) bookingData.name = extractedName;
-
-    // Check for booking intent
-    const bookingKeywords = ["book", "schedule", "tour", "visit", "appointment", "reserve"];
-    const isBookingIntent = bookingKeywords.some((keyword) => lowerText.includes(keyword));
-
-    // Check for availability intent
-    const availabilityKeywords = ["available", "free", "open", "check"];
-    const isAvailabilityIntent = availabilityKeywords.some((keyword) => lowerText.includes(keyword));
-
-    // Check for general questions
-    const questionKeywords = ["what", "how", "when", "where", "why", "tell me", "info", "information"];
-    const isQuestion = questionKeywords.some((keyword) => lowerText.includes(keyword));
-
-    if (isBookingIntent && bookingData.date && bookingData.time) {
-      // Try to book
-      if (!bookingData.name || !bookingData.email) {
-        return {
-          role: "assistant" as const,
-          content: "I&apos;d love to book that for you! I need a few details:\n- Your full name\n- Your email address\n\nYou can say something like: &apos;My name is John Doe and my email is john@example.com&apos;",
-          timestamp: new Date(),
-        };
-      }
-
-      setIsProcessing(true);
-      try {
-        const response = await fetch("/api/book-tour", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: bookingData.name,
-            email: bookingData.email,
-            date: bookingData.date,
-            time: bookingData.time,
-          }),
-        });
-
-        if (!response.ok) {
-          const error = await response.json();
-          throw new Error(error.error || "Booking failed");
-        }
-
-        addToast({ title: "Tour booked successfully!", variant: "success" });
-        return {
-          role: "assistant" as const,
-          content: `Perfect! I&apos;ve booked your tour for ${bookingData.date} at ${bookingData.time}. You&apos;ll receive a confirmation email shortly. Is there anything else I can help you with?`,
-          timestamp: new Date(),
-        };
-      } catch (error) {
-        console.error(error);
-        return {
-          role: "assistant" as const,
-          content: "I&apos;m sorry, I couldn&apos;t complete the booking. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com",
-          timestamp: new Date(),
-        };
-      } finally {
-        setIsProcessing(false);
-      }
-    } else if (isAvailabilityIntent && bookingData.date) {
-      // Check availability
-      setIsProcessing(true);
-      try {
-        const response = await fetch("/api/availability", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ date: bookingData.date, durationHours: 1 }),
-        });
-
-        const data = await response.json();
-        if (data.available) {
-          return {
-            role: "assistant" as const,
-            content: `Great news! ${bookingData.date} is available. Would you like to book a tour? Just let me know your preferred time and your name and email.`,
-            timestamp: new Date(),
-          };
-        } else {
-          return {
-            role: "assistant" as const,
-            content: `I&apos;m sorry, ${bookingData.date} is not available. Would you like to check another date?`,
-            timestamp: new Date(),
-          };
-        }
-      } catch (error) {
-        console.error(error);
-        return {
-          role: "assistant" as const,
-          content: "I couldn&apos;t check availability right now. Please try again in a moment.",
-          timestamp: new Date(),
-        };
-      } finally {
-        setIsProcessing(false);
-      }
-    } else if (isQuestion) {
-      // Answer general questions
-      if (lowerText.includes("price") || lowerText.includes("cost") || lowerText.includes("pricing")) {
-        return {
-          role: "assistant" as const,
-          content: "Our pricing varies by day of the week and event type. Weekend events typically range from $3,000-$6,000, with weekday options starting around $2,000. The Loft Suite add-on is $300-$500. Would you like to check availability for a specific date?",
-          timestamp: new Date(),
-        };
-      } else if (lowerText.includes("capacity") || lowerText.includes("guests") || lowerText.includes("people")) {
-        return {
-          role: "assistant" as const,
-          content: "Theos can accommodate up to 180 guests standing, or 120-140 for seated receptions. The main hall is 3,200 sq ft (80 × 40). Would you like to book a tour to see the space?",
-          timestamp: new Date(),
-        };
-      } else if (lowerText.includes("location") || lowerText.includes("address") || lowerText.includes("where")) {
-        return {
-          role: "assistant" as const,
-          content: "Theos is located at 2527 Market St, Galveston, TX 77550, right in downtown Galveston near the Strand. Would you like to schedule a tour?",
-          timestamp: new Date(),
-        };
-      } else if (lowerText.includes("loft") || lowerText.includes("suite")) {
-        return {
-          role: "assistant" as const,
-          content: "The Loft Suite is a private 1 bed / 1 bath apartment above the main hall, perfect for getting ready, overnight stays, or VIP hosting. It&apos;s available as an add-on for $300-$500. Would you like to include it in your tour?",
-          timestamp: new Date(),
-        };
-      } else {
-        return {
-          role: "assistant" as const,
-          content: "Theos is a 3,200 sq ft historic brick event venue in downtown Galveston, perfect for weddings, social events, and corporate gatherings. We have a main hall and an optional Loft Suite. Would you like to book a tour or check availability?",
-          timestamp: new Date(),
-        };
-      }
-    } else if (isBookingIntent) {
-      return {
-        role: "assistant" as const,
-        content: "I&apos;d be happy to help you book a tour! Please tell me:\n- Your preferred date (e.g., &apos;December 15th&apos; or &apos;next Friday&apos;)\n- Your preferred time (e.g., &apos;3 PM&apos; or &apos;afternoon&apos;)\n- Your name and email",
-        timestamp: new Date(),
-      };
-    } else {
-      return {
-        role: "assistant" as const,
-        content: "I can help you book a tour, check availability, or answer questions about Theos. What would you like to do?",
-        timestamp: new Date(),
-      };
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isProcessing) return;
 
     const userMessage = input.trim();
     setInput("");
-    setMessages((prev) => [...prev, { role: "user", content: userMessage, timestamp: new Date() }]);
+    
+    // Add user message to chat
+    const userMsg: Message = { role: "user", content: userMessage, timestamp: new Date() };
+    setMessages((prev) => [...prev, userMsg]);
 
     setIsProcessing(true);
-    const response = await processMessage(userMessage);
-    setIsProcessing(false);
 
-    setMessages((prev) => [...prev, response]);
+    try {
+      // Prepare messages for API (exclude timestamp)
+      const apiMessages = [...messages, userMsg].map(({ role, content }) => ({
+        role,
+        content,
+      }));
+
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: apiMessages }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to get response");
+      }
+
+      const data = await response.json();
+      const assistantMsg: Message = {
+        role: "assistant",
+        content: data.message || "I'm sorry, I couldn't process that. Could you rephrase?",
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, assistantMsg]);
+
+      // Show toast if booking was successful
+      if (data.actionTaken && data.message.includes("booked")) {
+        addToast({ title: "Tour booked successfully!", variant: "success" });
+      }
+    } catch (error) {
+      console.error("Chat error:", error);
+      const errorMsg: Message = {
+        role: "assistant",
+        content: "I'm sorry, I'm having trouble right now. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMsg]);
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   return (

@@ -25,17 +25,20 @@ YOUR CAPABILITIES:
 IMPORTANT RULES:
 - Always be warm, professional, and helpful
 - When booking, you MUST have: name, email, date, and time
-- Dates must be in YYYY-MM-DD format
-- Times must be in HH:MM 24h format (e.g., "15:00" for 3 PM)
+- Dates must be in YYYY-MM-DD format (e.g., "2025-01-15" for January 15, 2025)
+- Times must be in HH:MM 24h format (e.g., "15:00" for 3 PM, "09:00" for 9 AM)
+- Convert natural language dates to YYYY-MM-DD (e.g., "tomorrow", "next Friday", "December 20th")
+- Convert natural language times to 24h format (e.g., "3pm" → "15:00", "10am" → "10:00")
 - If user wants to book but is missing info, ask for it naturally
 - When you successfully book, confirm the details clearly
 - All times are in America/Chicago timezone
 
-When you need to check availability or book, respond with JSON in this exact format:
-AVAILABILITY_CHECK: {"date": "YYYY-MM-DD"}
-BOOK_TOUR: {"name": "Full Name", "email": "email@example.com", "date": "YYYY-MM-DD", "time": "HH:MM"}
+ACTION FORMAT:
+When you need to check availability or book, you MUST include this exact format in your response:
+- For availability: AVAILABILITY_CHECK: {"date": "YYYY-MM-DD"}
+- For booking: BOOK_TOUR: {"name": "Full Name", "email": "email@example.com", "date": "YYYY-MM-DD", "time": "HH:MM"}
 
-Otherwise, respond naturally in conversation.`;
+IMPORTANT: Only use these action formats when you have all required information. Otherwise, respond naturally and ask for missing details.`;
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -80,7 +83,7 @@ export async function POST(req: Request) {
         model: "anthropic/claude-3.5-sonnet",
         messages: openRouterMessages,
         temperature: 0.7,
-        max_tokens: 500,
+        max_tokens: 800,
       }),
     });
 

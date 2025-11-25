@@ -121,6 +121,11 @@ export const GALLERY_ITEMS: {
     alt: "Wedding mockup showing elegant event setup at Theos historic brick venue.",
     category: "Events",
   },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+    alt: "Industrial-chic wedding ceremony at Theos with white aisle runner, wooden cross-back chairs, candlelit pathway, and elegant floral arch in downtown Galveston.",
+    category: "Events",
+  },
   // Social Events
   {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-1.jpg",

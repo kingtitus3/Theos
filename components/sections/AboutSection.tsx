@@ -3,7 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 
 export const AboutSection = () => (
-  <section id="about" className="bg-sand py-12 sm:py-16 lg:py-24">
+  <section id="about" className="bg-sand py-12 sm:py-16 lg:py-24 relative z-0">
     <Container>
       <SectionHeader
         eyebrow="About the space"

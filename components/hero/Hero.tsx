@@ -7,7 +7,7 @@ import { scrollToTarget } from "@/lib/utils";
 
 export const Hero = () => {
   return (
-    <section id="hero" className="relative h-[90vh] min-h-[640px] w-full overflow-hidden bg-charcoal text-parchment">
+    <section id="hero" className="relative min-h-[600px] sm:min-h-[640px] sm:h-[90vh] w-full overflow-hidden bg-charcoal text-parchment">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
@@ -19,7 +19,7 @@ export const Hero = () => {
         <source src="/media/herofixed.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4 pt-24 pb-12 sm:px-6 sm:pt-32 sm:pb-16 lg:px-8 lg:pt-0 lg:pb-0">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col justify-center min-h-full px-4 pt-20 pb-24 sm:px-6 sm:pt-32 sm:pb-16 lg:px-8 lg:pt-0 lg:pb-0">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ export const Hero = () => {
             </div>
           ))}
         </motion.div>
-        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-parchment/60">
+        <div className="absolute bottom-6 sm:bottom-6 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-parchment/60">
           Scroll to explore ↓
         </div>
       </div>

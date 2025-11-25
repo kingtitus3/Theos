@@ -50,11 +50,11 @@ export const SPACES: ReadonlyArray<Space> = [
     id: "main-hall",
     name: "Main Brick Hall",
     image:
-      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/spaces/main-hall.jpg",
-    alt: "Main Brick Hall at Theos, a 3,200 sq ft historic brick wedding venue in downtown Galveston.",
+      "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+    alt: "Industrial-chic wedding ceremony at Theos main brick hall with white aisle runner, wooden cross-back chairs, candlelit pathway, and elegant floral arch in downtown Galveston.",
     capacity: "Up to 180 guests",
     description:
-      "The primary 3,200 sq ft event hall featuring original brick, warm lighting, and an 80 × 40 rectangular layout that’s easy to stage for ceremonies, receptions, and corporate events.",
+      "The primary 3,200 sq ft event hall featuring original brick, warm lighting, and an 80 × 40 rectangular layout that's easy to stage for ceremonies, receptions, and corporate events.",
     tags: ["Main Space", "Weddings", "Corporate", "Social"],
   },
   {

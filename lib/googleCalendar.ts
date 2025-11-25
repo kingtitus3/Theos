@@ -1,9 +1,9 @@
 import { calendar_v3, google } from "googleapis";
 
-const calendarId = process.env.GOOGLE_CALENDAR_ID;
-const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID;
-const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET;
-const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN;
+const calendarId = process.env.GOOGLE_CALENDAR_ID?.trim();
+const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim();
+const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim();
+const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN?.trim();
 
 const hasCalendarConfig = Boolean(calendarId && oauthClientId && oauthClientSecret && oauthRefreshToken);
 

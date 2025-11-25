@@ -4,10 +4,12 @@ import { SpacesSection } from "@/components/sections/SpacesSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { VirtualTourSection } from "@/components/sections/VirtualTourSection";
 import { PricingSection } from "@/components/sections/PricingSection";
+import { BookingSection } from "@/components/sections/BookingSection";
 import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
 import { FloorplanSection } from "@/components/sections/FloorplanSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { FloatingChatButton } from "@/components/booking/FloatingChatButton";
 
 export default function HomePage() {
   return (
@@ -18,10 +20,12 @@ export default function HomePage() {
       <GallerySection />
       <VirtualTourSection />
       <PricingSection />
+      <BookingSection />
       <AmenitiesSection />
       <FloorplanSection />
       <FAQSection />
       <ContactSection />
+      <FloatingChatButton />
     </>
   );
 }

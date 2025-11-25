@@ -58,7 +58,7 @@ export const Hero = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mt-8 flex flex-col gap-4 sm:flex-row"
         >
-          <Button size="lg" onClick={() => scrollToTarget("#contact")}>
+          <Button size="lg" onClick={() => scrollToTarget("#booking")}>
             {HERO_CONTENT.ctaPrimary}
           </Button>
           <Button

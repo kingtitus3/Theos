@@ -10,4 +10,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
-/* Force image deployment */
+// Deployment: All images included and optimized

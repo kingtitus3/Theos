@@ -38,7 +38,7 @@ export const BookingSection = () => {
               <p className="text-charcoal/80">
                 Chat with our AI concierge to ask questions, check availability, or book a tour naturally.
               </p>
-              <Button size="lg" variant="outline" onClick={() => setShowChat(true)}>
+              <Button size="lg" variant="secondary" onClick={() => setShowChat(true)}>
                 Start Chat
               </Button>
             </div>

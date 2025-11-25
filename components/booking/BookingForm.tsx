@@ -147,7 +147,7 @@ export const BookingForm = ({ onSuccess }: BookingFormProps) => {
           <div className="flex gap-2">
             <Button
               type="button"
-              variant="outline"
+              variant="secondary"
               onClick={checkAvailability}
               disabled={isChecking}
               className="flex-1"

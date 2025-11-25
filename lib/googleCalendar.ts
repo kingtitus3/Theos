@@ -1,19 +1,24 @@
 import { calendar_v3, google } from "googleapis";
 
 const calendarId = process.env.GOOGLE_CALENDAR_ID;
-const clientEmail = process.env.GOOGLE_CALENDAR_CLIENT_EMAIL;
-const privateKey = process.env.GOOGLE_CALENDAR_PRIVATE_KEY;
+const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID;
+const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET;
+const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN;
 
-const hasCalendarConfig = Boolean(calendarId && clientEmail && privateKey);
+const hasCalendarConfig = Boolean(calendarId && oauthClientId && oauthClientSecret && oauthRefreshToken);
 
-const calendarClient = hasCalendarConfig
+const oauth2Client = hasCalendarConfig
+  ? new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost")
+  : null;
+
+if (oauth2Client && oauthRefreshToken) {
+  oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
+}
+
+const calendarClient = oauth2Client
   ? google.calendar({
       version: "v3",
-      auth: new google.auth.JWT({
-        email: clientEmail!,
-        key: privateKey!.replace(/\\n/g, "\n"),
-        scopes: ["https://www.googleapis.com/auth/calendar"],
-      }),
+      auth: oauth2Client,
     })
   : null;
 

@@ -80,7 +80,7 @@ export async function POST(req: Request) {
         "X-Title": "Theos Event Venue",
       },
       body: JSON.stringify({
-        model: "anthropic/claude-3.5-sonnet",
+        model: "x-ai/grok-4.1-fast",
         messages: openRouterMessages,
         temperature: 0.7,
         max_tokens: 800,

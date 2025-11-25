@@ -117,7 +117,7 @@ export const GALLERY_ITEMS: {
     category: "Events",
   },
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding mockup.png",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mockup.png",
     alt: "Wedding mockup showing elegant event setup at Theos historic brick venue.",
     category: "Events",
   },
@@ -149,18 +149,18 @@ export const GALLERY_ITEMS: {
     category: "Events",
   },
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate mockup 1.png",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/corporate%20mockup%201.png",
     alt: "Corporate event mockup at Theos showing professional event setup in the brick venue.",
     category: "Events",
   },
   // Special Events
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/Quince mock up.png",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/Quince%20mock%20up.png",
     alt: "Quinceañera celebration at Theos with pink and gold decor, floral arrangements, and elegant table settings.",
     category: "Events",
   },
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/red carpet entry.png",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/red%20carpet%20entry.png",
     alt: "Elegant red carpet entrance at Theos with golden gates, floral archway, and welcome sign.",
     category: "Events",
   },

@@ -6,7 +6,7 @@ import { PRICING_BREAKDOWN } from "@/lib/constants";
 
 export const PricingSection = () => {
   return (
-    <section id="pricing" className="bg-sand py-16 sm:py-24">
+    <section id="pricing" className="bg-sand py-12 sm:py-16 lg:py-24">
       <Container>
         <SectionHeader
           eyebrow="Pricing"
@@ -15,7 +15,7 @@ export const PricingSection = () => {
         />
         <div className="space-y-8">
           <p className="text-sm text-charcoal/80">{PRICING_BREAKDOWN.snapshot.text}</p>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {PRICING_BREAKDOWN.packages.map((pkg) => (
               <Card key={pkg.name} className="h-full">
                 <div className="space-y-4">

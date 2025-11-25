@@ -14,7 +14,7 @@ export const BookingSection = () => {
 
   return (
     <>
-      <section id="booking" className="bg-sand py-16 sm:py-24">
+      <section id="booking" className="bg-sand py-12 sm:py-16 lg:py-24">
         <Container>
           <SectionHeader
             eyebrow="Book a Tour"
@@ -22,7 +22,7 @@ export const BookingSection = () => {
             description="Choose how you'd like to book: use our quick form or chat with our AI assistant."
           />
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
             <div className="space-y-4">
               <h3 className="font-serif text-2xl">Quick Booking</h3>
               <p className="text-charcoal/80">

@@ -34,8 +34,8 @@ export const Navbar = () => {
         solid ? "bg-charcoal/95 backdrop-blur" : "bg-transparent",
       )}
     >
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-4 py-4 text-sm uppercase tracking-wide text-parchment">
-        <Link href="#hero" onClick={() => scrollToTarget("#hero")} className="relative h-10 w-32">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 text-sm uppercase tracking-wide text-parchment">
+        <Link href="#hero" onClick={() => scrollToTarget("#hero")} className="relative h-8 w-28 sm:h-10 sm:w-32">
           <Image
             src="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/logo.png"
             alt="Theos Event Space"

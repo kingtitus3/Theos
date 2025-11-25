@@ -9,7 +9,7 @@ export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-sand py-16 sm:py-24">
+    <section id="faq" className="bg-sand py-12 sm:py-16 lg:py-24">
       <Container>
         <SectionHeader
           eyebrow="FAQ"

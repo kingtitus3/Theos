@@ -76,7 +76,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-charcoal py-16 text-parchment sm:py-24">
+    <section id="contact" className="bg-charcoal py-12 sm:py-16 lg:py-24 text-parchment">
       <Container>
         <SectionHeader
           eyebrow="Contact"
@@ -84,7 +84,7 @@ export const ContactSection = () => {
           description={CONTACT_INFO.description}
           tone="light"
         />
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-2">
           <Card className="bg-white/10 text-parchment">
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
               <Input

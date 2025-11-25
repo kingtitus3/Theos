@@ -19,7 +19,7 @@ export const SectionHeader = ({ eyebrow, title, description, tone = "dark" }: Se
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6 }}
-      className="mb-10 space-y-4 text-center"
+      className="mb-8 space-y-3 sm:mb-10 sm:space-y-4 text-center"
     >
       {eyebrow && (
         <p
@@ -31,13 +31,13 @@ export const SectionHeader = ({ eyebrow, title, description, tone = "dark" }: Se
           {eyebrow}
         </p>
       )}
-      <h2 className={cn("font-serif text-3xl sm:text-4xl", isLight ? "text-parchment" : "text-charcoal")}>
+      <h2 className={cn("font-serif text-2xl sm:text-3xl lg:text-4xl", isLight ? "text-parchment" : "text-charcoal")}>
         {title}
       </h2>
       {description && (
         <p
           className={cn(
-            "mx-auto max-w-2xl text-base",
+            "mx-auto max-w-2xl text-sm sm:text-base px-2",
             isLight ? "text-parchment/80" : "text-charcoal/70",
           )}
         >

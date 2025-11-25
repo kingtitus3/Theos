@@ -3,14 +3,14 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 
 export const AboutSection = () => (
-  <section id="about" className="bg-sand py-16 sm:py-24">
+  <section id="about" className="bg-sand py-12 sm:py-16 lg:py-24">
     <Container>
       <SectionHeader
         eyebrow="About the space"
         title={ABOUT_CONTENT.heading}
         description={ABOUT_CONTENT.body[0]}
       />
-      <div className="grid gap-10 md:grid-cols-2">
+      <div className="grid gap-8 sm:gap-10 md:grid-cols-2">
         <div className="space-y-6 text-base text-charcoal/80">
           {ABOUT_CONTENT.body.slice(1).map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>

@@ -9,9 +9,9 @@ const SOCIAL_LINKS = [
 
 export const Footer = () => (
   <footer className="bg-charcoal text-parchment">
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-12 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 py-10 sm:px-6 sm:py-12 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <div className="relative h-12 w-40 mb-2">
+        <div className="relative h-10 w-36 sm:h-12 sm:w-40 mb-2">
           <Image
             src="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/logo.png"
             alt="Theos Event Space"
@@ -40,7 +40,7 @@ export const Footer = () => (
         </div>
       </div>
     </div>
-    <div className="border-t border-white/10 py-6 text-center text-xs text-parchment/50">
+    <div className="border-t border-white/10 py-4 sm:py-6 text-center text-xs text-parchment/50">
       © {new Date().getFullYear()} Theos. All rights reserved.
     </div>
   </footer>

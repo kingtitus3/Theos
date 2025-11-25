@@ -18,14 +18,14 @@ export const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="bg-sand py-16 sm:py-24">
+    <section id="gallery" className="bg-sand py-12 sm:py-16 lg:py-24">
       <Container>
         <SectionHeader
           eyebrow="Gallery"
           title="Visual stories from Theos"
           description="Warm brick, golden light, and gatherings that feel cinematic. Filter to explore the vibe for your event."
         />
-        <div className="mb-10 flex flex-wrap justify-center gap-3">
+        <div className="mb-6 sm:mb-8 lg:mb-10 flex flex-wrap justify-center gap-2 sm:gap-3">
           {GALLERY_FILTERS.map((option) => (
             <button
               key={option}
@@ -41,7 +41,7 @@ export const GallerySection = () => {
             </button>
           ))}
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredItems.length === 0 ? (
             <figure className="group overflow-hidden rounded-3xl border border-dashed border-charcoal/30 bg-charcoal/5 px-6 py-10 text-center sm:col-span-2 lg:col-span-3">
               <p className="text-2xl font-serif text-charcoal/40 mb-2">Coming Soon</p>

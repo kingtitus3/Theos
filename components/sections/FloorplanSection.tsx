@@ -11,14 +11,14 @@ export const FloorplanSection = () => {
   const [imageFailed, setImageFailed] = useState(false);
 
   return (
-  <section id="floorplan" className="bg-sand py-16 sm:py-24">
+  <section id="floorplan" className="bg-sand py-12 sm:py-16 lg:py-24">
     <Container>
       <SectionHeader
         eyebrow="Floorplan"
         title={FLOORPLAN_CONTENT.heading}
         description={FLOORPLAN_CONTENT.description}
       />
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
         <Card className="space-y-6">
           <div className="aspect-video w-full overflow-hidden rounded-2xl bg-charcoal/5 flex items-center justify-center">
             {imageFailed ? (

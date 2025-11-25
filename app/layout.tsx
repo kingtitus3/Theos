@@ -118,7 +118,7 @@ export default function RootLayout({
         />
         <ToastProvider>
           <Navbar />
-          <main className="pt-16">{children}</main>
+          <main className="pt-14 sm:pt-16">{children}</main>
           <Footer />
         </ToastProvider>
         <script

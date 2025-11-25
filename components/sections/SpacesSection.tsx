@@ -6,14 +6,14 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 
 export const SpacesSection = () => (
-  <section id="spaces" className="bg-white py-16 sm:py-24">
+  <section id="spaces" className="bg-white py-12 sm:py-16 lg:py-24">
     <Container>
       <SectionHeader
         eyebrow="Spaces"
         title="The spaces inside Theos"
         description="Choose the main brick hall for your celebration and elevate the experience with the private Loft Suite."
       />
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
               {SPACES.map((space: (typeof SPACES)[number]) => (
           <Card key={space.id} className="overflow-hidden p-0">
             <div className="relative h-64 w-full bg-charcoal/5 flex items-center justify-center">

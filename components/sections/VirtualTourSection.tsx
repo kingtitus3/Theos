@@ -10,7 +10,7 @@ export const VirtualTourSection = () => {
   const [videoFailed, setVideoFailed] = useState(false);
 
   return (
-  <section id="virtual-tour" className="bg-white py-16 sm:py-24">
+  <section id="virtual-tour" className="bg-white py-12 sm:py-16 lg:py-24">
     <Container>
       <Badge className="mx-auto mb-4 bg-accent-brick/10 text-accent-brick">
         {VIRTUAL_TOUR_CONTENT.badge}

@@ -1,12 +1,14 @@
 import { google } from "googleapis";
 
-const calendarId = process.env.GOOGLE_CALENDAR_ID;
+const calendarIdEnv = process.env.GOOGLE_CALENDAR_ID;
 const clientEmail = process.env.GOOGLE_CALENDAR_CLIENT_EMAIL;
 const privateKey = process.env.GOOGLE_CALENDAR_PRIVATE_KEY;
 
-if (!calendarId || !clientEmail || !privateKey) {
+if (!calendarIdEnv || !clientEmail || !privateKey) {
   throw new Error("Missing Google Calendar environment variables");
 }
+
+const calendarId = calendarIdEnv as string;
 
 const auth = new google.auth.JWT({
   email: clientEmail,

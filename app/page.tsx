@@ -6,7 +6,6 @@ import { VirtualTourSection } from "@/components/sections/VirtualTourSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
 import { FloorplanSection } from "@/components/sections/FloorplanSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -21,7 +20,6 @@ export default function HomePage() {
       <PricingSection />
       <AmenitiesSection />
       <FloorplanSection />
-      <TestimonialsSection />
       <FAQSection />
       <ContactSection />
     </>

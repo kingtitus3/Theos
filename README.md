@@ -122,9 +122,9 @@ Real-time booking and availability are powered by Google Calendar via OAuth 2.0 
    - Click **Enable**
 
 3. **Get Calendar ID**:
-   - Current calendar ID: `c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c@group.calendar.google.com`
    - For a shared calendar: find it in Google Calendar → Settings → Integrate calendar → Calendar ID
    - **Important**: Make sure the calendar is shared with the authenticated account (`bookings@theosgalveston.com`)
+   - **Note**: Do NOT commit your actual calendar ID to GitHub. Use environment variables only.
 
 4. **Generate Refresh Token**:
    ```bash
@@ -147,12 +147,12 @@ Add the following to `.env.local`:
 
 **For local development** (uses Application Default Credentials):
 ```
-GOOGLE_CALENDAR_ID=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c@group.calendar.google.com
+GOOGLE_CALENDAR_ID=your-calendar-id@group.calendar.google.com
 ```
 
 **For Vercel/production** (requires OAuth credentials):
 ```
-GOOGLE_CALENDAR_ID=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c@group.calendar.google.com
+GOOGLE_CALENDAR_ID=your-calendar-id@group.calendar.google.com
 GOOGLE_OAUTH_CLIENT_ID=your-client-id
 GOOGLE_OAUTH_CLIENT_SECRET=your-client-secret
 GOOGLE_OAUTH_REFRESH_TOKEN=your-refresh-token
@@ -166,10 +166,22 @@ Deploy the same variables in Vercel.
 - `POST /api/book-tour` &mdash; schedules a 60-minute site tour.
 - `POST /api/book-event` &mdash; books multi-hour events and optionally flags Loft Suite interest (auto checks availability).
 
+### External Calendar Sync
+
+Use your Google Calendar's private iCal URL when connecting Airbnb, Peerspace, or other OTA platforms so all bookings stay in sync.
+
+**Important**: Do NOT commit the real private iCal URL to GitHub. Store it securely and only use it in your OTA platform integrations.
+
+To get your private iCal URL:
+1. Go to Google Calendar → Settings → Integrate calendar
+2. Copy the "Secret address in iCal format"
+3. Use this URL in your OTA platform settings (Airbnb, Peerspace, etc.)
+
 ### Calendar Embed (for displaying on website):
 ```html
-<iframe src="https://calendar.google.com/calendar/embed?src=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c%40group.calendar.google.com&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID%40group.calendar.google.com&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 ```
+Replace `YOUR_CALENDAR_ID` with your actual calendar ID.
 
 ## Media Assets
 

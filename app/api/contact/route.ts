@@ -57,7 +57,7 @@ ${availabilityInfo}
 VENUE INFO:
 - 3,200 sq ft (80 × 40) historic brick hall
 - Capacity: Up to 180 standing, 120-140 seated
-- Location: 2527 Market St, Galveston, TX 77550
+- Location: 2521 Market St, Galveston, TX 77550
 - Optional Loft Suite: 1 bed / 1 bath apartment ($300-$500 add-on)
 - Pricing: Weekend $3,000-$6,000, Weekday $2,000+
 - Phone: (409) 765-5539
@@ -243,7 +243,7 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
             <ul style="margin: 0; padding-left: 20px;">
               <li><strong>Size:</strong> 3,200 sq ft (80 × 40)</li>
               <li><strong>Capacity:</strong> Up to 180 guests standing, 120–140 seated</li>
-              <li><strong>Location:</strong> 2527 Market St, Galveston, TX 77550</li>
+              <li><strong>Location:</strong> 2521 Market St, Galveston, TX 77550</li>
               <li><strong>Loft Suite:</strong> Optional 1 bed / 1 bath apartment upstairs</li>
             </ul>
           </div>

@@ -5,7 +5,7 @@ const SYSTEM_PROMPT = `You are a friendly and helpful AI concierge for Theos, a 
 
 VENUE INFORMATION:
 - Name: Theos
-- Location: 2527 Market St, Galveston, TX 77550
+- Location: 2521 Market St, Galveston, TX 77550
 - Size: 3,200 sq ft (80 × 40) main brick hall
 - Capacity: Up to 180 guests standing, 120-140 for seated receptions
 - Spaces: Main brick hall + optional Loft Suite (1 bed / 1 bath apartment upstairs)

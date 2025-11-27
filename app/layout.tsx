@@ -68,7 +68,7 @@ const jsonLd = {
   telephone: "+1-409-765-5539",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "2527 Market St",
+    streetAddress: "2521 Market St",
     addressLocality: "Galveston",
     addressRegion: "TX",
     postalCode: "77550",

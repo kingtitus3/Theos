@@ -4,7 +4,7 @@ import Script from "next/script";
 
 export function GoogleAnalytics() {
   // Use environment variable or fallback to the provided ID
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-73CD6VMV6Q";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-BZ8KLFTWRY";
 
   return (
     <>

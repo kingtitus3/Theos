@@ -14,7 +14,17 @@ export const PricingSection = () => {
           description={PRICING_BREAKDOWN.subheadline}
         />
         <div className="space-y-8">
-          <p className="text-sm text-charcoal/80">{PRICING_BREAKDOWN.snapshot.text}</p>
+          <div className="rounded-2xl border-2 border-accent-brick/20 bg-accent-brick/5 p-6 text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-charcoal/60">
+              Typical Investment
+            </p>
+            <p className="mt-2 text-3xl font-serif text-accent-brick">
+              $3,000–$6,000
+            </p>
+            <p className="mt-2 text-sm text-charcoal/70">
+              Most couples and hosts spend between <strong>$3,000–$6,000</strong> for their event at Theos, depending on the day of week and whether the Loft Suite is added.
+            </p>
+          </div>
           <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {PRICING_BREAKDOWN.packages.map((pkg) => (
               <Card key={pkg.name} className="h-full">

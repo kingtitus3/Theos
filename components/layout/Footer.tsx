@@ -4,7 +4,7 @@ import { CONTACT_INFO } from "@/lib/constants";
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://instagram.com" },
   { label: "Pinterest", href: "https://pinterest.com" },
-  { label: "Facebook", href: "https://facebook.com" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61584310322904" },
 ];
 
 export const Footer = () => (

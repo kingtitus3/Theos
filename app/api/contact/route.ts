@@ -129,7 +129,8 @@ export async function POST(request: Request) {
 
     // Send email to venue owner
     const resend = getResend();
-    await resend.emails.send({
+    console.log("Sending email to venue owner:", CONTACT_INFO.email);
+    const ownerEmailResult = await resend.emails.send({
       from: "Theos <bookings@theosgalveston.com>",
       to: CONTACT_INFO.email,
       replyTo: formData.email,
@@ -189,6 +190,7 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
         </div>
       `,
     });
+    console.log("Owner email sent:", ownerEmailResult);
 
     // Send AI-generated response to customer (or fallback to generic if AI fails)
     // Clean and format AI response
@@ -269,20 +271,36 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
         </div>
       `;
 
-    await resend.emails.send({
+    console.log("Sending email to customer:", formData.email);
+    const customerEmailResult = await resend.emails.send({
       from: "Titus at Theos <bookings@theosgalveston.com>",
       to: formData.email,
       replyTo: CONTACT_INFO.email,
       subject: `Re: Your ${formData.eventType} inquiry at Theos Event Venue`,
       html: customerEmailHtml,
     });
+    console.log("Customer email sent:", customerEmailResult);
 
   return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email sending failed:", error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorDetails = error instanceof Error ? error.stack : undefined;
+    
+    // Log full error details
+    console.error("Full error details:", {
+      message: errorMessage,
+      details: errorDetails,
+      resendApiKey: process.env.RESEND_API_KEY ? "Set" : "Missing",
+    });
+    
     // Still return success to user, but log the error
     return NextResponse.json(
-      { success: true, warning: "Your inquiry was received, but there was an issue sending confirmation emails." },
+      { 
+        success: true, 
+        warning: "Your inquiry was received, but there was an issue sending confirmation emails.",
+        error: process.env.NODE_ENV === "development" ? errorMessage : undefined,
+      },
       { status: 200 },
     );
   }

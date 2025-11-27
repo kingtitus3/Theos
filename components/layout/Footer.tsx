@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CONTACT_INFO } from "@/lib/constants";
 
 const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Instagram", href: "https://www.instagram.com/theosgalveston/" },
   { label: "Pinterest", href: "https://pinterest.com" },
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61584310322904" },
 ];

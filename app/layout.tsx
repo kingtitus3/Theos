@@ -78,8 +78,8 @@ const jsonLd = {
     "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/social-1.jpg",
   ],
   sameAs: [
-    "https://www.instagram.com/", // update with real handle
-    "https://www.facebook.com/", // update with real handle
+    "https://www.instagram.com/theosgalveston/",
+    "https://www.facebook.com/profile.php?id=61584310322904",
   ],
   amenityFeature: [
     {

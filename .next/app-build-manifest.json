@@ -36,16 +36,7 @@
       "static/chunks/main-app-f477800f4d0ad04a.js",
       "static/chunks/868-da6532ab5ed26462.js",
       "static/chunks/955-4f1285a68d8d3831.js",
-      "static/chunks/app/loft-suite/page-ec734b60f01fe2d8.js"
-    ],
-    "/events/page": [
-      "static/chunks/webpack-55d3b0a844d4e2e8.js",
-      "static/chunks/fd9d1056-4a917af64af6b262.js",
-      "static/chunks/23-fe5059d133dc555f.js",
-      "static/chunks/main-app-f477800f4d0ad04a.js",
-      "static/chunks/868-da6532ab5ed26462.js",
-      "static/chunks/955-4f1285a68d8d3831.js",
-      "static/chunks/app/events/page-54a41dcd97b977ab.js"
+      "static/chunks/app/loft-suite/page-5ad724170b87a0dc.js"
     ],
     "/corporate-events/page": [
       "static/chunks/webpack-55d3b0a844d4e2e8.js",
@@ -56,6 +47,15 @@
       "static/chunks/955-4f1285a68d8d3831.js",
       "static/chunks/app/corporate-events/page-2d12c2d534973d32.js"
     ],
+    "/events/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/955-4f1285a68d8d3831.js",
+      "static/chunks/app/events/page-54a41dcd97b977ab.js"
+    ],
     "/weddings/page": [
       "static/chunks/webpack-55d3b0a844d4e2e8.js",
       "static/chunks/fd9d1056-4a917af64af6b262.js",
@@ -63,7 +63,7 @@
       "static/chunks/main-app-f477800f4d0ad04a.js",
       "static/chunks/868-da6532ab5ed26462.js",
       "static/chunks/955-4f1285a68d8d3831.js",
-      "static/chunks/app/weddings/page-27038312e33adf80.js"
+      "static/chunks/app/weddings/page-34f687c54c2970e6.js"
     ]
   }
 }

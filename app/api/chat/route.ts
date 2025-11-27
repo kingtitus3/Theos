@@ -76,7 +76,7 @@ export async function POST(req: Request) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://theos.live",
+        "HTTP-Referer": "https://theosgalveston.com",
         "X-Title": "Theos Event Venue",
       },
       body: JSON.stringify({

@@ -74,7 +74,7 @@ export async function POST(req: Request) {
               ${CONTACT_INFO.addressLine}<br>
               Phone: <a href="tel:${CONTACT_INFO.phone}">${CONTACT_INFO.phone}</a><br>
               Email: <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a><br>
-              <a href="https://theos.live" style="color: #8B4513;">theos.live</a>
+              <a href="https://theosgalveston.com" style="color: #8B4513;">theosgalveston.com</a>
             </p>
           </div>
         `,

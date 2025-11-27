@@ -61,7 +61,7 @@ VENUE INFO:
 - Optional Loft Suite: 1 bed / 1 bath apartment ($300-$500 add-on)
 - Pricing: Weekend $3,000-$6,000, Weekday $2,000+
 - Phone: (409) 765-5539
-- Website: https://theos.live
+- Website: https://theosgalveston.com
 
 Write a professional, warm, and helpful email response in HTML format that:
 1. Thanks them for their inquiry by name
@@ -81,7 +81,7 @@ Format as clean HTML with proper paragraph tags. Keep it warm, professional, and
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://theos.live",
+        "HTTP-Referer": "https://theosgalveston.com",
         "X-Title": "Theos Event Venue",
       },
       body: JSON.stringify({
@@ -217,7 +217,7 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
             <strong>Theos Event Venue</strong><br>
             ${CONTACT_INFO.addressLine}<br>
             Phone: <a href="tel:${CONTACT_INFO.phone}" style="color: #8B4513;">${CONTACT_INFO.phone}</a><br>
-            <a href="https://theos.live" style="color: #8B4513;">theos.live</a>
+            <a href="https://theosgalveston.com" style="color: #8B4513;">theosgalveston.com</a>
           </p>
         </div>
       `
@@ -250,8 +250,8 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
 
           <p>In the meantime, feel free to:</p>
           <ul>
-            <li>Check out our <a href="https://theos.live/#gallery" style="color: #8B4513;">photo gallery</a></li>
-            <li>View our <a href="https://theos.live/#pricing" style="color: #8B4513;">pricing packages</a></li>
+            <li>Check out our <a href="https://theosgalveston.com/#gallery" style="color: #8B4513;">photo gallery</a></li>
+            <li>View our <a href="https://theosgalveston.com/#pricing" style="color: #8B4513;">pricing packages</a></li>
             <li>Chat with our AI assistant on the website for instant answers</li>
           </ul>
 
@@ -266,7 +266,7 @@ ${aiResponse.replace(/<[^>]*>/g, '')}
           <p style="color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
             <strong>Theos Event Venue</strong><br>
             ${CONTACT_INFO.addressLine}<br>
-            <a href="https://theos.live" style="color: #8B4513;">theos.live</a>
+            <a href="https://theosgalveston.com" style="color: #8B4513;">theosgalveston.com</a>
           </p>
         </div>
       `;

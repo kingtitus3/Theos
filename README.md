@@ -166,15 +166,7 @@ Deploy the same variables in Vercel.
 - `POST /api/book-tour` &mdash; schedules a 60-minute site tour.
 - `POST /api/book-event` &mdash; books multi-hour events and optionally flags Loft Suite interest (auto checks availability).
 
-### External Calendar Sync
-
-Use the private iCal feed below when connecting Airbnb, Peerspace, or other OTA platforms so all bookings stay in sync:
-
-```
-https://calendar.google.com/calendar/ical/c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c%40group.calendar.google.com/private-3fb3d75e92f7921102b3126a50313d09/basic.ics
-```
-
-**Calendar Embed** (for displaying on website):
+### Calendar Embed (for displaying on website):
 ```html
 <iframe src="https://calendar.google.com/calendar/embed?src=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c%40group.calendar.google.com&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 ```

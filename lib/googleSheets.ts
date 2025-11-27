@@ -1,38 +1,22 @@
 import { google } from "googleapis";
 
 // Get Google Sheets client using the same auth method as Google Calendar
+// Uses Application Default Credentials (gcloud auth application-default login)
 function getSheetsClient() {
   const spreadsheetId = process.env.GOOGLE_SHEETS_ID?.trim();
-  const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim();
-  const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim();
-  const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN?.trim();
-
-  let auth: any = null;
-
-  // Try OAuth2 with refresh token first
-  if (oauthClientId && oauthClientSecret && oauthRefreshToken) {
-    try {
-      const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
-      oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
-      auth = oauth2Client;
-    } catch (error) {
-      console.warn("OAuth2 setup failed for Sheets, falling back to Application Default Credentials:", error);
-    }
-  }
-
-  // Fall back to Application Default Credentials (works with gcloud auth application-default login)
-  if (!auth) {
-    auth = new google.auth.GoogleAuth({
-      scopes: [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/calendar", // Include calendar scope if using same auth
-      ],
-    });
-  }
-
-  if (!spreadsheetId || !auth) {
+  
+  if (!spreadsheetId) {
     return null;
   }
+
+  // Use Application Default Credentials (same as Google Calendar)
+  // This works with: gcloud auth application-default login
+  const auth = new google.auth.GoogleAuth({
+    scopes: [
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/calendar", // Include calendar scope
+    ],
+  });
 
   return {
     sheets: google.sheets({ version: "v4", auth }),

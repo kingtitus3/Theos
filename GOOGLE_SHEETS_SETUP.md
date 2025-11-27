@@ -19,24 +19,26 @@
    - Example: `https://docs.google.com/spreadsheets/d/1ABC123xyz.../edit`
    - Sheet ID: `1ABC123xyz...`
 
-### Step 3: Share the Sheet with Your Service Account (if using service account)
+### Step 3: Authenticate with gcloud (Same as Google Calendar)
 
-**Option A: Using OAuth (Same as Google Calendar)**
-- If you're already using OAuth for Google Calendar, the same credentials will work!
-- Just add the Sheet ID to your environment variables
+Since you're already using `gcloud auth application-default login` for Google Calendar, the same authentication will work for Google Sheets!
 
-**Option B: Using Application Default Credentials**
-- If you're using `gcloud auth application-default login`, it will work automatically
-- Just make sure to share the sheet with the account you authenticated with
+**If you haven't set it up yet:**
+```bash
+gcloud auth application-default login --scopes=https://www.googleapis.com/auth/spreadsheets,https://www.googleapis.com/auth/calendar
+```
 
-**Option C: Using Service Account (New)**
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a service account (or use existing one)
-3. Download the JSON key
-4. Share your Google Sheet with the service account email (found in the JSON)
-5. Add the JSON key to your environment
+**If you already have it set up:**
+- You're all set! Just make sure your Google Sheet is shared with the same account you authenticated with.
 
-### Step 4: Add Environment Variable
+### Step 4: Share Your Google Sheet
+
+1. Open your Google Sheet
+2. Click "Share" (top right)
+3. Share it with the same Google account you used for `gcloud auth application-default login`
+4. Give it "Editor" permissions
+
+### Step 5: Add Environment Variable
 
 Add to your `.env.local` and Vercel:
 
@@ -44,7 +46,7 @@ Add to your `.env.local` and Vercel:
 GOOGLE_SHEETS_ID=your_sheet_id_here
 ```
 
-**Note:** If you're using the same OAuth credentials as Google Calendar, you don't need to add anything else! The existing `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`, and `GOOGLE_OAUTH_REFRESH_TOKEN` will work.
+**That's it!** No OAuth tokens needed - it uses the same gcloud authentication as your Google Calendar.
 
 ### Step 5: Test It
 

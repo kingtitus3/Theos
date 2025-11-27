@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 import { CONTACT_INFO } from "@/lib/constants";
+import { appendGiveawayEntry } from "@/lib/googleSheets";
 
 // Lazy initialize Resend to avoid build errors if API key is missing at build time
 let resend: Resend | null = null;
@@ -42,6 +43,24 @@ export async function POST(request: Request) {
     }
 
     const resendClient = getResendClient();
+
+    // Add entry to Google Sheets (non-blocking - don't fail if Sheets is unavailable)
+    try {
+      await appendGiveawayEntry({
+        firstName: parsed.firstName,
+        lastName: parsed.lastName,
+        email: parsed.email,
+        phone: parsed.phone,
+        partnerName: parsed.partnerName,
+        preferredDate: parsed.preferredDate,
+        instagramHandle: parsed.instagramHandle,
+        tiktokHandle: parsed.tiktokHandle,
+        howDidYouHear: parsed.howDidYouHear,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      console.error("Failed to add entry to Google Sheets (non-critical):", error);
+    }
 
     // Send confirmation email to entrant
     await resendClient.emails.send({

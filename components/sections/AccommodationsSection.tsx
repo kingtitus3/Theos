@@ -47,25 +47,23 @@ export const AccommodationsSection = () => {
                 </ul>
                 <div className="mt-auto pt-4">
                   {option.link ? (
-                    <Button
-                      asChild
-                      variant={option.highlight ? "default" : "ghost"}
-                      className="w-full"
+                    <a
+                      href={option.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-base font-medium transition ${
+                        option.highlight
+                          ? "bg-accent-brick text-parchment hover:bg-accent-brick/90"
+                          : "bg-parchment text-charcoal hover:bg-parchment/90"
+                      }`}
                     >
-                      <a
-                        href={option.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        View on Airbnb
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </Button>
+                      View on Airbnb
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
                   ) : (
                     <Button
                       onClick={() => scrollToTarget("#contact")}
-                      variant={option.highlight ? "default" : "ghost"}
+                      variant={option.highlight ? "primary" : "secondary"}
                       className="w-full"
                     >
                       Book Loft Suite

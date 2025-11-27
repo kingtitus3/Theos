@@ -103,19 +103,62 @@ Both forms currently log to console. To integrate email:
 
 ## Google Calendar Booking
 
-Real-time booking and availability are powered by Google Calendar via service account credentials.
+Real-time booking and availability are powered by Google Calendar via OAuth 2.0 credentials.
+
+### Setup for Google Workspace Account
+
+1. **Create OAuth Credentials** (in Google Cloud Console):
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Select your project (or create one)
+   - Navigate to **APIs & Services** → **Credentials**
+   - Click **Create Credentials** → **OAuth client ID**
+   - Application type: **Web application**
+   - Authorized redirect URIs: `http://localhost`
+   - Save the **Client ID** and **Client Secret**
+
+2. **Enable Google Calendar API**:
+   - Go to **APIs & Services** → **Library**
+   - Search for "Google Calendar API"
+   - Click **Enable**
+
+3. **Get Calendar ID**:
+   - Current calendar ID: `c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c@group.calendar.google.com`
+   - For a shared calendar: find it in Google Calendar → Settings → Integrate calendar → Calendar ID
+   - **Important**: Make sure the calendar is shared with the authenticated account (`bookings@theosgalveston.com`)
+
+4. **Generate Refresh Token**:
+   ```bash
+   # Set your OAuth credentials
+   export GOOGLE_OAUTH_CLIENT_ID="your-client-id"
+   export GOOGLE_OAUTH_CLIENT_SECRET="your-client-secret"
+   
+   # Run the script
+   node scripts/get-refresh-token.mjs
+   ```
+   - Copy the authorization URL and open it in a browser
+   - Sign in with `bookings@theosgalveston.com`
+   - Grant calendar permissions
+   - Copy the `code` from the redirect URL
+   - Paste it into the script to get your refresh token
 
 ### Environment Variables
 
-Add the following to `.env.local` (escaping newline characters in the private key):
+Add the following to `.env.local`:
 
+**For local development** (uses Application Default Credentials):
 ```
-GOOGLE_CALENDAR_CLIENT_EMAIL=your-service-account@project.iam.gserviceaccount.com
-GOOGLE_CALENDAR_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOURKEY\n-----END PRIVATE KEY-----\n"
-GOOGLE_CALENDAR_ID=c_4a0d6a426088164c5c84add3d0a6b0fa2538caa9eacb30ca64646fe930c0f258@group.calendar.google.com
+GOOGLE_CALENDAR_ID=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c@group.calendar.google.com
 ```
 
-Share the calendar with the service account email and deploy the same variables in Vercel.
+**For Vercel/production** (requires OAuth credentials):
+```
+GOOGLE_CALENDAR_ID=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c@group.calendar.google.com
+GOOGLE_OAUTH_CLIENT_ID=your-client-id
+GOOGLE_OAUTH_CLIENT_SECRET=your-client-secret
+GOOGLE_OAUTH_REFRESH_TOKEN=your-refresh-token
+```
+
+Deploy the same variables in Vercel.
 
 ### API Routes
 
@@ -128,7 +171,12 @@ Share the calendar with the service account email and deploy the same variables 
 Use the private iCal feed below when connecting Airbnb, Peerspace, or other OTA platforms so all bookings stay in sync:
 
 ```
-https://calendar.google.com/calendar/ical/c_4a0d6a426088164c5c84add3d0a6b0fa2538caa9eacb30ca64646fe930c0f258%40group.calendar.google.com/private-40c55da839ebdddd1bb67643cfda6234/basic.ics
+https://calendar.google.com/calendar/ical/c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c%40group.calendar.google.com/private-3fb3d75e92f7921102b3126a50313d09/basic.ics
+```
+
+**Calendar Embed** (for displaying on website):
+```html
+<iframe src="https://calendar.google.com/calendar/embed?src=c_e5143b4edca37ee8df22060a96fab8b95eaaeb1061ee5adf07f265343030a66c%40group.calendar.google.com&ctz=America%2FChicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 ```
 
 ## Media Assets

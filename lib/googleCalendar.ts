@@ -7,24 +7,36 @@ const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN?.trim();
 
 const hasCalendarConfig = Boolean(calendarId && oauthClientId && oauthClientSecret && oauthRefreshToken);
 
-const oauth2Client = hasCalendarConfig
-  ? new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost")
-  : null;
+// Try OAuth2 with refresh token, fall back to Application Default Credentials
+let auth: any = null;
 
-if (oauth2Client && oauthRefreshToken) {
-  oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
+if (hasCalendarConfig && oauthRefreshToken) {
+  try {
+    const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
+    oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
+    auth = oauth2Client;
+  } catch (error) {
+    console.warn("OAuth2 setup failed, falling back to Application Default Credentials:", error);
+  }
 }
 
-const calendarClient = oauth2Client
+// Fall back to Application Default Credentials (works with gcloud auth application-default login)
+if (!auth) {
+  auth = new google.auth.GoogleAuth({
+    scopes: ["https://www.googleapis.com/auth/calendar"],
+  });
+}
+
+const calendarClient = calendarId && auth
   ? google.calendar({
       version: "v3",
-      auth: oauth2Client,
+      auth: auth,
     })
   : null;
 
 function ensureConfigured() {
-  if (!hasCalendarConfig || !calendarClient || !calendarId) {
-    throw new Error("Google Calendar is not configured. Please set the required environment variables.");
+  if (!calendarClient || !calendarId) {
+    throw new Error("Google Calendar is not configured. Please set GOOGLE_CALENDAR_ID and either OAuth credentials or use 'gcloud auth application-default login'.");
   }
 }
 

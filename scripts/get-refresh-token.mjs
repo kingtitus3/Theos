@@ -3,7 +3,8 @@ import { google } from 'googleapis';
 
 const clientId = process.env.GOOGLE_OAUTH_CLIENT_ID || '';
 const clientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET || '';
-const redirectUri = 'http://localhost';
+// Try multiple redirect URIs - use the one configured in Google Cloud Console
+const redirectUri = process.env.REDIRECT_URI || 'http://localhost';
 
 const oauth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
 const authUrl = oauth2Client.generateAuthUrl({

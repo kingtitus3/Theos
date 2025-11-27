@@ -4,7 +4,13 @@ import { contactFormSchema } from "@/lib/validation";
 import { CONTACT_INFO } from "@/lib/constants";
 import { getAvailability } from "@/lib/googleCalendar";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+  return new Resend(apiKey);
+}
 
 async function generateEmailResponse(formData: {
   fullName: string;
@@ -122,6 +128,7 @@ export async function POST(request: Request) {
     }
 
     // Send email to venue owner
+    const resend = getResend();
     await resend.emails.send({
       from: "Theos <bookings@theosgalveston.com>",
       to: CONTACT_INFO.email,

@@ -1,15 +1,69 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/app/_not-found/page-b0486616258356d1.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/css/dd1f0a323246b587.css",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/481-f1e6a0255adc0f88.js",
+      "static/chunks/11-71c7523130e2ee69.js",
+      "static/chunks/app/layout-52ccee4fdd143b8c.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/955-4f1285a68d8d3831.js",
+      "static/chunks/481-f1e6a0255adc0f88.js",
+      "static/chunks/662-29543b19e3539a73.js",
+      "static/chunks/app/page-d530b59693008cfd.js"
+    ],
+    "/loft-suite/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/955-4f1285a68d8d3831.js",
+      "static/chunks/app/loft-suite/page-ec734b60f01fe2d8.js"
+    ],
+    "/events/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/955-4f1285a68d8d3831.js",
+      "static/chunks/app/events/page-54a41dcd97b977ab.js"
+    ],
+    "/corporate-events/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/955-4f1285a68d8d3831.js",
+      "static/chunks/app/corporate-events/page-2d12c2d534973d32.js"
+    ],
+    "/weddings/page": [
+      "static/chunks/webpack-55d3b0a844d4e2e8.js",
+      "static/chunks/fd9d1056-4a917af64af6b262.js",
+      "static/chunks/23-fe5059d133dc555f.js",
+      "static/chunks/main-app-f477800f4d0ad04a.js",
+      "static/chunks/868-da6532ab5ed26462.js",
+      "static/chunks/955-4f1285a68d8d3831.js",
+      "static/chunks/app/weddings/page-27038312e33adf80.js"
     ]
   }
 }

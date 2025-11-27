@@ -70,7 +70,7 @@ export const ContactSection = () => {
       // Track form submission
       trackEvent("submit", "contact_form", values.eventType);
       
-      addToast({ title: "Thanks! We'll be in touch soon.", variant: "success" });
+      addToast({ title: "Thanks! We&apos;ll be in touch soon.", variant: "success" });
       form.reset();
     } catch (error) {
       console.error(error);
@@ -183,7 +183,7 @@ export const ContactSection = () => {
               <p>Email: <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-accent-gold transition">{CONTACT_INFO.email}</a></p>
             </div>
             <p>
-              Tours are by appointment only. We'll coordinate a time that fits your planning schedule and invite your planner or key vendors to join.
+              Tours are by appointment only. We&apos;ll coordinate a time that fits your planning schedule and invite your planner or key vendors to join.
             </p>
           </div>
         </div>

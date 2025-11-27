@@ -3,7 +3,13 @@ import { Resend } from "resend";
 import { google } from "googleapis";
 import { CONTACT_INFO } from "@/lib/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+  return new Resend(apiKey);
+}
 
 // Get calendar client (same logic as googleCalendar.ts)
 function getCalendarClient() {
@@ -100,6 +106,7 @@ export async function GET(request: Request) {
 
       // Send reminder email
       try {
+        const resend = getResend();
         await resend.emails.send({
           from: "Theos <bookings@theosgalveston.com>",
           to: email,

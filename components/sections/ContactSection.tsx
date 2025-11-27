@@ -160,6 +160,19 @@ export const ContactSection = () => {
                 </a>
               )}
             </div>
+            <div className="w-full overflow-hidden rounded-lg border border-parchment/20">
+              <iframe
+                src={`https://www.google.com/maps?q=${encodeURIComponent(CONTACT_INFO.addressLine)}&output=embed`}
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full"
+                title="Theos Event Venue Location"
+              />
+            </div>
             <div className="space-y-2">
               <p>Call: <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-accent-gold transition">{CONTACT_INFO.phone}</a></p>
               <p>Email: <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-accent-gold transition">{CONTACT_INFO.email}</a></p>

@@ -149,13 +149,23 @@ export const ContactSection = () => {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Visit us</p>
               <p className="mt-2 text-2xl text-white">{CONTACT_INFO.addressLine}</p>
+              {CONTACT_INFO.mapLink && (
+                <a
+                  href={CONTACT_INFO.mapLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex items-center text-accent-gold hover:text-accent-gold/80 transition underline"
+                >
+                  View on Google Maps →
+                </a>
+              )}
             </div>
             <div className="space-y-2">
-              <p>Call: {CONTACT_INFO.phone}</p>
-              <p>Email: {CONTACT_INFO.email}</p>
+              <p>Call: <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-accent-gold transition">{CONTACT_INFO.phone}</a></p>
+              <p>Email: <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-accent-gold transition">{CONTACT_INFO.email}</a></p>
             </div>
             <p>
-              Tours are by appointment only. We’ll coordinate a time that fits your planning schedule and invite your planner or key vendors to join.
+              Tours are by appointment only. We'll coordinate a time that fits your planning schedule and invite your planner or key vendors to join.
             </p>
           </div>
         </div>

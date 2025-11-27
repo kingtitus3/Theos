@@ -64,8 +64,7 @@ export const GiveawaySection = () => {
       }
 
       addToast({
-        title: "Entry submitted! 🎉",
-        description: "Good luck! We'll announce the winner soon.",
+        title: "Entry submitted! 🎉 Good luck! We'll announce the winner soon.",
         variant: "success",
       });
 
@@ -73,8 +72,7 @@ export const GiveawaySection = () => {
     } catch (error) {
       console.error("Giveaway entry error:", error);
       addToast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to submit entry. Please try again.",
+        title: error instanceof Error ? `Error: ${error.message}` : "Failed to submit entry. Please try again.",
         variant: "error",
       });
     } finally {

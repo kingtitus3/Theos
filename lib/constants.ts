@@ -364,3 +364,38 @@ export const CONTACT_INFO = {
   mapLink: "https://share.google/uL54zfzvMegpZ28UG",
   mapEmbedSrc: "",
 };
+
+export const ACCOMMODATIONS = {
+  heading: "Stay On-Site or Next Door",
+  description:
+    "Make your event weekend seamless with on-site and nearby accommodations. The Loft Suite is perfect for getting ready or overnight stays, and two beautiful Airbnbs are right next door.",
+  options: [
+    {
+      name: "Theos Loft Suite",
+      type: "On-Site",
+      description: "Private 1 bed / 1 bath apartment directly above the main hall. Perfect for getting ready, overnight stays, or VIP hosting.",
+      features: ["Getting ready space", "Overnight stay", "VIP hosting", "Kitchen & lounge"],
+      price: "$300–$600",
+      link: null, // Booked through venue
+      highlight: true,
+    },
+    {
+      name: "Market St Memories",
+      type: "Next Door",
+      description: "Beautiful Airbnb property right next door to Theos. Perfect for wedding parties, family, or guests who want to stay close.",
+      features: ["Steps from venue", "Full amenities", "Perfect for groups"],
+      price: "See Airbnb",
+      link: "https://airbnb.com/h/marketstmemories",
+      highlight: false,
+    },
+    {
+      name: "Market St Speakeasy",
+      type: "Next Door",
+      description: "Another beautiful Airbnb property adjacent to Theos. Ideal for additional guests or extended stays.",
+      features: ["Adjacent to venue", "Full amenities", "Extended stays welcome"],
+      price: "See Airbnb",
+      link: "https://airbnb.com/h/marketstspeakeasy",
+      highlight: false,
+    },
+  ],
+};

@@ -6,6 +6,7 @@ import { VirtualTourSection } from "@/components/sections/VirtualTourSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { BookingSection } from "@/components/sections/BookingSection";
 import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
+import { AccommodationsSection } from "@/components/sections/AccommodationsSection";
 import { FloorplanSection } from "@/components/sections/FloorplanSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <PricingSection />
       <BookingSection />
       <AmenitiesSection />
+      <AccommodationsSection />
       <FloorplanSection />
       <FAQSection />
       <ContactSection />

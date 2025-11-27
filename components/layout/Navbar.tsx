@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "#virtual-tour", label: "Virtual Tour" },
   { href: "#pricing", label: "Pricing" },
   { href: "#amenities", label: "Amenities" },
+  { href: "#accommodations", label: "Stay" },
   { href: "#floorplan", label: "Floorplan" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },

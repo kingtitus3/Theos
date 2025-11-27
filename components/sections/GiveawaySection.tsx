@@ -243,6 +243,7 @@ export const GiveawaySection = () => {
                     <option value="">Select one...</option>
                     <option value="instagram">Instagram</option>
                     <option value="facebook">Facebook</option>
+                    <option value="tiktok">TikTok</option>
                     <option value="google">Google</option>
                     <option value="planner">Wedding Planner</option>
                     <option value="friend">Friend/Referral</option>
@@ -304,6 +305,15 @@ export const GiveawaySection = () => {
                 className="text-accent-brick hover:text-accent-brick/80 transition"
               >
                 Facebook
+              </a>
+              <span className="text-charcoal/30">•</span>
+              <a
+                href="https://www.tiktok.com/@theosgalveston"
+                target="_blank"
+                rel="noreferrer"
+                className="text-accent-brick hover:text-accent-brick/80 transition"
+              >
+                TikTok
               </a>
             </div>
           </div>

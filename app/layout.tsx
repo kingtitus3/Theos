@@ -81,6 +81,7 @@ const jsonLd = {
   sameAs: [
     "https://www.instagram.com/theosgalveston/",
     "https://www.facebook.com/profile.php?id=61584310322904",
+    "https://www.tiktok.com/@theosgalveston",
   ],
   amenityFeature: [
     {

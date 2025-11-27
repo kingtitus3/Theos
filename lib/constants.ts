@@ -368,7 +368,7 @@ export const CONTACT_INFO = {
 export const ACCOMMODATIONS = {
   heading: "Stay On-Site or Next Door",
   description:
-    "Make your event weekend seamless with on-site and nearby accommodations. The Loft Suite is perfect for getting ready or overnight stays, and two beautiful Airbnbs are right next door.",
+    "Make your event weekend seamless with on-site and next-door accommodations. The Loft Suite is perfect for getting ready or overnight stays, and two beautiful Airbnbs are literally right next door — just steps away.",
   options: [
     {
       name: "Theos Loft Suite",
@@ -382,8 +382,8 @@ export const ACCOMMODATIONS = {
     {
       name: "Market St Memories",
       type: "Next Door",
-      description: "Beautiful Airbnb property right next door to Theos. Perfect for wedding parties, family, or guests who want to stay close.",
-      features: ["Steps from venue", "Full amenities", "Perfect for groups"],
+      description: "Beautiful Airbnb property right next door to Theos — literally adjacent. Perfect for wedding parties, family, or guests who want to stay steps from the venue.",
+      features: ["Right next door", "Steps from venue", "Full amenities", "Perfect for groups"],
       price: "See Airbnb",
       link: "https://airbnb.com/h/marketstmemories",
       highlight: false,
@@ -391,8 +391,8 @@ export const ACCOMMODATIONS = {
     {
       name: "Market St Speakeasy",
       type: "Next Door",
-      description: "Another beautiful Airbnb property adjacent to Theos. Ideal for additional guests or extended stays.",
-      features: ["Adjacent to venue", "Full amenities", "Extended stays welcome"],
+      description: "Another beautiful Airbnb property right next door to Theos. Ideal for additional guests or extended stays, all within steps of the venue.",
+      features: ["Right next door", "Steps from venue", "Full amenities", "Extended stays welcome"],
       price: "See Airbnb",
       link: "https://airbnb.com/h/marketstspeakeasy",
       highlight: false,

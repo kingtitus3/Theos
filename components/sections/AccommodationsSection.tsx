@@ -77,7 +77,7 @@ export const AccommodationsSection = () => {
         </div>
         <div className="mt-8 rounded-2xl bg-charcoal/5 p-6 text-center">
           <p className="text-sm text-charcoal/80">
-            <strong>Pro tip:</strong> Book the Loft Suite for getting ready, and reserve the nearby Airbnbs for your wedding party or family. Everything is within steps of each other, making your event weekend seamless and stress-free.
+            <strong>Pro tip:</strong> Book the Loft Suite for getting ready, and reserve the next-door Airbnbs for your wedding party or family. Everything is literally right next door — just steps away — making your event weekend seamless and stress-free.
           </p>
         </div>
       </Container>

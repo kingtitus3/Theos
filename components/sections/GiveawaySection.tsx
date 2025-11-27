@@ -19,10 +19,14 @@ const giveawaySchema = z.object({
   partnerName: z.string().optional(),
   preferredDate: z.string().optional(),
   instagramHandle: z.string().optional(),
+  tiktokHandle: z.string().optional(),
   howDidYouHear: z.string().optional(),
   agreeToTerms: z.boolean().refine((val) => val === true, {
     message: "You must agree to the terms to enter",
   }),
+}).refine((data) => data.instagramHandle || data.tiktokHandle, {
+  message: "Please provide either an Instagram or TikTok handle",
+  path: ["instagramHandle"],
 });
 
 type GiveawayFormValues = z.infer<typeof giveawaySchema>;
@@ -41,6 +45,7 @@ export const GiveawaySection = () => {
       partnerName: "",
       preferredDate: "",
       instagramHandle: "",
+      tiktokHandle: "",
       howDidYouHear: "",
       agreeToTerms: false,
     },
@@ -199,12 +204,33 @@ export const GiveawaySection = () => {
                   error={form.formState.errors.preferredDate?.message}
                 />
 
-                <Input
-                  label="Instagram Handle (Optional)"
-                  placeholder="@username"
-                  {...form.register("instagramHandle")}
-                  error={form.formState.errors.instagramHandle?.message}
-                />
+                <div>
+                  <p className="text-sm font-medium text-charcoal mb-2">
+                    Instagram or TikTok Handle *
+                  </p>
+                  <p className="text-xs text-charcoal/60 mb-3">
+                    At least one is required to verify your entry
+                  </p>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Input
+                      label="Instagram Handle"
+                      placeholder="@username"
+                      {...form.register("instagramHandle")}
+                      error={form.formState.errors.instagramHandle?.message}
+                    />
+                    <Input
+                      label="TikTok Handle"
+                      placeholder="@username"
+                      {...form.register("tiktokHandle")}
+                      error={form.formState.errors.tiktokHandle?.message}
+                    />
+                  </div>
+                  {form.formState.errors.instagramHandle && (
+                    <p className="text-sm text-red-600 mt-1">
+                      {form.formState.errors.instagramHandle.message}
+                    </p>
+                  )}
+                </div>
 
                 <div>
                   <label className="block text-sm font-medium text-charcoal mb-2">

@@ -24,8 +24,12 @@ const giveawaySchema = z.object({
   partnerName: z.string().optional(),
   preferredDate: z.string().optional(),
   instagramHandle: z.string().optional(),
+  tiktokHandle: z.string().optional(),
   howDidYouHear: z.string().optional(),
   agreeToTerms: z.boolean(),
+}).refine((data) => data.instagramHandle || data.tiktokHandle, {
+  message: "Instagram or TikTok handle is required",
+  path: ["instagramHandle"],
 });
 
 export async function POST(request: Request) {
@@ -61,6 +65,7 @@ export async function POST(request: Request) {
             ${parsed.partnerName ? `<p><strong>Partner:</strong> ${parsed.partnerName}</p>` : ""}
             ${parsed.preferredDate ? `<p><strong>Preferred Date:</strong> ${parsed.preferredDate}</p>` : ""}
             ${parsed.instagramHandle ? `<p><strong>Instagram:</strong> ${parsed.instagramHandle}</p>` : ""}
+            ${parsed.tiktokHandle ? `<p><strong>TikTok:</strong> ${parsed.tiktokHandle}</p>` : ""}
           </div>
           <p>We'll announce the winner soon. Make sure you're following us on Instagram for updates!</p>
           <p style="color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
@@ -91,6 +96,7 @@ export async function POST(request: Request) {
             ${parsed.partnerName ? `<p><strong>Partner:</strong> ${parsed.partnerName}</p>` : ""}
             ${parsed.preferredDate ? `<p><strong>Preferred Date:</strong> ${parsed.preferredDate}</p>` : ""}
             ${parsed.instagramHandle ? `<p><strong>Instagram:</strong> ${parsed.instagramHandle}</p>` : ""}
+            ${parsed.tiktokHandle ? `<p><strong>TikTok:</strong> ${parsed.tiktokHandle}</p>` : ""}
             ${parsed.howDidYouHear ? `<p><strong>How they heard:</strong> ${parsed.howDidYouHear}</p>` : ""}
           </div>
           <p style="color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">

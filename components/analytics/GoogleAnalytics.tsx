@@ -3,17 +3,15 @@
 import Script from "next/script";
 
 export function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-
-  if (!gaId) {
-    return null;
-  }
+  // Use environment variable or fallback to the provided ID
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-73CD6VMV6Q";
 
   return (
     <>
       <Script
-        strategy="afterInteractive"
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        strategy="afterInteractive"
       />
       <Script
         id="google-analytics"
@@ -23,9 +21,7 @@ export function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gaId}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${gaId}');
           `,
         }}
       />

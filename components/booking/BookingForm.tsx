@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
+import { trackEvent } from "@/components/analytics/GoogleAnalytics";
 
 const bookingSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -83,6 +84,9 @@ export const BookingForm = ({ onSuccess }: BookingFormProps) => {
         throw new Error(error.error || "Booking failed");
       }
 
+      // Track booking
+      trackEvent("book_tour", "booking", values.date);
+      
       addToast({ title: "Tour booked successfully! We'll be in touch soon.", variant: "success" });
       form.reset();
       setAvailable(null);

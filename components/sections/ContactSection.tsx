@@ -13,6 +13,7 @@ import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
+import { trackEvent } from "@/components/analytics/GoogleAnalytics";
 
 const eventTypeOptions = [
   { label: "Wedding", value: "wedding" },
@@ -65,6 +66,10 @@ export const ContactSection = () => {
         body: JSON.stringify(values),
       });
       if (!response.ok) throw new Error("Something went wrong");
+      
+      // Track form submission
+      trackEvent("submit", "contact_form", values.eventType);
+      
       addToast({ title: "Thanks! We'll be in touch soon.", variant: "success" });
       form.reset();
     } catch (error) {

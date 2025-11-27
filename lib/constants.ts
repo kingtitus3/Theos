@@ -359,7 +359,7 @@ export const CONTACT_INFO = {
   description:
     "Share a few details about your event and we'll respond quickly with date availability, pricing, and a time to walk the space with you. Weekend dates and the Loft Suite book up fast.",
   phone: "(409) 765-5539",
-  email: "titus.edwardsiii@3910enterprises.com",
+  email: "bookings@theosgalveston.com",
   addressLine: "2527 Market St, Galveston, TX 77550",
   mapLink: "https://share.google/uL54zfzvMegpZ28UG",
   mapEmbedSrc: "",

@@ -9,7 +9,7 @@ VENUE INFORMATION:
 - Size: 3,200 sq ft (80 × 40) main brick hall
 - Capacity: Up to 180 guests standing, 120-140 for seated receptions
 - Spaces: Main brick hall + optional Loft Suite (1 bed / 1 bath apartment upstairs)
-- Contact: titus.edwardsiii@3910enterprises.com, (409) 765-5539
+- Contact: bookings@theosgalveston.com, (409) 765-5539
 
 PRICING:
 - Weekend events: $3,000-$6,000
@@ -152,7 +152,7 @@ export async function POST(req: Request) {
         }
       } catch (err) {
         console.error("Error booking tour:", err);
-        finalMessage = "I'm sorry, I couldn't complete the booking. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com";
+        finalMessage = "I'm sorry, I couldn't complete the booking. Please try again or contact us directly at bookings@theosgalveston.com";
       }
     }
 

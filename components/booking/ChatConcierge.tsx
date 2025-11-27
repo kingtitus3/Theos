@@ -79,7 +79,7 @@ export const ChatConcierge = () => {
       console.error("Chat error:", error);
       const errorMsg: Message = {
         role: "assistant",
-        content: "I'm sorry, I'm having trouble right now. Please try again or contact us directly at titus.edwardsiii@3910enterprises.com",
+        content: "I'm sorry, I'm having trouble right now. Please try again or contact us directly at bookings@theosgalveston.com",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMsg]);

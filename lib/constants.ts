@@ -154,11 +154,7 @@ export const GALLERY_ITEMS: {
     alt: "50th birthday celebration at Theos with black and gold theme, illuminated '50' numbers, balloon garland, and elegant table settings in the historic brick venue.",
     category: "Events",
   },
-  {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-1.jpg",
-    alt: "Winter wedding reception at Theos featuring dark teal tablecloths, gold accents, string lights overhead, lush floral centerpieces, and warm candlelit ambiance in the historic brick hall.",
-    category: "Events",
-  },
+  // NOTE: wedding-1.jpg is banned from use - do not add it to the gallery
   // Main Hall Details
   {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-1.jpg",

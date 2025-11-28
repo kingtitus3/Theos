@@ -294,6 +294,19 @@ export const GiveawaySection = () => {
               <SocialIcons iconSize={24} className="text-accent-brick [&_a:hover]:text-accent-brick/80" />
             </div>
           </div>
+
+          {/* Blog Link */}
+          <div className="mt-8 rounded-2xl border border-charcoal/10 bg-charcoal/5 p-6 text-center">
+            <p className="text-sm text-charcoal/70 mb-3">
+              Planning your Galveston wedding? Get expert tips, vendor recommendations, and everything you need to know in our comprehensive guide.
+            </p>
+            <Link
+              href="/blog/galveston-wedding-guide-2026"
+              className="inline-block text-sm font-medium text-accent-brick hover:text-accent-brick/80 transition underline"
+            >
+              Read Galveston Wedding Guide 2026 →
+            </Link>
+          </div>
         </div>
       </Container>
     </section>

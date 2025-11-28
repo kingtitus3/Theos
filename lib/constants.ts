@@ -149,6 +149,16 @@ export const GALLERY_ITEMS: {
     alt: "Elegant red carpet entrance at Theos with golden gates, floral archway, and welcome sign.",
     category: "Events",
   },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/50thbday.png",
+    alt: "50th birthday celebration at Theos with black and gold theme, illuminated '50' numbers, balloon garland, and elegant table settings in the historic brick venue.",
+    category: "Events",
+  },
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/winter%20wedding.png",
+    alt: "Winter wedding reception at Theos featuring dark teal tablecloths, gold accents, string lights overhead, lush floral centerpieces, and warm candlelit ambiance in the historic brick hall.",
+    category: "Events",
+  },
   // Main Hall Details
   {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-1.jpg",

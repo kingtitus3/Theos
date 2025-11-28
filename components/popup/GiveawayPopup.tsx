@@ -142,15 +142,13 @@ export function GiveawayPopup() {
               >
                 {isSubmitting ? "Submitting..." : "Get 5% Off + Enter Giveaway"}
               </Button>
-              <Button
+              <button
                 type="button"
-                variant="ghost"
-                size="lg"
                 onClick={handleClose}
-                className="flex-1 border border-charcoal/20"
+                className="flex-1 px-4 py-3 rounded-lg border border-charcoal/30 text-charcoal font-medium hover:bg-charcoal/5 hover:border-charcoal/50 transition-colors"
               >
                 Maybe Later
-              </Button>
+              </button>
             </div>
 
             <p className="text-xs text-charcoal/50 mt-4">

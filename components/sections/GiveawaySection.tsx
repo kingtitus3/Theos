@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
 import { trackEvent } from "@/components/analytics/GoogleAnalytics";
 import { SocialIcons } from "@/components/ui/SocialIcons";
+import Link from "next/link";
 
 const giveawaySchema = z.object({
   firstName: z.string().min(1, "First name is required"),

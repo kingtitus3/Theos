@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { FAQS } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
@@ -33,6 +34,17 @@ export const FAQSection = () => {
               </div>
             );
           })}
+        </div>
+        <div className="mt-8 rounded-2xl border border-charcoal/10 bg-white/80 p-6 text-center">
+          <p className="text-sm text-charcoal/70 mb-3">
+            Have more questions about planning your Galveston wedding? Our comprehensive guide covers venues, vendors, permits, and everything you need to know.
+          </p>
+          <Link
+            href="/blog/galveston-wedding-guide-2026"
+            className="inline-block text-sm font-medium text-accent-brick hover:text-accent-brick/80 transition underline"
+          >
+            Read Galveston Wedding Guide 2026 →
+          </Link>
         </div>
       </Container>
     </section>

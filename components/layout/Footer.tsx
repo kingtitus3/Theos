@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 import { SocialIcons } from "@/components/ui/SocialIcons";
 
@@ -24,9 +25,26 @@ export const Footer = () => (
           <p>{CONTACT_INFO.email}</p>
         </div>
       </div>
-      <div className="space-y-3 text-sm">
-        <p className="uppercase tracking-wide text-parchment/60">Connect</p>
-        <SocialIcons iconSize={22} className="text-parchment/70 [&_a:hover]:text-white" />
+      <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-3 text-sm">
+          <p className="uppercase tracking-wide text-parchment/60">Connect</p>
+          <SocialIcons iconSize={22} className="text-parchment/70 [&_a:hover]:text-white" />
+        </div>
+        <div className="space-y-3 text-sm">
+          <p className="uppercase tracking-wide text-parchment/60">Resources</p>
+          <Link
+            href="/blog/galveston-wedding-guide-2026"
+            className="block text-parchment/70 hover:text-white transition"
+          >
+            Galveston Wedding Guide 2026
+          </Link>
+          <Link
+            href="/blog"
+            className="block text-parchment/70 hover:text-white transition"
+          >
+            All Blog Posts
+          </Link>
+        </div>
       </div>
     </div>
     <div className="border-t border-white/10 py-4 sm:py-6 text-center text-xs text-parchment/50">

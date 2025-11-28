@@ -3,7 +3,9 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { PRICING_BREAKDOWN } from "@/lib/constants";
 import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import { ScrollToContactButton } from "@/components/layout/ScrollToContactButton";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Events at Theos – Galveston Event Venue",
@@ -68,6 +70,16 @@ export default function EventsPage() {
               ))}
             </div>
           </div>
+        </div>
+        <div className="mt-12 rounded-2xl border border-charcoal/10 bg-white/80 p-6">
+          <p className="text-sm text-charcoal/70 mb-3">
+            Planning a Galveston event? Our comprehensive wedding guide includes vendor recommendations, budgeting tips, and planning resources that apply to all types of events.
+          </p>
+          <Button variant="ghost" size="sm" className="border border-charcoal/20" asChild>
+            <Link href="/blog/galveston-wedding-guide-2026">
+              Read Event Planning Guide →
+            </Link>
+          </Button>
         </div>
       </Container>
     </section>

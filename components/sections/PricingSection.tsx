@@ -3,6 +3,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { ScrollToContactButton } from "@/components/layout/ScrollToContactButton";
 import { PRICING_BREAKDOWN } from "@/lib/constants";
+import Link from "next/link";
 
 export const PricingSection = () => {
   return (
@@ -73,7 +74,7 @@ export const PricingSection = () => {
           </div>
           <div className="flex flex-col items-start gap-3 rounded-2xl bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-charcoal/70">
-              Ready for exact pricing? Share your date, guest count, and Loft Suite needs and we’ll
+              Ready for exact pricing? Share your date, guest count, and Loft Suite needs and we'll
               respond quickly from the contact form below.
             </p>
             <ScrollToContactButton
@@ -81,6 +82,20 @@ export const PricingSection = () => {
               className="w-full sm:w-auto"
               variant="outline"
             />
+          </div>
+          <div className="rounded-2xl border border-accent-brick/20 bg-accent-brick/5 p-6">
+            <p className="text-sm font-medium text-charcoal mb-2">
+              💰 Need help budgeting your Galveston wedding?
+            </p>
+            <p className="text-sm text-charcoal/70 mb-3">
+              Our comprehensive wedding guide includes realistic budget breakdowns, vendor cost ranges, and money-saving tips for planning your perfect day.
+            </p>
+            <Link
+              href="/blog/galveston-wedding-guide-2026"
+              className="text-sm font-medium text-accent-brick hover:text-accent-brick/80 transition underline"
+            >
+              Read Wedding Budget Guide →
+            </Link>
           </div>
         </div>
       </Container>

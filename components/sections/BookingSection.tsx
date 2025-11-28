@@ -7,6 +7,7 @@ import { BookingForm } from "@/components/booking/BookingForm";
 import { ChatConcierge } from "@/components/booking/ChatConcierge";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 export const BookingSection = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
@@ -42,6 +43,18 @@ export const BookingSection = () => {
                 Start Chat
               </Button>
             </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-charcoal/10 bg-white/80 p-6 text-center">
+            <p className="text-sm text-charcoal/70 mb-3">
+              Planning your Galveston wedding? Get expert tips, vendor recommendations, and budgeting advice in our comprehensive guide.
+            </p>
+            <Link
+              href="/blog/galveston-wedding-guide-2026"
+              className="inline-block text-sm font-medium text-accent-brick hover:text-accent-brick/80 transition underline"
+            >
+              Read Galveston Wedding Guide 2026 →
+            </Link>
           </div>
         </Container>
       </section>

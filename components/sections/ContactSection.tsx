@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
 import { trackEvent } from "@/components/analytics/GoogleAnalytics";
+import Link from "next/link";
 
 const eventTypeOptions = [
   { label: "Wedding", value: "wedding" },
@@ -185,6 +186,20 @@ export const ContactSection = () => {
             <p>
               Tours are by appointment only. We&apos;ll coordinate a time that fits your planning schedule and invite your planner or key vendors to join.
             </p>
+            <div className="mt-6 rounded-lg border border-parchment/20 bg-parchment/5 p-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-accent-gold mb-2">
+                Planning Resources
+              </p>
+              <p className="text-sm text-parchment/80 mb-3">
+                New to planning a Galveston wedding? Check out our comprehensive guide with vendor recommendations, budgeting tips, and more.
+              </p>
+              <Link
+                href="/blog/galveston-wedding-guide-2026"
+                className="text-sm font-medium text-accent-gold hover:text-accent-gold/80 transition underline"
+              >
+                Read Galveston Wedding Guide 2026 →
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

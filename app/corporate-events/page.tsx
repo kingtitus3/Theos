@@ -3,7 +3,9 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { PRICING_BREAKDOWN } from "@/lib/constants";
 import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import { ScrollToContactButton } from "@/components/layout/ScrollToContactButton";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Corporate Events at Theos – Galveston Corporate Event Venue",
@@ -71,6 +73,16 @@ export default function CorporateEventsPage() {
               ))}
             </div>
           </div>
+        </div>
+        <div className="mt-12 rounded-2xl border border-charcoal/10 bg-white/80 p-6">
+          <p className="text-sm text-charcoal/70 mb-3">
+            Planning a corporate event in Galveston? Our guide includes vendor recommendations, venue insights, and planning tips that can help with any event type.
+          </p>
+          <Button variant="ghost" size="sm" className="border border-charcoal/20" asChild>
+            <Link href="/blog/galveston-wedding-guide-2026">
+              Read Event Planning Guide →
+            </Link>
+          </Button>
         </div>
       </Container>
     </section>

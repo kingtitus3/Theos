@@ -1,6 +1,7 @@
 import { ABOUT_CONTENT } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
+import Link from "next/link";
 
 export const AboutSection = () => (
   <section id="about" className="bg-sand py-12 sm:py-16 lg:py-24 relative z-0">
@@ -41,6 +42,20 @@ export const AboutSection = () => (
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="mt-8 rounded-2xl bg-accent-brick/5 p-6 border border-accent-brick/20">
+            <h3 className="text-sm uppercase tracking-[0.3em] text-accent-brick mb-2">
+              Planning Resources
+            </h3>
+            <p className="text-sm text-charcoal/70 mb-3">
+              New to planning a Galveston wedding? Check out our comprehensive guide covering venues, vendors, permits, and more.
+            </p>
+            <Link
+              href="/blog/galveston-wedding-guide-2026"
+              className="text-sm font-medium text-accent-brick hover:text-accent-brick/80 transition underline"
+            >
+              Read Galveston Wedding Guide 2026 →
+            </Link>
           </div>
         </div>
       </div>

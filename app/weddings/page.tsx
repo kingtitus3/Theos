@@ -2,7 +2,9 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { SPACES, PRICING_BREAKDOWN } from "@/lib/constants";
 import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import { ScrollToContactButton } from "@/components/layout/ScrollToContactButton";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -39,8 +41,19 @@ export default function WeddingsPage() {
               <li>• Optional Loft Suite upstairs for getting-ready or overnight stay</li>
               <li>• Steps from the Strand, hotels, bars, and late-night food</li>
             </ul>
-            <ScrollToContactButton label="Book a Wedding Tour" className="mt-2" />
-          </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <ScrollToContactButton label="Book a Wedding Tour" className="mt-2" />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="border border-charcoal/20"
+                asChild
+              >
+                <Link href="/blog/galveston-wedding-guide-2026">
+                  Read Our Wedding Guide →
+                </Link>
+              </Button>
+            </div>
 
           <div className="space-y-6">
             {mainHall && (

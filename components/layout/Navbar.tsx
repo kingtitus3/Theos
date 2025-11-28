@@ -17,6 +17,7 @@ const NAV_LINKS = [
   { href: "#accommodations", label: "Stay" },
   { href: "#floorplan", label: "Floorplan" },
   { href: "#faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -32,7 +33,10 @@ export const Navbar = () => {
   }, []);
 
   const handleNavClick = (href: string) => {
-    if (isHomePage) {
+    // Handle route links (like /blog) differently from anchor links
+    if (href.startsWith("/")) {
+      window.location.href = href;
+    } else if (isHomePage) {
       scrollToTarget(href);
     } else {
       // Navigate to homepage with anchor
@@ -59,15 +63,29 @@ export const Navbar = () => {
           />
         </Link>
         <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <button
-              key={link.href}
-              className="text-xs font-semibold text-parchment/80 transition hover:text-white"
-              onClick={() => handleNavClick(link.href)}
-            >
-              {link.label}
-            </button>
-          ))}
+          {NAV_LINKS.map((link) => {
+            // Use Link component for routes, button for anchors
+            if (link.href.startsWith("/")) {
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs font-semibold text-parchment/80 transition hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              );
+            }
+            return (
+              <button
+                key={link.href}
+                className="text-xs font-semibold text-parchment/80 transition hover:text-white"
+                onClick={() => handleNavClick(link.href)}
+              >
+                {link.label}
+              </button>
+            );
+          })}
         </div>
         <Button
           variant="secondary"

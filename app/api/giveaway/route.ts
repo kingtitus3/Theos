@@ -62,6 +62,7 @@ export async function POST(request: Request) {
     } catch (error: any) {
       console.error("❌ Failed to add entry to Google Sheets (non-critical):", error);
       console.error("Error details:", error.response?.data || error.message);
+      // The appendGiveawayEntry function already logs detailed errors, so we don't need to throw
     }
 
     // Send confirmation email to entrant

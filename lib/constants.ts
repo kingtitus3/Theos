@@ -155,6 +155,12 @@ export const GALLERY_ITEMS: {
     category: "Events",
   },
   // NOTE: wedding-1.jpg is banned from use - do not add it to the gallery
+  // Winter wedding image - update filename when image is added
+  {
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/winter%20wedding.png",
+    alt: "Winter wedding reception at Theos featuring dark teal tablecloths, gold accents, string lights overhead, lush floral centerpieces, and warm candlelit ambiance in the historic brick hall.",
+    category: "Events",
+  },
   // Main Hall Details
   {
     src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-1.jpg",

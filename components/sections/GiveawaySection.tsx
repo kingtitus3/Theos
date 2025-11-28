@@ -315,6 +315,15 @@ export const GiveawaySection = () => {
               >
                 TikTok
               </a>
+              <span className="text-charcoal/30">•</span>
+              <a
+                href="https://pin.it/fGVe2g3w8"
+                target="_blank"
+                rel="noreferrer"
+                className="text-accent-brick hover:text-accent-brick/80 transition"
+              >
+                Pinterest
+              </a>
             </div>
           </div>
         </div>

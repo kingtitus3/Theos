@@ -64,14 +64,16 @@ export async function appendNewsletterEmail(entry: NewsletterEntry): Promise<voi
   const client = getSheetsClient();
   
   if (!client) {
-    console.warn("Google Sheets not configured. Newsletter email will only be sent via email.");
+    console.error("❌ Google Sheets not configured. GOOGLE_SHEETS_ID is missing.");
     return;
   }
+
+  console.log(`📊 Attempting to add newsletter entry to Google Sheets: ${entry.email}`);
 
   try {
     // Try Newsletter tab first, fall back to Sheet2 if it doesn't exist
     try {
-      await client.sheets.spreadsheets.values.append({
+      const result = await client.sheets.spreadsheets.values.append({
         spreadsheetId: client.spreadsheetId,
         range: "Newsletter!A:C",
         valueInputOption: "USER_ENTERED",
@@ -83,26 +85,48 @@ export async function appendNewsletterEmail(entry: NewsletterEntry): Promise<voi
           ]],
         },
       });
-      console.log("Newsletter email added to Google Sheets (Newsletter tab)");
-    } catch (newsletterError) {
+      console.log("✅ Newsletter email added to Google Sheets (Newsletter tab)");
+      console.log("   Updated range:", result.data.updates?.updatedRange);
+      return;
+    } catch (newsletterError: any) {
+      console.warn("⚠️ Newsletter tab failed, trying Sheet2:", newsletterError.message);
+      if (newsletterError.response?.data) {
+        console.error("   Error details:", JSON.stringify(newsletterError.response.data, null, 2));
+      }
+      
       // Fall back to Sheet2 if Newsletter tab doesn't exist
-      await client.sheets.spreadsheets.values.append({
-        spreadsheetId: client.spreadsheetId,
-        range: "Sheet2!A:C",
-        valueInputOption: "USER_ENTERED",
-        requestBody: {
-          values: [[
-            entry.email,
-            entry.discountCode,
-            entry.timestamp,
-          ]],
-        },
-      });
-      console.log("Newsletter email added to Google Sheets (Sheet2)");
+      try {
+        const result = await client.sheets.spreadsheets.values.append({
+          spreadsheetId: client.spreadsheetId,
+          range: "Sheet2!A:C",
+          valueInputOption: "USER_ENTERED",
+          requestBody: {
+            values: [[
+              entry.email,
+              entry.discountCode,
+              entry.timestamp,
+            ]],
+          },
+        });
+        console.log("✅ Newsletter email added to Google Sheets (Sheet2)");
+        console.log("   Updated range:", result.data.updates?.updatedRange);
+        return;
+      } catch (sheet2Error: any) {
+        console.error("❌ Sheet2 also failed:", sheet2Error.message);
+        if (sheet2Error.response?.data) {
+          console.error("   Error details:", JSON.stringify(sheet2Error.response.data, null, 2));
+        }
+        throw sheet2Error;
+      }
     }
   } catch (error: any) {
-    console.error("Error adding newsletter email to Google Sheets:", error);
-    console.error("Error details:", error.response?.data || error.message);
+    console.error("❌ Error adding newsletter email to Google Sheets:", error.message);
+    if (error.response?.data) {
+      console.error("   Full error response:", JSON.stringify(error.response.data, null, 2));
+    }
+    if (error.code) {
+      console.error("   Error code:", error.code);
+    }
     // Don't throw - we still want emails to send even if Sheets fails
   }
 }
@@ -111,15 +135,17 @@ export async function appendGiveawayEntry(entry: GiveawayEntry): Promise<void> {
   const client = getSheetsClient();
   
   if (!client) {
-    console.warn("Google Sheets not configured. Entry will only be sent via email.");
+    console.error("❌ Google Sheets not configured. GOOGLE_SHEETS_ID is missing.");
     return;
   }
+
+  console.log(`📊 Attempting to add giveaway entry to Google Sheets: ${entry.email}`);
 
   try {
     // Append row to the sheet
     // Try "Entries" tab first (the one we created), fall back to Sheet1
     try {
-      await client.sheets.spreadsheets.values.append({
+      const result = await client.sheets.spreadsheets.values.append({
         spreadsheetId: client.spreadsheetId,
         range: "Entries!A:I",
         valueInputOption: "USER_ENTERED",
@@ -138,32 +164,53 @@ export async function appendGiveawayEntry(entry: GiveawayEntry): Promise<void> {
         },
       });
       console.log("✅ Giveaway entry added to Google Sheets (Entries tab)");
-    } catch (entriesError) {
-      console.warn("Entries tab failed, trying Sheet1:", entriesError);
+      console.log("   Updated range:", result.data.updates?.updatedRange);
+      return;
+    } catch (entriesError: any) {
+      console.warn("⚠️ Entries tab failed, trying Sheet1:", entriesError.message);
+      if (entriesError.response?.data) {
+        console.error("   Error details:", JSON.stringify(entriesError.response.data, null, 2));
+      }
+      
       // Fall back to Sheet1 if Entries tab doesn't exist
-      await client.sheets.spreadsheets.values.append({
-        spreadsheetId: client.spreadsheetId,
-        range: "Sheet1!A:I",
-        valueInputOption: "USER_ENTERED",
-        requestBody: {
-          values: [[
-            `${entry.firstName} ${entry.lastName}`,
-            entry.email,
-            entry.phone,
-            entry.partnerName || "",
-            entry.preferredDate || "",
-            entry.instagramHandle || "",
-            entry.tiktokHandle || "",
-            entry.howDidYouHear || "",
-            entry.timestamp,
-          ]],
-        },
-      });
-      console.log("✅ Giveaway entry added to Google Sheets (Sheet1)");
+      try {
+        const result = await client.sheets.spreadsheets.values.append({
+          spreadsheetId: client.spreadsheetId,
+          range: "Sheet1!A:I",
+          valueInputOption: "USER_ENTERED",
+          requestBody: {
+            values: [[
+              `${entry.firstName} ${entry.lastName}`,
+              entry.email,
+              entry.phone,
+              entry.partnerName || "",
+              entry.preferredDate || "",
+              entry.instagramHandle || "",
+              entry.tiktokHandle || "",
+              entry.howDidYouHear || "",
+              entry.timestamp,
+            ]],
+          },
+        });
+        console.log("✅ Giveaway entry added to Google Sheets (Sheet1)");
+        console.log("   Updated range:", result.data.updates?.updatedRange);
+        return;
+      } catch (sheet1Error: any) {
+        console.error("❌ Sheet1 also failed:", sheet1Error.message);
+        if (sheet1Error.response?.data) {
+          console.error("   Error details:", JSON.stringify(sheet1Error.response.data, null, 2));
+        }
+        throw sheet1Error;
+      }
     }
   } catch (error: any) {
-    console.error("❌ Error adding entry to Google Sheets:", error);
-    console.error("Error details:", error.response?.data || error.message);
+    console.error("❌ Error adding entry to Google Sheets:", error.message);
+    if (error.response?.data) {
+      console.error("   Full error response:", JSON.stringify(error.response.data, null, 2));
+    }
+    if (error.code) {
+      console.error("   Error code:", error.code);
+    }
     // Don't throw - we still want emails to send even if Sheets fails
   }
 }

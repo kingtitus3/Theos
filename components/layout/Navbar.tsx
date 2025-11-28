@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn, scrollToTarget } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
@@ -21,12 +22,23 @@ const NAV_LINKS = [
 
 export const Navbar = () => {
   const [solid, setSolid] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (href: string) => {
+    if (isHomePage) {
+      scrollToTarget(href);
+    } else {
+      // Navigate to homepage with anchor
+      window.location.href = `/${href}`;
+    }
+  };
 
   return (
     <header
@@ -36,7 +48,7 @@ export const Navbar = () => {
       )}
     >
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 text-sm uppercase tracking-wide text-parchment">
-        <Link href="#hero" onClick={() => scrollToTarget("#hero")} className="relative h-8 w-28 sm:h-10 sm:w-32">
+        <Link href="/" className="relative h-8 w-28 sm:h-10 sm:w-32">
           <Image
             src="https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/logo.png"
             alt="Theos Event Space"
@@ -51,7 +63,7 @@ export const Navbar = () => {
             <button
               key={link.href}
               className="text-xs font-semibold text-parchment/80 transition hover:text-white"
-              onClick={() => scrollToTarget(link.href)}
+              onClick={() => handleNavClick(link.href)}
             >
               {link.label}
             </button>
@@ -61,7 +73,7 @@ export const Navbar = () => {
           variant="secondary"
           size="sm"
           className="hidden lg:inline-flex"
-          onClick={() => scrollToTarget("#contact")}
+          onClick={() => handleNavClick("#contact")}
         >
           Book a Tour
         </Button>
@@ -69,7 +81,7 @@ export const Navbar = () => {
           variant="secondary"
           size="sm"
           className="lg:hidden"
-          onClick={() => scrollToTarget("#contact")}
+          onClick={() => handleNavClick("#contact")}
         >
           Tour
         </Button>

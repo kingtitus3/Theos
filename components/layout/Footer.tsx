@@ -6,6 +6,7 @@ const SOCIAL_LINKS = [
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61584310322904" },
   { label: "TikTok", href: "https://www.tiktok.com/@theosgalveston" },
   { label: "Pinterest", href: "https://pin.it/fGVe2g3w8" },
+  { label: "X", href: "https://x.com/theosgalveston" },
 ];
 
 export const Footer = () => (

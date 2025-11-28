@@ -324,6 +324,15 @@ export const GiveawaySection = () => {
               >
                 Pinterest
               </a>
+              <span className="text-charcoal/30">•</span>
+              <a
+                href="https://x.com/theosgalveston"
+                target="_blank"
+                rel="noreferrer"
+                className="text-accent-brick hover:text-accent-brick/80 transition"
+              >
+                X
+              </a>
             </div>
           </div>
         </div>

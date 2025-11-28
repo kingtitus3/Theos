@@ -1,22 +1,39 @@
 import { google } from "googleapis";
 
 // Get Google Sheets client using the same auth method as Google Calendar
-// Uses Application Default Credentials (gcloud auth application-default login)
+// Uses OAuth2 with refresh token (for Vercel) or Application Default Credentials (for local)
 function getSheetsClient() {
   const spreadsheetId = process.env.GOOGLE_SHEETS_ID?.trim();
+  const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim();
+  const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim();
+  const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN?.trim();
   
   if (!spreadsheetId) {
     return null;
   }
 
-  // Use Application Default Credentials (same as Google Calendar)
-  // This works with: gcloud auth application-default login
-  const auth = new google.auth.GoogleAuth({
-    scopes: [
-      "https://www.googleapis.com/auth/spreadsheets",
-      "https://www.googleapis.com/auth/calendar", // Include calendar scope
-    ],
-  });
+  // Try OAuth2 with refresh token first (works on Vercel)
+  let auth: any = null;
+  
+  if (oauthClientId && oauthClientSecret && oauthRefreshToken) {
+    try {
+      const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
+      oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
+      auth = oauth2Client;
+    } catch (error) {
+      console.warn("OAuth2 setup failed for Sheets, falling back to Application Default Credentials:", error);
+    }
+  }
+
+  // Fall back to Application Default Credentials (works with gcloud auth application-default login)
+  if (!auth) {
+    auth = new google.auth.GoogleAuth({
+      scopes: [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/calendar",
+      ],
+    });
+  }
 
   return {
     sheets: google.sheets({ version: "v4", auth }),
@@ -83,8 +100,9 @@ export async function appendNewsletterEmail(entry: NewsletterEntry): Promise<voi
       });
       console.log("Newsletter email added to Google Sheets (Sheet2)");
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error adding newsletter email to Google Sheets:", error);
+    console.error("Error details:", error.response?.data || error.message);
     // Don't throw - we still want emails to send even if Sheets fails
   }
 }
@@ -143,8 +161,9 @@ export async function appendGiveawayEntry(entry: GiveawayEntry): Promise<void> {
       });
       console.log("✅ Giveaway entry added to Google Sheets (Sheet1)");
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error("❌ Error adding entry to Google Sheets:", error);
+    console.error("Error details:", error.response?.data || error.message);
     // Don't throw - we still want emails to send even if Sheets fails
   }
 }

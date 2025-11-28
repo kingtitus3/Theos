@@ -43,8 +43,10 @@ export async function POST(request: Request) {
         discountCode: discountCode,
         timestamp: new Date().toISOString(),
       });
-    } catch (error) {
-      console.error("Failed to add email to Google Sheets (non-critical):", error);
+      console.log(`✅ Newsletter entry added to Google Sheets for ${parsed.email}`);
+    } catch (error: any) {
+      console.error("❌ Failed to add email to Google Sheets (non-critical):", error);
+      console.error("Error details:", error.response?.data || error.message);
     }
 
     // Send discount code email

@@ -58,8 +58,10 @@ export async function POST(request: Request) {
         howDidYouHear: parsed.howDidYouHear,
         timestamp: new Date().toISOString(),
       });
-    } catch (error) {
-      console.error("Failed to add entry to Google Sheets (non-critical):", error);
+      console.log(`✅ Giveaway entry added to Google Sheets for ${parsed.firstName} ${parsed.lastName}`);
+    } catch (error: any) {
+      console.error("❌ Failed to add entry to Google Sheets (non-critical):", error);
+      console.error("Error details:", error.response?.data || error.message);
     }
 
     // Send confirmation email to entrant

@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
 import { trackEvent } from "@/components/analytics/GoogleAnalytics";
+import { SocialIcons } from "@/components/ui/SocialIcons";
 
 const giveawaySchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -288,51 +289,8 @@ export const GiveawaySection = () => {
             <p className="text-sm text-charcoal/70 mb-4">
               Follow us on social media for updates and winner announcement:
             </p>
-            <div className="flex justify-center gap-4">
-              <a
-                href="https://www.instagram.com/theosgalveston/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-accent-brick hover:text-accent-brick/80 transition"
-              >
-                Instagram
-              </a>
-              <span className="text-charcoal/30">•</span>
-              <a
-                href="https://www.facebook.com/profile.php?id=61584310322904"
-                target="_blank"
-                rel="noreferrer"
-                className="text-accent-brick hover:text-accent-brick/80 transition"
-              >
-                Facebook
-              </a>
-              <span className="text-charcoal/30">•</span>
-              <a
-                href="https://www.tiktok.com/@theosgalveston"
-                target="_blank"
-                rel="noreferrer"
-                className="text-accent-brick hover:text-accent-brick/80 transition"
-              >
-                TikTok
-              </a>
-              <span className="text-charcoal/30">•</span>
-              <a
-                href="https://pin.it/fGVe2g3w8"
-                target="_blank"
-                rel="noreferrer"
-                className="text-accent-brick hover:text-accent-brick/80 transition"
-              >
-                Pinterest
-              </a>
-              <span className="text-charcoal/30">•</span>
-              <a
-                href="https://x.com/theosgalveston"
-                target="_blank"
-                rel="noreferrer"
-                className="text-accent-brick hover:text-accent-brick/80 transition"
-              >
-                X
-              </a>
+            <div className="flex justify-center">
+              <SocialIcons iconSize={24} className="text-accent-brick [&_a:hover]:text-accent-brick/80" />
             </div>
           </div>
         </div>

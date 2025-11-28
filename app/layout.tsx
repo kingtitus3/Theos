@@ -84,6 +84,7 @@ const jsonLd = {
     "https://www.tiktok.com/@theosgalveston",
     "https://pin.it/fGVe2g3w8",
     "https://x.com/theosgalveston",
+    "https://www.threads.net/@theosgalveston",
   ],
   amenityFeature: [
     {

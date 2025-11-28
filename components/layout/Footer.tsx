@@ -1,13 +1,6 @@
 import Image from "next/image";
 import { CONTACT_INFO } from "@/lib/constants";
-
-const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://www.instagram.com/theosgalveston/" },
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61584310322904" },
-  { label: "TikTok", href: "https://www.tiktok.com/@theosgalveston" },
-  { label: "Pinterest", href: "https://pin.it/fGVe2g3w8" },
-  { label: "X", href: "https://x.com/theosgalveston" },
-];
+import { SocialIcons } from "@/components/ui/SocialIcons";
 
 export const Footer = () => (
   <footer className="bg-charcoal text-parchment">
@@ -33,13 +26,7 @@ export const Footer = () => (
       </div>
       <div className="space-y-3 text-sm">
         <p className="uppercase tracking-wide text-parchment/60">Connect</p>
-        <div className="flex flex-wrap gap-3">
-          {SOCIAL_LINKS.map((link) => (
-            <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="text-parchment/70 transition hover:text-white">
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <SocialIcons iconSize={22} className="text-parchment/70 [&_a:hover]:text-white" />
       </div>
     </div>
     <div className="border-t border-white/10 py-4 sm:py-6 text-center text-xs text-parchment/50">

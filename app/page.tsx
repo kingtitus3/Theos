@@ -11,10 +11,12 @@ import { FloorplanSection } from "@/components/sections/FloorplanSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { FloatingChatButton } from "@/components/booking/FloatingChatButton";
+import { GiveawayPopup } from "@/components/popup/GiveawayPopup";
 
 export default function HomePage() {
   return (
     <>
+      <GiveawayPopup />
       <Hero />
       <AboutSection />
       <SpacesSection />

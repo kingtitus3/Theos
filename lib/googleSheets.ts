@@ -37,6 +37,58 @@ export interface GiveawayEntry {
   timestamp: string;
 }
 
+export interface NewsletterEntry {
+  email: string;
+  discountCode: string;
+  timestamp: string;
+}
+
+export async function appendNewsletterEmail(entry: NewsletterEntry): Promise<void> {
+  const client = getSheetsClient();
+  
+  if (!client) {
+    console.warn("Google Sheets not configured. Newsletter email will only be sent via email.");
+    return;
+  }
+
+  try {
+    // Try Newsletter tab first, fall back to Sheet2 if it doesn't exist
+    try {
+      await client.sheets.spreadsheets.values.append({
+        spreadsheetId: client.spreadsheetId,
+        range: "Newsletter!A:C",
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: [[
+            entry.email,
+            entry.discountCode,
+            entry.timestamp,
+          ]],
+        },
+      });
+      console.log("Newsletter email added to Google Sheets (Newsletter tab)");
+    } catch (newsletterError) {
+      // Fall back to Sheet2 if Newsletter tab doesn't exist
+      await client.sheets.spreadsheets.values.append({
+        spreadsheetId: client.spreadsheetId,
+        range: "Sheet2!A:C",
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: [[
+            entry.email,
+            entry.discountCode,
+            entry.timestamp,
+          ]],
+        },
+      });
+      console.log("Newsletter email added to Google Sheets (Sheet2)");
+    }
+  } catch (error) {
+    console.error("Error adding newsletter email to Google Sheets:", error);
+    // Don't throw - we still want emails to send even if Sheets fails
+  }
+}
+
 export async function appendGiveawayEntry(entry: GiveawayEntry): Promise<void> {
   const client = getSheetsClient();
   

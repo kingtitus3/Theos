@@ -99,29 +99,52 @@ export async function appendGiveawayEntry(entry: GiveawayEntry): Promise<void> {
 
   try {
     // Append row to the sheet
-    // Assumes the sheet has headers in row 1: Name, Email, Phone, Partner, Date, Instagram, TikTok, How They Heard, Timestamp
-    await client.sheets.spreadsheets.values.append({
-      spreadsheetId: client.spreadsheetId,
-      range: "Sheet1!A:I", // Adjust range based on your sheet structure
-      valueInputOption: "USER_ENTERED",
-      requestBody: {
-        values: [[
-          `${entry.firstName} ${entry.lastName}`,
-          entry.email,
-          entry.phone,
-          entry.partnerName || "",
-          entry.preferredDate || "",
-          entry.instagramHandle || "",
-          entry.tiktokHandle || "",
-          entry.howDidYouHear || "",
-          entry.timestamp,
-        ]],
-      },
-    });
-
-    console.log("Giveaway entry added to Google Sheets");
+    // Try "Entries" tab first (the one we created), fall back to Sheet1
+    try {
+      await client.sheets.spreadsheets.values.append({
+        spreadsheetId: client.spreadsheetId,
+        range: "Entries!A:I",
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: [[
+            `${entry.firstName} ${entry.lastName}`,
+            entry.email,
+            entry.phone,
+            entry.partnerName || "",
+            entry.preferredDate || "",
+            entry.instagramHandle || "",
+            entry.tiktokHandle || "",
+            entry.howDidYouHear || "",
+            entry.timestamp,
+          ]],
+        },
+      });
+      console.log("✅ Giveaway entry added to Google Sheets (Entries tab)");
+    } catch (entriesError) {
+      console.warn("Entries tab failed, trying Sheet1:", entriesError);
+      // Fall back to Sheet1 if Entries tab doesn't exist
+      await client.sheets.spreadsheets.values.append({
+        spreadsheetId: client.spreadsheetId,
+        range: "Sheet1!A:I",
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: [[
+            `${entry.firstName} ${entry.lastName}`,
+            entry.email,
+            entry.phone,
+            entry.partnerName || "",
+            entry.preferredDate || "",
+            entry.instagramHandle || "",
+            entry.tiktokHandle || "",
+            entry.howDidYouHear || "",
+            entry.timestamp,
+          ]],
+        },
+      });
+      console.log("✅ Giveaway entry added to Google Sheets (Sheet1)");
+    }
   } catch (error) {
-    console.error("Error adding entry to Google Sheets:", error);
+    console.error("❌ Error adding entry to Google Sheets:", error);
     // Don't throw - we still want emails to send even if Sheets fails
   }
 }

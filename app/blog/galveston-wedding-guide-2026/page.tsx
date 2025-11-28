@@ -49,13 +49,13 @@ export default function GalvestonWeddingGuide2026Page() {
             </header>
 
             {/* Content */}
-            <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-charcoal prose-p:text-charcoal/80 prose-a:text-accent-brick prose-a:no-underline hover:prose-a:underline prose-strong:text-charcoal prose-ul:text-charcoal/80 prose-li:marker:text-accent-brick">
-              <p className="lead">
+            <div className="space-y-8 text-charcoal/80">
+              <p className="text-lg leading-relaxed">
                 Galveston is one of Texas&apos; most charming coastal destinations — full of history,
                 architecture, beaches, and unforgettable venues that feel worlds away from the city.
               </p>
-              <p>
-                This <strong>Galveston Wedding Guide 2026</strong> breaks down everything you need to
+              <p className="leading-relaxed">
+                This <strong className="text-charcoal">Galveston Wedding Guide 2026</strong> breaks down everything you need to
                 know: venues, vendors, lodging, permits, photoshoot spots, budgeting tips, and why so
                 many couples choose this island for their big day.
               </p>
@@ -63,60 +63,60 @@ export default function GalvestonWeddingGuide2026Page() {
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 ⭐ Why Galveston Is the Perfect Wedding Destination in 2026
               </h2>
-              <p>Galveston offers a blend you can&apos;t find anywhere else:</p>
+              <p className="leading-relaxed">Galveston offers a blend you can&apos;t find anywhere else:</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">✔ Historic architecture</h3>
-              <p>Exposed brick, ironwork, Victorian-era charm, and industrial textures.</p>
+              <p className="leading-relaxed">Exposed brick, ironwork, Victorian-era charm, and industrial textures.</p>
 
               <h3 className="mt-6 mb-4 font-serif text-2xl text-charcoal">✔ Coastal beauty</h3>
-              <p>Sunsets, beaches, palms, and warm breezes year-round.</p>
+              <p className="leading-relaxed">Sunsets, beaches, palms, and warm breezes year-round.</p>
 
               <h3 className="mt-6 mb-4 font-serif text-2xl text-charcoal">✔ Affordable compared to Houston</h3>
-              <p>Lower venue + vendor costs while still delivering luxury vibes.</p>
+              <p className="leading-relaxed">Lower venue + vendor costs while still delivering luxury vibes.</p>
 
               <h3 className="mt-6 mb-4 font-serif text-2xl text-charcoal">✔ Endless photo opportunities</h3>
-              <p>From The Strand to the pier, from warehouses to historic mansions.</p>
+              <p className="leading-relaxed">From The Strand to the pier, from warehouses to historic mansions.</p>
 
               <h3 className="mt-6 mb-4 font-serif text-2xl text-charcoal">✔ Destination vibes without leaving Texas</h3>
-              <p>Perfect for couples wanting a getaway feel without flights or travel drama.</p>
+              <p className="leading-relaxed">Perfect for couples wanting a getaway feel without flights or travel drama.</p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🏛 Top Wedding Venues in Galveston (2026 Update)
               </h2>
-              <p>Here are the top venue categories brides look for — and where THEOS fits in.</p>
+              <p className="leading-relaxed">Here are the top venue categories brides look for — and where THEOS fits in.</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">
                 1. Historic Indoor Venues (Most popular for 2026)
               </h3>
-              <p>These offer character, photo-ready backdrops, and weather flexibility.</p>
-              <ul>
+              <p className="leading-relaxed">These offer character, photo-ready backdrops, and weather flexibility.</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>
-                  <strong>THEOS Galveston</strong> — exposed brick, industrial charm, indoor/outdoor flow,
+                  <strong className="text-charcoal">THEOS Galveston</strong> — exposed brick, industrial charm, indoor/outdoor flow,
                   Loft Suite, lodging next door
                 </li>
                 <li>Ashton Villa</li>
                 <li>The Bryan Museum</li>
                 <li>The Tremont House</li>
               </ul>
-              <p>
-                <strong>Why couples choose THEOS:</strong> The 80×40 brick hall allows complete
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Why couples choose THEOS:</strong> The 80×40 brick hall allows complete
                 customization, from elegant weddings to modern industrial themes.
               </p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">2. Outdoor & Beachfront Venues</h3>
-              <p>Perfect for sunset ceremonies, seaside receptions, and laid-back vibes.</p>
-              <ul>
+              <p className="leading-relaxed">Perfect for sunset ceremonies, seaside receptions, and laid-back vibes.</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Galveston Beach</li>
                 <li>Beachtown</li>
                 <li>Garten Verein</li>
               </ul>
-              <p>
+              <p className="leading-relaxed">
                 <em>Tip:</em> Always plan a weather backup — Galveston humidity and wind can surprise you.
               </p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">3. Warehouse & Industrial Venues</h3>
-              <p>These are trending heavily for 2026.</p>
-              <ul>
+              <p className="leading-relaxed">These are trending heavily for 2026.</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Downtown Galveston lofts</li>
                 <li>Repurposed warehouses</li>
                 <li>THEOS (industrial brick look with open-air structure)</li>
@@ -125,10 +125,10 @@ export default function GalvestonWeddingGuide2026Page() {
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 📅 Choosing Your Wedding Season in Galveston
               </h2>
-              <p>Every season has pros and cons.</p>
+              <p className="leading-relaxed">Every season has pros and cons.</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">Spring (March–May)</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>✔ Best weather</li>
                 <li>✔ Most popular</li>
                 <li>✔ Ideal for outdoor photos</li>
@@ -136,7 +136,7 @@ export default function GalvestonWeddingGuide2026Page() {
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">Summer (June–August)</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>✔ Longer daylight</li>
                 <li>✔ Beach-friendly</li>
                 <li>✘ Hot + humid</li>
@@ -144,77 +144,77 @@ export default function GalvestonWeddingGuide2026Page() {
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">Fall (September–November)</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>✔ Gorgeous sunsets</li>
                 <li>✔ Cooler temps</li>
                 <li>✔ Lower competition than spring</li>
-                <li>⭐ <strong>Most recommended</strong></li>
+                <li>⭐ <strong className="text-charcoal">Most recommended</strong></li>
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">Winter (December–February)</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>✔ Most affordable</li>
                 <li>✔ Unique moody vibe</li>
                 <li>✔ Great for industrial or brick venues</li>
                 <li>✘ Occasional cold fronts</li>
               </ul>
-              <p>
-                <strong>Winter weddings at THEOS</strong> are some of the most aesthetic — deep tones,
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Winter weddings at THEOS</strong> are some of the most aesthetic — deep tones,
                 candles, industrial ambiance, and a cozy open-air feel.
               </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 📸 Best Photo Spots in Galveston (Perfect for 2026 Brides)
               </h2>
-              <p>Your photographer will love these locations:</p>
-              <ul>
+              <p className="leading-relaxed">Your photographer will love these locations:</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>
-                  <strong>✔ The Strand Historic District</strong> — Brick, ironwork, and vintage signs.
+                  <strong className="text-charcoal">✔ The Strand Historic District</strong> — Brick, ironwork, and vintage signs.
                 </li>
                 <li>
-                  <strong>✔ THEOS Venue Walls & Archways</strong> — Industrial white-washed texture with
+                  <strong className="text-charcoal">✔ THEOS Venue Walls & Archways</strong> — Industrial white-washed texture with
                   open skyline.
                 </li>
                 <li>
-                  <strong>✔ 25th Street / Downtown Corridors</strong> — Storefronts, murals, architectural
+                  <strong className="text-charcoal">✔ 25th Street / Downtown Corridors</strong> — Storefronts, murals, architectural
                   charm.
                 </li>
                 <li>
-                  <strong>✔ Seawall Boulevard</strong> — Beach, palms, golden sunset.
+                  <strong className="text-charcoal">✔ Seawall Boulevard</strong> — Beach, palms, golden sunset.
                 </li>
                 <li>
-                  <strong>✔ Moody Gardens Grounds</strong> — Tropical greenery.
+                  <strong className="text-charcoal">✔ Moody Gardens Grounds</strong> — Tropical greenery.
                 </li>
                 <li>
-                  <strong>✔ Historic Mansions</strong> — Bishop&apos;s Palace, Ashton Villa, Moody Mansion.
+                  <strong className="text-charcoal">✔ Historic Mansions</strong> — Bishop&apos;s Palace, Ashton Villa, Moody Mansion.
                 </li>
               </ul>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 📝 Marriage License Requirements for Galveston (2026)
               </h2>
-              <p>Quick guide:</p>
-              <ul>
-                <li>Obtained at <strong>Galveston County Clerk</strong></li>
-                <li>Valid for <strong>90 days</strong></li>
+              <p className="leading-relaxed">Quick guide:</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
+                <li>Obtained at <strong className="text-charcoal">Galveston County Clerk</strong></li>
+                <li>Valid for <strong className="text-charcoal">90 days</strong></li>
                 <li>
-                  <strong>72-hour waiting period</strong> (unless waived)
+                  <strong className="text-charcoal">72-hour waiting period</strong> (unless waived)
                 </li>
                 <li>Both partners must be present</li>
                 <li>Bring valid ID</li>
-                <li>Approx cost: <strong>$82</strong></li>
+                <li>Approx cost: <strong className="text-charcoal">$82</strong></li>
               </ul>
-              <p>
+              <p className="leading-relaxed">
                 <em>Pro tip:</em> Don&apos;t wait — set an appointment.
               </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🍽 Top Wedding Vendors in Galveston (2026)
               </h2>
-              <p>These are the categories you&apos;ll need:</p>
+              <p className="leading-relaxed">These are the categories you&apos;ll need:</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">CATERING</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Mosquito Café</li>
                 <li>Chopin Mon Ami</li>
                 <li>Benno&apos;s</li>
@@ -222,100 +222,100 @@ export default function GalvestonWeddingGuide2026Page() {
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">PHOTOGRAPHERS</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Galveston Beach Photographers</li>
                 <li>Island East End creatives</li>
                 <li>Houston photographers (they travel!)</li>
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">PLANNERS</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Events Company of Galveston</li>
                 <li>Lovers Lane Events</li>
                 <li>Local independent planners</li>
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">FLORISTS</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Galveston Flower Company</li>
                 <li>Stems by Stacy</li>
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">DJ / ENTERTAINMENT</h3>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>DJ Twinz</li>
                 <li>Island Sound DJs</li>
               </ul>
-              <p>Need referrals? THEOS provides a full list after booking.</p>
+              <p className="leading-relaxed">Need referrals? THEOS provides a full list after booking.</p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🛏 Where to Stay in Galveston (2026 Weddings)
               </h2>
-              <p>Your guests will love:</p>
-              <ul>
+              <p className="leading-relaxed">Your guests will love:</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>
-                  <strong>THEOS Loft Suite</strong> (getting ready suite, included for wedding rentals)
+                  <strong className="text-charcoal">THEOS Loft Suite</strong> (getting ready suite, included for wedding rentals)
                 </li>
                 <li>
-                  <strong>Two Airbnb rentals next door</strong> (perfect for family/wedding party)
+                  <strong className="text-charcoal">Two Airbnb rentals next door</strong> (perfect for family/wedding party)
                 </li>
                 <li>Tremont House</li>
                 <li>Grand Galvez</li>
                 <li>Airbnb/VRBO beach houses</li>
               </ul>
-              <p>Local lodging is a HUGE plus for your wedding weekend.</p>
+              <p className="leading-relaxed">Local lodging is a HUGE plus for your wedding weekend.</p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 💰 Galveston Wedding Budgets for 2026 (Realistic Guide)
               </h2>
-              <p>Here&apos;s what couples actually spend:</p>
+              <p className="leading-relaxed">Here&apos;s what couples actually spend:</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">$12,000–$18,000 — Small weddings</h3>
-              <p>Loft Suite, simple decor, small catering.</p>
+              <p className="leading-relaxed">Loft Suite, simple decor, small catering.</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">$20,000–$35,000 — Standard weddings</h3>
-              <p>Most common.</p>
+              <p className="leading-relaxed">Most common.</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">$40,000+ — Large / luxury weddings</h3>
-              <p>Live band, full-service planning, premium florals.</p>
+              <p className="leading-relaxed">Live band, full-service planning, premium florals.</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">Venue Cost Range (2026)</h3>
-              <ul>
-                <li>Galveston average: <strong>$3,500–$7,500</strong></li>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
+                <li>Galveston average: <strong className="text-charcoal">$3,500–$7,500</strong></li>
                 <li>
                   THEOS: Transparent pricing with Friday/Sunday flexibility (Most couples spend between{" "}
-                  <strong>$3,000–$6,000</strong>)
+                  <strong className="text-charcoal">$3,000–$6,000</strong>)
                 </li>
               </ul>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🎨 Wedding Styles That Look AMAZING at THEOS
               </h2>
-              <p>If you&apos;re planning at THEOS, these wedding aesthetics shine:</p>
+              <p className="leading-relaxed">If you&apos;re planning at THEOS, these wedding aesthetics shine:</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">🤍 Winter White Industrial</h3>
-              <p>Candles • whites • silvers • greenery</p>
+              <p className="leading-relaxed">Candles • whites • silvers • greenery</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">✨ Elegant Modern Coastal</h3>
-              <p>Soft blues • neutrals • airy textures</p>
+              <p className="leading-relaxed">Soft blues • neutrals • airy textures</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">🌙 Moody Industrial</h3>
-              <p>Black • gold • amber lighting</p>
+              <p className="leading-relaxed">Black • gold • amber lighting</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">🌿 Rustic Chic</h3>
-              <p>Wood • greenery • warm florals</p>
+              <p className="leading-relaxed">Wood • greenery • warm florals</p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">💐 Spring Garden Inside Brick Walls</h3>
-              <p>Pastels • draped installations</p>
+              <p className="leading-relaxed">Pastels • draped installations</p>
 
-              <p>
-                THEOS is a <strong>blank canvas with character</strong> — your aesthetic will pop.
+              <p className="leading-relaxed">
+                THEOS is a <strong className="text-charcoal">blank canvas with character</strong> — your aesthetic will pop.
               </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🔔 Why THEOS Is One of Galveston&apos;s Top Wedding Venues for 2026
               </h2>
-              <ul>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
                 <li>Historic brick look</li>
                 <li>Open-air industrial structure</li>
                 <li>80×40 flexible floor plan</li>
@@ -326,17 +326,17 @@ export default function GalvestonWeddingGuide2026Page() {
                 <li>Perfect for weddings up to 180 guests</li>
                 <li>Stunning blank canvas for decor</li>
               </ul>
-              <p>Brides call it a <em>&quot;hidden gem in downtown Galveston.&quot;</em></p>
+              <p className="leading-relaxed">Brides call it a <em>&quot;hidden gem in downtown Galveston.&quot;</em></p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 💍 Ready to Plan Your Galveston Wedding?
               </h2>
-              <p>Start your 2026 planning with a private tour of THEOS.</p>
-              <ul>
-                <li>📍 <strong>Downtown Galveston</strong></li>
-                <li>📅 <strong>Friday & Sunday weddings available</strong></li>
-                <li>🏛 <strong>Historic brick venue</strong></li>
-                <li>🛏 <strong>Loft Suite + Airbnbs next door</strong></li>
+              <p className="leading-relaxed">Start your 2026 planning with a private tour of THEOS.</p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
+                <li>📍 <strong className="text-charcoal">Downtown Galveston</strong></li>
+                <li>📅 <strong className="text-charcoal">Friday & Sunday weddings available</strong></li>
+                <li>🏛 <strong className="text-charcoal">Historic brick venue</strong></li>
+                <li>🛏 <strong className="text-charcoal">Loft Suite + Airbnbs next door</strong></li>
               </ul>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">

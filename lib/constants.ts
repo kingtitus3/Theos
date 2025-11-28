@@ -155,7 +155,7 @@ export const GALLERY_ITEMS: {
     category: "Events",
   },
   {
-    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/winter%20wedding.png",
+    src: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding-1.jpg",
     alt: "Winter wedding reception at Theos featuring dark teal tablecloths, gold accents, string lights overhead, lush floral centerpieces, and warm candlelit ambiance in the historic brick hall.",
     category: "Events",
   },

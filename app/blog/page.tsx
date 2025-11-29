@@ -34,7 +34,7 @@ const BLOG_POSTS = [
     title: "❄️ 10 Stunning Winter Wedding Ideas for THEOS",
     description:
       "Aesthetic, cozy, and timeless winter wedding inspiration for Galveston brides. Discover 10 stunning winter wedding ideas perfect for THEOS historic brick venue.",
-    date: "2024-12-01",
+    date: "2024-11-25",
     category: "Wedding Ideas",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-2.jpg",
   },
@@ -43,7 +43,7 @@ const BLOG_POSTS = [
     title: "🌴 Galveston Wedding Guide 2026",
     description:
       "Everything you need to plan your dream coastal Texas wedding in Galveston. Venues, vendors, lodging, permits, photoshoot spots, budgeting tips, and why couples choose this island for their big day.",
-    date: "2024-11-28",
+    date: "2024-11-18",
     category: "Planning Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },

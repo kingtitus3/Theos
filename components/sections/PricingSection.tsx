@@ -74,7 +74,7 @@ export const PricingSection = () => {
           </div>
           <div className="flex flex-col items-start gap-3 rounded-2xl bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-charcoal/70">
-              Ready for exact pricing? Share your date, guest count, and Loft Suite needs and we'll
+              Ready for exact pricing? Share your date, guest count, and Loft Suite needs and we&apos;ll
               respond quickly from the contact form below.
             </p>
             <ScrollToContactButton

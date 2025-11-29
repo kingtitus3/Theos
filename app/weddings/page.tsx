@@ -43,17 +43,14 @@ export default function WeddingsPage() {
             </ul>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ScrollToContactButton label="Book a Wedding Tour" className="mt-2" />
-              <Button
-                variant="ghost"
-                size="sm"
-                className="border border-charcoal/20"
-                asChild
+              <Link
+                href="/blog/galveston-wedding-guide-2026"
+                className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-3 py-1.5 text-sm bg-transparent text-charcoal border border-charcoal/20 hover:bg-charcoal/5"
               >
-                <Link href="/blog/galveston-wedding-guide-2026">
-                  Read Our Wedding Guide →
-                </Link>
-              </Button>
+                Read Our Wedding Guide →
+              </Link>
             </div>
+          </div>
 
           <div className="space-y-6">
             {mainHall && (

@@ -75,11 +75,12 @@ export default function EventsPage() {
           <p className="text-sm text-charcoal/70 mb-3">
             Planning a Galveston event? Our comprehensive wedding guide includes vendor recommendations, budgeting tips, and planning resources that apply to all types of events.
           </p>
-          <Button variant="ghost" size="sm" className="border border-charcoal/20" asChild>
-            <Link href="/blog/galveston-wedding-guide-2026">
-              Read Event Planning Guide →
-            </Link>
-          </Button>
+          <Link
+            href="/blog/galveston-wedding-guide-2026"
+            className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-3 py-1.5 text-sm bg-transparent text-charcoal border border-charcoal/20 hover:bg-charcoal/5"
+          >
+            Read Event Planning Guide →
+          </Link>
         </div>
       </Container>
     </section>

@@ -78,11 +78,12 @@ export default function CorporateEventsPage() {
           <p className="text-sm text-charcoal/70 mb-3">
             Planning a corporate event in Galveston? Our guide includes vendor recommendations, venue insights, and planning tips that can help with any event type.
           </p>
-          <Button variant="ghost" size="sm" className="border border-charcoal/20" asChild>
-            <Link href="/blog/galveston-wedding-guide-2026">
-              Read Event Planning Guide →
-            </Link>
-          </Button>
+          <Link
+            href="/blog/galveston-wedding-guide-2026"
+            className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-3 py-1.5 text-sm bg-transparent text-charcoal border border-charcoal/20 hover:bg-charcoal/5"
+          >
+            Read Event Planning Guide →
+          </Link>
         </div>
       </Container>
     </section>

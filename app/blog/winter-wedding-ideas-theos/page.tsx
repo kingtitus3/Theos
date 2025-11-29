@@ -302,9 +302,12 @@ export default function WinterWeddingIdeasPage() {
                 <Button size="lg" onClick={() => scrollToTarget("#contact")}>
                   Check Availability or Book a Tour
                 </Button>
-                <Button size="lg" variant="ghost" className="border border-charcoal/20" asChild>
-                  <Link href="/giveaway">Enter Bridal Giveaway</Link>
-                </Button>
+                <Link
+                  href="/giveaway"
+                  className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-6 py-3 text-lg bg-transparent text-charcoal border border-charcoal/20 hover:bg-charcoal/5"
+                >
+                  Enter Bridal Giveaway
+                </Link>
               </div>
 
               <div className="mt-12 rounded-2xl border border-charcoal/10 bg-white/80 p-6">

@@ -76,7 +76,7 @@ export const Navbar = () => {
               return (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href as any}
                   className="text-xs font-semibold text-parchment/80 transition hover:text-white"
                 >
                   {link.label}
@@ -120,7 +120,7 @@ export const Navbar = () => {
                 return (
                   <Link
                     key={link.href}
-                    href={link.href}
+                    href={link.href as any}
                     className="block px-4 py-2 text-sm font-semibold text-parchment/80 hover:text-white transition uppercase tracking-wide"
                     onClick={() => setMobileMenuOpen(false)}
                   >

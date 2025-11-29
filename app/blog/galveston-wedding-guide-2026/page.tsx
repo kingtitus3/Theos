@@ -94,9 +94,9 @@ export default function GalvestonWeddingGuide2026Page() {
                   <strong className="text-charcoal">THEOS Galveston</strong> — exposed brick, industrial charm, indoor/outdoor flow,
                   Loft Suite, lodging next door
                 </li>
-                <li>Ashton Villa</li>
-                <li>The Bryan Museum</li>
-                <li>The Tremont House</li>
+                <li><a href="https://www.galvestonhistory.org/attractions/ashton-villa" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Ashton Villa</a></li>
+                <li><a href="https://thebryanmuseum.org" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">The Bryan Museum</a></li>
+                <li><a href="https://www.tremonthouse.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">The Tremont House</a></li>
               </ul>
               <p className="leading-relaxed">
                 <strong className="text-charcoal">Why couples choose THEOS:</strong> The 80×40 brick hall allows complete
@@ -215,9 +215,9 @@ export default function GalvestonWeddingGuide2026Page() {
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">CATERING</h3>
               <ul className="ml-6 list-disc space-y-2 leading-relaxed">
-                <li>Mosquito Café</li>
-                <li>Chopin Mon Ami</li>
-                <li>Benno&apos;s</li>
+                <li><a href="https://www.mosquitocafe.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Mosquito Café</a></li>
+                <li><a href="https://www.chopinmonami.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Chopin Mon Ami</a></li>
+                <li><a href="https://www.bennosofgalveston.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Benno&apos;s</a></li>
                 <li>Local coastal chefs (popular for elevated private catering)</li>
               </ul>
 
@@ -230,21 +230,21 @@ export default function GalvestonWeddingGuide2026Page() {
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">PLANNERS</h3>
               <ul className="ml-6 list-disc space-y-2 leading-relaxed">
-                <li>Events Company of Galveston</li>
-                <li>Lovers Lane Events</li>
+                <li><a href="https://www.eventscompanyofgalveston.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Events Company of Galveston</a></li>
+                <li><a href="https://www.loverslaneevents.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Lovers Lane Events</a></li>
                 <li>Local independent planners</li>
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">FLORISTS</h3>
               <ul className="ml-6 list-disc space-y-2 leading-relaxed">
-                <li>Galveston Flower Company</li>
-                <li>Stems by Stacy</li>
+                <li><a href="https://www.galvestonflowercompany.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Galveston Flower Company</a></li>
+                <li><a href="https://www.stemsbystacy.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Stems by Stacy</a></li>
               </ul>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">DJ / ENTERTAINMENT</h3>
               <ul className="ml-6 list-disc space-y-2 leading-relaxed">
-                <li>DJ Twinz</li>
-                <li>Island Sound DJs</li>
+                <li><a href="https://www.djtwins.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">DJ Twinz</a></li>
+                <li><a href="https://www.islandsounddjs.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Island Sound DJs</a></li>
               </ul>
               <p className="leading-relaxed">Need referrals? THEOS provides a full list after booking.</p>
 
@@ -259,8 +259,8 @@ export default function GalvestonWeddingGuide2026Page() {
                 <li>
                   <strong className="text-charcoal">Two Airbnb rentals next door</strong> (perfect for family/wedding party)
                 </li>
-                <li>Tremont House</li>
-                <li>Grand Galvez</li>
+                <li><a href="https://www.tremonthouse.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Tremont House</a></li>
+                <li><a href="https://www.grandgalvez.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Grand Galvez</a></li>
                 <li>Airbnb/VRBO beach houses</li>
               </ul>
               <p className="leading-relaxed">Local lodging is a HUGE plus for your wedding weekend.</p>

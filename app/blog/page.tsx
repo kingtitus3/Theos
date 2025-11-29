@@ -21,6 +21,15 @@ export const metadata: Metadata = {
 
 const BLOG_POSTS = [
   {
+    slug: "best-wedding-vendors-galveston",
+    title: "💍 Best Wedding Vendors in Galveston",
+    description:
+      "Your complete list of trusted planners, photographers, florists, caterers & more for your Galveston wedding. Find the best wedding vendors serving THEOS and downtown Galveston.",
+    date: "2024-12-02",
+    category: "Vendor Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
+  {
     slug: "winter-wedding-ideas-theos",
     title: "❄️ 10 Stunning Winter Wedding Ideas for THEOS",
     description:

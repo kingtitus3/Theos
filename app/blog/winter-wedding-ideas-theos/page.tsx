@@ -1,31 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { FloatingChatButton } from "@/components/booking/FloatingChatButton";
 import { scrollToTarget } from "@/lib/utils";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "10 Stunning Winter Wedding Ideas for THEOS (2025–2026) | Theos Galveston",
-  description:
-    "Aesthetic, cozy, and timeless winter wedding inspiration for Galveston brides. Discover 10 stunning winter wedding ideas perfect for THEOS historic brick venue.",
-  keywords: [
-    "winter wedding ideas",
-    "Galveston winter wedding",
-    "THEOS winter wedding",
-    "brick venue winter wedding",
-    "Texas winter wedding",
-    "winter wedding decor",
-    "candlelit wedding",
-  ],
-  openGraph: {
-    title: "10 Stunning Winter Wedding Ideas for THEOS (2025–2026)",
-    description:
-      "Aesthetic, cozy, and timeless winter wedding inspiration for Galveston brides. Discover 10 stunning winter wedding ideas perfect for THEOS historic brick venue.",
-    type: "article",
-    url: "https://theosgalveston.com/blog/winter-wedding-ideas-theos",
-  },
-};
 
 export default function WinterWeddingIdeasPage() {
   return (

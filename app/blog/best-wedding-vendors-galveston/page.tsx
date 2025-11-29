@@ -1,31 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { FloatingChatButton } from "@/components/booking/FloatingChatButton";
 import { scrollToTarget } from "@/lib/utils";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Best Wedding Vendors in Galveston (2025–2026 Guide) | Theos Galveston",
-  description:
-    "Your complete list of trusted planners, photographers, florists, caterers & more for your Galveston wedding. Find the best wedding vendors serving THEOS and downtown Galveston.",
-  keywords: [
-    "Galveston wedding vendors",
-    "Galveston wedding planners",
-    "Galveston wedding photographers",
-    "Galveston wedding florists",
-    "Galveston wedding caterers",
-    "THEOS wedding vendors",
-    "Galveston DJs",
-  ],
-  openGraph: {
-    title: "Best Wedding Vendors in Galveston (2025–2026 Guide)",
-    description:
-      "Your complete list of trusted planners, photographers, florists, caterers & more for your Galveston wedding. Find the best wedding vendors serving THEOS and downtown Galveston.",
-    type: "article",
-    url: "https://theosgalveston.com/blog/best-wedding-vendors-galveston",
-  },
-};
 
 export default function BestWeddingVendorsPage() {
   return (

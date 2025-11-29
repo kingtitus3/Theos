@@ -1,30 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { FloatingChatButton } from "@/components/booking/FloatingChatButton";
 import { scrollToTarget } from "@/lib/utils";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Galveston Wedding Guide 2026 | Complete Planning Guide | Theos",
-  description:
-    "Everything you need to plan your dream coastal Texas wedding in Galveston. Venues, vendors, lodging, permits, photoshoot spots, budgeting tips, and why couples choose this island for their big day.",
-  keywords: [
-    "Galveston wedding guide",
-    "Galveston wedding venues",
-    "Galveston wedding planning",
-    "Texas coastal wedding",
-    "Galveston wedding vendors",
-    "Galveston wedding photography",
-  ],
-  openGraph: {
-    title: "Galveston Wedding Guide 2026 | Complete Planning Guide",
-    description:
-      "Everything you need to plan your dream coastal Texas wedding in Galveston. Venues, vendors, lodging, and more.",
-    type: "article",
-    url: "https://theosgalveston.com/blog/galveston-wedding-guide-2026",
-  },
-};
 
 export default function GalvestonWeddingGuide2026Page() {
   return (

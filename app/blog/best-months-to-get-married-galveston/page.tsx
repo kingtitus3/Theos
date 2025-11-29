@@ -1,3 +1,5 @@
+ "use client";
+
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";

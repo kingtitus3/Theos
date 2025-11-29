@@ -94,7 +94,41 @@ export default function BestWeddingVendorsPage() {
                 <a href="https://www.loverslaneevents.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Lovers Lane Events →</a>
               </p>
 
-              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">3. Island Event Professionals</h3>
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">3. Water to Wine Events</h3>
+              <p className="leading-relaxed">
+                Full-service Galveston wedding planners — experienced with island logistics, weather, and local vendors.
+              </p>
+              <p className="leading-relaxed">
+                <a href="https://watertowineevents.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Water to Wine Events →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">4. Moments Event Planning & Design</h3>
+              <p className="leading-relaxed">
+                Boutique planner based on Galveston Island — specializes in local weddings &amp; events.
+              </p>
+              <p className="leading-relaxed">
+                <a href="https://www.moments-events.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Moments Event Planning &amp; Design →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">5. The Total Wedding Experience</h3>
+              <p className="leading-relaxed">
+                Wedding + event planning &amp; coordination — listed among top planners serving Galveston.
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">6. My Island Weddings</h3>
+              <p className="leading-relaxed">
+                Specialized in beach weddings / elopements — good for small ceremonies by the sea.
+              </p>
+              <p className="leading-relaxed">
+                <a href="https://www.myislandweddings.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit My Island Weddings →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">7. Barefoot Weddings Galveston</h3>
+              <p className="leading-relaxed">
+                Known for beach weddings, elopements, possibly simpler &amp; budget-friendly packages.
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">8. Island Event Professionals</h3>
               <p className="leading-relaxed">
                 Budget-friendly planners who are great at logistics.
               </p>
@@ -105,6 +139,9 @@ export default function BestWeddingVendorsPage() {
                 <li>Outdoor ceremonies</li>
               </ul>
 
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Why local planners matter:</strong> Local planners understand Galveston-specific challenges — from permits to weather, from transport to lodging coordination — which makes them invaluable for island weddings.
+              </p>
               <p className="leading-relaxed">
                 <strong className="text-charcoal">Pro Tip:</strong> THEOS offers planner-friendly load-in and customizable layouts, making it easy for planners to execute any vision.
               </p>
@@ -118,7 +155,15 @@ export default function BestWeddingVendorsPage() {
                 Experts in capturing sunset portraits and airy beach tones.
               </p>
 
-              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">2. Houston-Based Photographers Who Travel to Galveston:</h3>
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">2. Degrees North Images</h3>
+              <p className="leading-relaxed">
+                Island-based photographer / elopement &amp; wedding specialist.
+              </p>
+              <p className="leading-relaxed">
+                <a href="https://www.marriedonisland.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Find on Married On Island →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">3. Houston-Based Photographers Who Travel to Galveston:</h3>
               <p className="leading-relaxed">
                 (These are often the best value + best style.)
               </p>
@@ -130,6 +175,9 @@ export default function BestWeddingVendorsPage() {
               </ul>
               <p className="leading-relaxed">
                 Their clean, modern editing looks <em>incredible</em> against THEOS&apos; brick textures.
+              </p>
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Note:</strong> Photography/videography tends to be a fluid category — many vendors come from nearby areas but serve Galveston when booked. Always confirm travel details. Check local directories like <a href="https://www.marriedonisland.com/vendors" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Married On Island</a> and <a href="https://www.weddingwire.com/c/tx-texas/galveston/wedding-photographers" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">WeddingWire</a> for rotating photographers serving the island.
               </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
@@ -166,6 +214,9 @@ export default function BestWeddingVendorsPage() {
               <p className="leading-relaxed">
                 <strong className="text-charcoal">Why florals pop at THEOS:</strong> The white-washed textures + industrial brick backdrop make greenery and florals visually explode on camera.
               </p>
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Note:</strong> Because floristry is local and seasonal, checking local directories like <a href="https://www.weddingwire.com/c/tx-texas/galveston/wedding-florists" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">WeddingWire</a> and <a href="https://www.marriedonisland.com/vendors" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Married On Island</a> is recommended. Florists familiar with coastal wedding needs (humidity, salt air, beach florals, transport) are essential for island weddings.
+              </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🍽 Best Caterers in Galveston
@@ -179,12 +230,12 @@ export default function BestWeddingVendorsPage() {
                 <a href="https://www.mosquitocafe.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Mosquito Café →</a>
               </p>
 
-              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">2. Chopin Mon Ami</h3>
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">2. Chopin Mon Ami Catering &amp; Events</h3>
               <p className="leading-relaxed">
-                Elegant, elevated French-inspired catering — perfect for a formal vibe.
+                Elegant, elevated French-inspired catering — perfect for a formal vibe. Known for catering many historic &amp; museum-style weddings on the island.
               </p>
               <p className="leading-relaxed">
-                <a href="https://www.chopinmonami.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Chopin Mon Ami →</a>
+                <a href="https://www.cmacatering.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Chopin Mon Ami Catering →</a>
               </p>
 
               <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">3. Benno&apos;s on the Beach</h3>
@@ -262,14 +313,33 @@ export default function BestWeddingVendorsPage() {
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 💄 Best Hair &amp; Makeup Artists Serving Galveston
               </h2>
-              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
-                <li><a href="https://www.blushsalongalveston.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Blush Salon</a></li>
-                <li><a href="https://www.beautiquegalveston.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Beautique</a></li>
-                <li>Houston HMUA teams who travel (common for weddings)</li>
-              </ul>
+              
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">1. Salty Skin + Hair</h3>
+              <p className="leading-relaxed">
+                Island-based bridal hair &amp; makeup, specialized for weddings, elopements, and events in coastal conditions.
+              </p>
+              <p className="leading-relaxed">
+                <a href="https://www.saltyskinandhair.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Salty Skin + Hair →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">2. Blush Salon</h3>
+              <p className="leading-relaxed">
+                <a href="https://www.blushsalongalveston.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Blush Salon →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">3. Beautique</h3>
+              <p className="leading-relaxed">
+                <a href="https://www.beautiquegalveston.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Beautique →</a>
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">4. Houston HMUA Teams</h3>
+              <p className="leading-relaxed">
+                Many Houston hair &amp; makeup artists travel to Galveston for weddings. Check <a href="https://www.weddingwire.com/c/tx-texas/galveston/wedding-beauty-health" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">WeddingWire&apos;s beauty vendor list</a> for options.
+              </p>
+
               <h3 className="mt-6 mb-4 font-serif text-xl text-charcoal">Why this matters:</h3>
               <p className="leading-relaxed">
-                THEOS&apos;s Loft Suite makes it easy for HMUA teams to get the bridal party ready on-site.
+                Because weather and environment (humidity, sea breeze) affect glam, a local glam team familiar with island weddings is a big advantage. THEOS&apos;s Loft Suite makes it easy for HMUA teams to get the bridal party ready on-site.
               </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
@@ -329,6 +399,28 @@ export default function BestWeddingVendorsPage() {
               </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
+                🏛 Other Notable Wedding Venues in Galveston
+              </h2>
+              <p className="leading-relaxed">
+                While THEOS is our top pick for historic brick venues, here are other popular options on the island:
+              </p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
+                <li><a href="https://www.tremonthouse.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">The Tremont House</a> — Historic downtown hotel + event spaces + rooftop bar</li>
+                <li><a href="https://www.grandgalvez.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Grand Galvez Resort &amp; Spa</a> — Beachfront resort / historic hotel — large weddings / guest accommodations</li>
+                <li><a href="https://www.thebryanmuseum.org" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">The Bryan Museum</a> — Historic museum venue with preferred vendor lists</li>
+                <li><a href="https://www.galvestonhistory.org/attractions/ashton-villa" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Ashton Villa</a> — Historic mansion / boutique-style venue</li>
+                <li>Moody Mansion (Willis-Moody Mansion) — Historic mansion venue — classic architecture</li>
+                <li>The San Luis Resort, Spa &amp; Conference Center — Resort-style venue + ballrooms + indoor/outdoor options</li>
+                <li>Carr Mansion — Historic mansion / boutique-style venue for intimate to mid-size weddings</li>
+                <li>Bayside Event Center — Waterfront / bayou-side venue — good for receptions with water view</li>
+                <li>Hotel Lucine — Boutique hotel near the beach with event/banquet possibilities</li>
+                <li>Beach Venues — East Beach / Stewart Beach / Public Beach Parks — For barefoot / beachfront ceremonies</li>
+              </ul>
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Tip:</strong> For many of these venues, check their &quot;preferred vendors&quot; or &quot;vendor partner&quot; lists — often those include florists, caterers, photographers, etc., who already know the venue well.
+              </p>
+
+              <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 🛏 Best Places for Guests to Stay
               </h2>
 
@@ -367,6 +459,28 @@ export default function BestWeddingVendorsPage() {
                 <a href="https://www.grandgalvez.com" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Grand Galvez →</a>
               </p>
 
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">5. The San Luis Resort</h3>
+              <p className="leading-relaxed">
+                Resort-style venue with guest accommodations.
+              </p>
+
+              <h3 className="mt-8 mb-4 font-serif text-2xl text-charcoal">6. Airbnb/VRBO Beach Houses</h3>
+              <p className="leading-relaxed">
+                Great for larger groups or extended stays.
+              </p>
+
+              <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
+                ✝️ Officiants &amp; Beach Wedding Services
+              </h2>
+              <p className="leading-relaxed">
+                For couples wanting beach, courthouse, or non-traditional weddings:
+              </p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
+                <li>Use <strong className="text-charcoal">beach-specialty planners</strong> (like My Island Weddings or Barefoot Weddings Galveston) — they often bundle officiant + setup + simple decor</li>
+                <li>Request officiant details early — beach/waterfront weddings often have permit/time restrictions</li>
+                <li>Consider local historic-venue chapels / churches for indoor or backup–friendly ceremonies</li>
+              </ul>
+
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 💡 Tips for Choosing Vendors for a 2026 Galveston Wedding
               </h2>
@@ -376,7 +490,26 @@ export default function BestWeddingVendorsPage() {
                 <li>✔ Confirm load-in/load-out timing (downtown is tight)</li>
                 <li>✔ Share your venue floor plan early</li>
                 <li>✔ Request a mood board if you&apos;re using florals or decor</li>
+                <li>✔ For coastal weddings, choose caterers familiar with sea-air, timing logistics, and historic-venue restrictions</li>
+                <li>✔ Use local rental services + planners who have done island setups — this ensures timing and transport are handled properly</li>
               </ul>
+
+              <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
+                ⚠️ Important Notes About Vendor Availability
+              </h2>
+              <p className="leading-relaxed">
+                Despite this comprehensive list, vendor availability has some limitations:
+              </p>
+              <ul className="ml-6 list-disc space-y-2 leading-relaxed">
+                <li>Many photographers / videographers serving Galveston travel from nearby cities when booked — hard to pre-catalog reliably</li>
+                <li>Rentals, specialized décor, large-scale production gear (lighting, sound, staging) often come from outside the island</li>
+                <li>Seasonal / part-time vendors — Florists, bakers, dessert vendors, small rental shops may go in and out of service</li>
+                <li>Some venues &amp; vendors may not actively maintain their public listing — you&apos;d need to verify availability when booking</li>
+                <li>Local regulations, coastal weather, tides, and permit requirements can make availability unpredictable — good planning + backups + local vendor experience are essential</li>
+              </ul>
+              <p className="leading-relaxed">
+                <strong className="text-charcoal">Best approach:</strong> Regularly check local directories like <a href="https://www.marriedonisland.com/vendors" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Married On Island</a>, <a href="https://www.weddingwire.com/c/tx-texas/galveston" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">WeddingWire</a>, and <a href="https://www.visitgalveston.com/weddings" target="_blank" rel="noreferrer" className="text-accent-brick hover:underline">Visit Galveston</a> to keep your vendor list fresh.
+              </p>
 
               <h2 className="mt-12 mb-6 font-serif text-3xl text-charcoal">
                 💍 Plan Your 2026 Wedding at THEOS

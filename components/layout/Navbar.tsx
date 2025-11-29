@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { href: "#accommodations", label: "Stay" },
   { href: "#floorplan", label: "Floorplan" },
   { href: "#faq", label: "FAQ" },
+  { href: "/vendors", label: "Vendors" },
   { href: "/blog", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];

@@ -545,14 +545,14 @@ export default function BestWeddingVendorsPage() {
                   📥 Download Complete Vendor Directory
                 </h3>
                 <p className="text-sm text-charcoal/70 mb-4">
-                  Get our complete Galveston wedding vendor directory as a CSV file. Perfect for importing into spreadsheets, sharing with your planner, or keeping as a reference.
+                  Get our complete 2026 Galveston Island vendor directory as a CSV file. Perfect for importing into spreadsheets, sharing with your planner, or keeping as a reference.
                 </p>
                 <a
-                  href="/galveston-wedding-vendors.csv"
-                  download
+                  href="/2026-galveston-island-vendor-list.csv"
+                  download="2026-galveston-island-vendor-list.csv"
                   className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-6 py-3 text-base bg-accent-brick text-parchment hover:bg-accent-brick/90"
                 >
-                  Download Vendor CSV →
+                  Download 2026 Vendor List CSV →
                 </a>
               </div>
 

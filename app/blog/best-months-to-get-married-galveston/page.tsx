@@ -1,10 +1,6 @@
- "use client";
-
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
 import { FloatingChatButton } from "@/components/booking/FloatingChatButton";
-import { scrollToTarget } from "@/lib/utils";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -281,9 +277,12 @@ export default function BestMonthsToGetMarriedGalvestonPage() {
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" onClick={() => scrollToTarget("#contact")}>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-6 py-3 text-lg bg-accent-brick text-parchment hover:bg-accent-brick/90"
+                >
                   Check Dates &amp; Availability
-                </Button>
+                </Link>
                 <Link
                   href="/vendors"
                   className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-6 py-3 text-lg bg-transparent text-charcoal border border-charcoal/20 hover:bg-charcoal/5"

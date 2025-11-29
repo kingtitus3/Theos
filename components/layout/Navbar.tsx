@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { cn, scrollToTarget } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 
@@ -23,6 +24,7 @@ const NAV_LINKS = [
 
 export const Navbar = () => {
   const [solid, setSolid] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
@@ -31,6 +33,11 @@ export const Navbar = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    // Close mobile menu when route changes
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   const handleNavClick = (href: string) => {
     // Handle route links (like /blog) differently from anchor links
@@ -95,15 +102,61 @@ export const Navbar = () => {
         >
           Book a Tour
         </Button>
-        <Button
-          variant="secondary"
-          size="sm"
-          className="lg:hidden"
-          onClick={() => handleNavClick("#contact")}
+        <button
+          className="lg:hidden text-parchment/80 hover:text-white transition"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          Tour
-        </Button>
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </nav>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden absolute inset-x-0 top-full bg-charcoal/98 backdrop-blur border-t border-parchment/10">
+          <nav className="mx-auto max-w-6xl px-4 py-4 space-y-2">
+            {NAV_LINKS.map((link) => {
+              if (link.href.startsWith("/")) {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block px-4 py-2 text-sm font-semibold text-parchment/80 hover:text-white transition uppercase tracking-wide"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
+              return (
+                <button
+                  key={link.href}
+                  className="block w-full text-left px-4 py-2 text-sm font-semibold text-parchment/80 hover:text-white transition uppercase tracking-wide"
+                  onClick={() => {
+                    handleNavClick(link.href);
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  {link.label}
+                </button>
+              );
+            })}
+            <div className="pt-2 border-t border-parchment/10 mt-2">
+              <Button
+                variant="secondary"
+                size="sm"
+                className="w-full"
+                onClick={() => {
+                  handleNavClick("#contact");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Book a Tour
+              </Button>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

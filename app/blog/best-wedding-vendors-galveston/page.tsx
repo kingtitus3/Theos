@@ -540,7 +540,23 @@ export default function BestWeddingVendorsPage() {
                 </Link>
               </div>
 
-              <div className="mt-12 rounded-2xl border border-charcoal/10 bg-white/80 p-6">
+              <div className="mt-12 rounded-2xl border-2 border-accent-brick/20 bg-accent-brick/5 p-6">
+                <h3 className="font-serif text-2xl text-charcoal mb-4">
+                  📥 Download Complete Vendor Directory
+                </h3>
+                <p className="text-sm text-charcoal/70 mb-4">
+                  Get our complete Galveston wedding vendor directory as a CSV file. Perfect for importing into spreadsheets, sharing with your planner, or keeping as a reference.
+                </p>
+                <a
+                  href="/galveston-wedding-vendors.csv"
+                  download
+                  className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-6 py-3 text-base bg-accent-brick text-parchment hover:bg-accent-brick/90"
+                >
+                  Download Vendor CSV →
+                </a>
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-charcoal/10 bg-white/80 p-6">
                 <h3 className="font-serif text-2xl text-charcoal mb-4">
                   📚 More Planning Resources
                 </h3>

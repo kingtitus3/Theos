@@ -47,6 +47,15 @@ const BLOG_POSTS = [
     category: "Planning Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
+  {
+    slug: "best-months-to-get-married-galveston",
+    title: "🌴 The Best Months to Get Married in Galveston",
+    description:
+      "Weather, pricing, crowds, and insider tips for choosing your perfect Galveston wedding date at THEOS in 2025–2026.",
+    date: "2025-12-09",
+    category: "Planning Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
   // Add more blog posts here as you create them
 ];
 

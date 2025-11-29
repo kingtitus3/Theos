@@ -435,12 +435,12 @@ export default function VendorsPage() {
           </p>
           <p className="mt-3 text-sm text-charcoal/80">
             You can also{" "}
-            <Link
+            <a
               href="/2026-galveston-island-vendor-list.csv"
               className="font-medium text-accent-brick underline underline-offset-2 hover:text-accent-brick/80"
             >
               download the full 2026 Galveston Island vendor list as a CSV
-            </Link>{" "}
+            </a>{" "}
             to sort and filter in Google Sheets or Excel.
           </p>
         </div>

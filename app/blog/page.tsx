@@ -48,12 +48,39 @@ const BLOG_POSTS = [
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
   {
+    slug: "galveston-wedding-decor-guide-2026",
+    title: "🎨 Galveston Wedding Décor Guide 2026",
+    description:
+      "Top wedding décor themes that look incredible at THEOS: moody vintage, modern botanical, elevated coastal, minimal luxe, color pop, candle-heavy romantic, and industrial chic.",
+    date: "2025-12-12",
+    category: "Style Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
+  {
     slug: "best-months-to-get-married-galveston",
     title: "🌴 The Best Months to Get Married in Galveston",
     description:
       "Weather, pricing, crowds, and insider tips for choosing your perfect Galveston wedding date at THEOS in 2025–2026.",
     date: "2025-12-09",
     category: "Planning Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
+  {
+    slug: "galveston-micro-wedding-guide-2026",
+    title: "💍 Why Galveston Is the Best Place for a Micro Wedding",
+    description:
+      "Learn why Galveston is perfect for 20–60 guest micro weddings and why THEOS is becoming the go-to small wedding venue on the island.",
+    date: "2025-12-14",
+    category: "Micro Wedding Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
+  {
+    slug: "galveston-wedding-cost-budget-2026",
+    title: "💰 How Much Does a Galveston Wedding Cost?",
+    description:
+      "Realistic budget breakdown for Galveston weddings in 2025–2026. Learn average costs, venue pricing, catering, florals, photography, and how to save money without sacrificing style.",
+    date: "2025-12-16",
+    category: "Budget Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
   // Add more blog posts here as you create them

@@ -73,5 +73,5 @@ gcloud auth list
 
 ---
 
-**TL;DR:** Just run `gcloud auth application-default login --scopes=https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets` and you're done! 🎉
+**TL;DR:** Just run `gcloud auth application-default login --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets` and you're done! 🎉
 

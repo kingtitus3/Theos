@@ -20,6 +20,7 @@ if (existsSync(envPath)) {
 const clientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim() || '';
 const clientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim() || '';
 // Try multiple redirect URIs - use the one configured in Google Cloud Console
+// Common options: 'http://localhost', 'http://localhost:3000', 'urn:ietf:wg:oauth:2.0:oob'
 const redirectUri = process.env.REDIRECT_URI?.trim() || 'http://localhost';
 
 console.log('\n🔍 Checking environment variables...');
@@ -52,6 +53,13 @@ try {
   console.log('\n📋 Open this URL in your browser:\n');
   console.log(authUrl);
   console.log('\n');
+  console.log('⚠️  TROUBLESHOOTING:');
+  console.log('   If Google blocks you from selecting an account:');
+  console.log('   1. Check OAuth consent screen is configured');
+  console.log('   2. Add your email as a test user (if app is in Testing mode)');
+  console.log('   3. Verify redirect URI matches Google Cloud Console');
+  console.log('   4. Try REDIRECT_URI=urn:ietf:wg:oauth:2.0:oob if localhost fails');
+  console.log('   See OAUTH_TROUBLESHOOTING.md for details\n');
 } catch (error) {
   console.error('❌ Failed to generate OAuth URL:', error.message);
   process.exit(1);

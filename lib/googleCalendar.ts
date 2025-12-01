@@ -1,30 +1,54 @@
 import { calendar_v3, google } from "googleapis";
+import { readFileSync } from "fs";
 
 const calendarId = process.env.GOOGLE_CALENDAR_ID?.trim();
+const serviceAccountKeyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH?.trim();
+const serviceAccountKeyJson = process.env.GOOGLE_SERVICE_ACCOUNT_KEY?.trim();
 const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim();
 const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim();
 const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN?.trim();
 
-const hasCalendarConfig = Boolean(calendarId && oauthClientId && oauthClientSecret && oauthRefreshToken);
-
-// Try OAuth2 with refresh token, fall back to Application Default Credentials
+// Authentication priority: Service Account > OAuth > Application Default Credentials
 let auth: any = null;
 
-if (hasCalendarConfig && oauthRefreshToken) {
+// 1. Try Service Account first (works on Vercel and locally)
+if (serviceAccountKeyPath || serviceAccountKeyJson) {
+  try {
+    let keyData: any;
+    if (serviceAccountKeyJson) {
+      keyData = typeof serviceAccountKeyJson === 'string' ? JSON.parse(serviceAccountKeyJson) : serviceAccountKeyJson;
+    } else if (serviceAccountKeyPath) {
+      keyData = JSON.parse(readFileSync(serviceAccountKeyPath, 'utf8'));
+    }
+    
+    auth = new google.auth.GoogleAuth({
+      credentials: keyData,
+      scopes: ["https://www.googleapis.com/auth/calendar"],
+    });
+    console.log("✅ Using Service Account for Google Calendar authentication");
+  } catch (error: any) {
+    console.warn("⚠️ Service Account setup failed, trying OAuth:", error.message);
+  }
+}
+
+// 2. Try OAuth2 with refresh token (works on Vercel)
+if (!auth && oauthClientId && oauthClientSecret && oauthRefreshToken) {
   try {
     const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
     oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
     auth = oauth2Client;
-  } catch (error) {
-    console.warn("OAuth2 setup failed, falling back to Application Default Credentials:", error);
+    console.log("✅ Using OAuth2 for Google Calendar authentication");
+  } catch (error: any) {
+    console.warn("⚠️ OAuth2 setup failed, falling back to Application Default Credentials:", error.message);
   }
 }
 
-// Fall back to Application Default Credentials (works with gcloud auth application-default login)
+// 3. Fall back to Application Default Credentials (works with gcloud auth application-default login)
 if (!auth) {
   auth = new google.auth.GoogleAuth({
     scopes: ["https://www.googleapis.com/auth/calendar"],
   });
+  console.log("✅ Using Application Default Credentials for Google Calendar authentication");
 }
 
 const calendarClient = calendarId && auth
@@ -36,7 +60,7 @@ const calendarClient = calendarId && auth
 
 function ensureConfigured() {
   if (!calendarClient || !calendarId) {
-    throw new Error("Google Calendar is not configured. Please set GOOGLE_CALENDAR_ID and either OAuth credentials or use 'gcloud auth application-default login'.");
+    throw new Error("Google Calendar is not configured. Please set GOOGLE_CALENDAR_ID and either service account key, OAuth credentials, or use 'gcloud auth application-default login'.");
   }
 }
 

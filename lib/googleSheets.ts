@@ -1,9 +1,12 @@
 import { google } from "googleapis";
+import { readFileSync } from "fs";
 
 // Get Google Sheets client using the same auth method as Google Calendar
-// Uses OAuth2 with refresh token (for Vercel) or Application Default Credentials (for local)
+// Priority: Service Account > OAuth2 > Application Default Credentials
 function getSheetsClient() {
   const spreadsheetId = process.env.GOOGLE_SHEETS_ID?.trim();
+  const serviceAccountKeyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH?.trim();
+  const serviceAccountKeyJson = process.env.GOOGLE_SERVICE_ACCOUNT_KEY?.trim();
   const oauthClientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim();
   const oauthClientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim();
   const oauthRefreshToken = process.env.GOOGLE_OAUTH_REFRESH_TOKEN?.trim();
@@ -12,10 +15,34 @@ function getSheetsClient() {
     return null;
   }
 
-  // Try OAuth2 with refresh token first (works on Vercel)
+  // Authentication priority: Service Account > OAuth > Application Default Credentials
   let auth: any = null;
-  
-  if (oauthClientId && oauthClientSecret && oauthRefreshToken) {
+
+  // 1. Try Service Account first (works on Vercel and locally)
+  if (serviceAccountKeyPath || serviceAccountKeyJson) {
+    try {
+      let keyData: any;
+      if (serviceAccountKeyJson) {
+        keyData = typeof serviceAccountKeyJson === 'string' ? JSON.parse(serviceAccountKeyJson) : serviceAccountKeyJson;
+      } else if (serviceAccountKeyPath) {
+        keyData = JSON.parse(readFileSync(serviceAccountKeyPath, 'utf8'));
+      }
+      
+      auth = new google.auth.GoogleAuth({
+        credentials: keyData,
+        scopes: [
+          "https://www.googleapis.com/auth/spreadsheets",
+          "https://www.googleapis.com/auth/calendar",
+        ],
+      });
+      console.log("✅ Using Service Account for Google Sheets authentication");
+    } catch (error: any) {
+      console.warn("⚠️ Service Account setup failed for Sheets, trying OAuth:", error.message);
+    }
+  }
+
+  // 2. Try OAuth2 with refresh token (works on Vercel)
+  if (!auth && oauthClientId && oauthClientSecret && oauthRefreshToken) {
     try {
       const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
       // Set the required scopes for the OAuth client
@@ -35,7 +62,7 @@ function getSheetsClient() {
     }
   }
 
-  // Fall back to Application Default Credentials (works with gcloud auth application-default login)
+  // 3. Fall back to Application Default Credentials (works with gcloud auth application-default login)
   if (!auth) {
     try {
       auth = new google.auth.GoogleAuth({

@@ -21,30 +21,30 @@ export const metadata: Metadata = {
 
 const BLOG_POSTS = [
   {
+    slug: "galveston-wedding-cost-budget-2026",
+    title: "💰 How Much Does a Galveston Wedding Cost?",
+    description:
+      "Realistic budget breakdown for Galveston weddings in 2025–2026. Learn average costs, venue pricing, catering, florals, photography, and how to save money without sacrificing style.",
+    date: "2025-11-26",
+    category: "Budget Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
+  {
+    slug: "galveston-micro-wedding-guide-2026",
+    title: "💍 Why Galveston Is the Best Place for a Micro Wedding",
+    description:
+      "Learn why Galveston is perfect for 20–60 guest micro weddings and why THEOS is becoming the go-to small wedding venue on the island.",
+    date: "2025-11-19",
+    category: "Micro Wedding Guide",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+  },
+  {
     slug: "best-wedding-vendors-galveston",
     title: "💍 Best Wedding Vendors in Galveston",
     description:
       "Your complete list of trusted planners, photographers, florists, caterers & more for your Galveston wedding. Find the best wedding vendors serving THEOS and downtown Galveston.",
-    date: "2025-12-02",
+    date: "2025-11-12",
     category: "Vendor Guide",
-    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
-  },
-  {
-    slug: "winter-wedding-ideas-theos",
-    title: "❄️ 10 Stunning Winter Wedding Ideas for THEOS",
-    description:
-      "Aesthetic, cozy, and timeless winter wedding inspiration for Galveston brides. Discover 10 stunning winter wedding ideas perfect for THEOS historic brick venue.",
-    date: "2025-11-25",
-    category: "Wedding Ideas",
-    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-2.jpg",
-  },
-  {
-    slug: "galveston-wedding-guide-2026",
-    title: "🌴 Galveston Wedding Guide 2026",
-    description:
-      "Everything you need to plan your dream coastal Texas wedding in Galveston. Venues, vendors, lodging, permits, photoshoot spots, budgeting tips, and why couples choose this island for their big day.",
-    date: "2025-11-18",
-    category: "Planning Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
   {
@@ -52,7 +52,7 @@ const BLOG_POSTS = [
     title: "🎨 Galveston Wedding Décor Guide 2026",
     description:
       "Top wedding décor themes that look incredible at THEOS: moody vintage, modern botanical, elevated coastal, minimal luxe, color pop, candle-heavy romantic, and industrial chic.",
-    date: "2025-12-12",
+    date: "2025-11-05",
     category: "Style Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
@@ -61,26 +61,26 @@ const BLOG_POSTS = [
     title: "🌴 The Best Months to Get Married in Galveston",
     description:
       "Weather, pricing, crowds, and insider tips for choosing your perfect Galveston wedding date at THEOS in 2025–2026.",
-    date: "2025-12-09",
+    date: "2025-10-22",
     category: "Planning Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
   {
-    slug: "galveston-micro-wedding-guide-2026",
-    title: "💍 Why Galveston Is the Best Place for a Micro Wedding",
+    slug: "winter-wedding-ideas-theos",
+    title: "❄️ 10 Stunning Winter Wedding Ideas for THEOS",
     description:
-      "Learn why Galveston is perfect for 20–60 guest micro weddings and why THEOS is becoming the go-to small wedding venue on the island.",
-    date: "2025-12-14",
-    category: "Micro Wedding Guide",
-    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
+      "Aesthetic, cozy, and timeless winter wedding inspiration for Galveston brides. Discover 10 stunning winter wedding ideas perfect for THEOS historic brick venue.",
+    date: "2025-10-15",
+    category: "Wedding Ideas",
+    image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/detail-2.jpg",
   },
   {
-    slug: "galveston-wedding-cost-budget-2026",
-    title: "💰 How Much Does a Galveston Wedding Cost?",
+    slug: "galveston-wedding-guide-2026",
+    title: "🌴 Galveston Wedding Guide 2026",
     description:
-      "Realistic budget breakdown for Galveston weddings in 2025–2026. Learn average costs, venue pricing, catering, florals, photography, and how to save money without sacrificing style.",
-    date: "2025-12-16",
-    category: "Budget Guide",
+      "Everything you need to plan your dream coastal Texas wedding in Galveston. Venues, vendors, lodging, permits, photoshoot spots, budgeting tips, and why couples choose this island for their big day.",
+    date: "2025-10-08",
+    category: "Planning Guide",
     image: "https://raw.githubusercontent.com/kingtitus3/Theos/main/public/images/gallery/wedding%20mock%20up%202.png",
   },
   // Add more blog posts here as you create them

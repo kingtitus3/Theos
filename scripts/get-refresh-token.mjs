@@ -17,30 +17,45 @@ if (existsSync(envPath)) {
   console.warn('⚠️ .env.local not found, using system environment variables');
 }
 
-const clientId = process.env.GOOGLE_OAUTH_CLIENT_ID || '';
-const clientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET || '';
+const clientId = process.env.GOOGLE_OAUTH_CLIENT_ID?.trim() || '';
+const clientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET?.trim() || '';
 // Try multiple redirect URIs - use the one configured in Google Cloud Console
-const redirectUri = process.env.REDIRECT_URI || 'http://localhost';
+const redirectUri = process.env.REDIRECT_URI?.trim() || 'http://localhost';
+
+console.log('\n🔍 Checking environment variables...');
+console.log(`   GOOGLE_OAUTH_CLIENT_ID: ${clientId ? `✅ Set (${clientId.substring(0, 20)}...)` : '❌ Missing'}`);
+console.log(`   GOOGLE_OAUTH_CLIENT_SECRET: ${clientSecret ? '✅ Set' : '❌ Missing'}`);
+console.log(`   REDIRECT_URI: ${redirectUri}\n`);
 
 if (!clientId || !clientSecret) {
-  console.error('❌ Missing required environment variables:');
-  console.error(`   GOOGLE_OAUTH_CLIENT_ID: ${clientId ? '✅' : '❌ Missing'}`);
-  console.error(`   GOOGLE_OAUTH_CLIENT_SECRET: ${clientSecret ? '✅' : '❌ Missing'}`);
-  console.error('\nPlease set these in your .env.local file');
+  console.error('❌ Missing required environment variables!');
+  console.error('\nPlease add these to your .env.local file:');
+  console.error('   GOOGLE_OAUTH_CLIENT_ID=your-client-id');
+  console.error('   GOOGLE_OAUTH_CLIENT_SECRET=your-client-secret');
+  console.error('   REDIRECT_URI=http://localhost (optional)');
+  console.error('\nMake sure .env.local is in the project root directory.');
   process.exit(1);
 }
 
-const oauth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
-const authUrl = oauth2Client.generateAuthUrl({
-  access_type: 'offline',
-  scope: [
-    'https://www.googleapis.com/auth/calendar',
-    'https://www.googleapis.com/auth/spreadsheets',
-  ],
-  prompt: 'consent',
-});
+try {
+  const oauth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
+  const authUrl = oauth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: [
+      'https://www.googleapis.com/auth/calendar',
+      'https://www.googleapis.com/auth/spreadsheets',
+    ],
+    prompt: 'consent',
+  });
 
-console.log('Open this URL in your browser:\n', authUrl);
+  console.log('✅ OAuth URL generated successfully!');
+  console.log('\n📋 Open this URL in your browser:\n');
+  console.log(authUrl);
+  console.log('\n');
+} catch (error) {
+  console.error('❌ Failed to generate OAuth URL:', error.message);
+  process.exit(1);
+}
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 rl.question('\nPaste the "code" query parameter from the redirect URL: ', async (code) => {

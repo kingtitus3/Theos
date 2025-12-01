@@ -50,7 +50,7 @@ export default function GalvestonMicroWeddingGuide2026Page() {
                 that a smaller wedding can still feel incredibly special.
               </p>
               <p className="leading-relaxed">
-                If you're planning a micro wedding in 2025 or 2026, here’s why Galveston should be at the top
+                If you&apos;re planning a micro wedding in 2025 or 2026, here&apos;s why Galveston should be at the top
                 of your list — and why THEOS is perfectly built for this style of celebration.
               </p>
 
@@ -246,7 +246,7 @@ export default function GalvestonMicroWeddingGuide2026Page() {
                 🎉 Planning a Micro Wedding in 2025 or 2026?
               </h2>
               <p className="leading-relaxed">
-                If you're dreaming of a small wedding that still feels meaningful, beautiful, and
+                If you&apos;re dreaming of a small wedding that still feels meaningful, beautiful, and
                 unforgettable, THEOS is one of the best micro-wedding venues on Galveston Island.
               </p>
 

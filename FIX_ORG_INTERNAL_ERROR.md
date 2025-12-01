@@ -18,7 +18,7 @@ Your OAuth client is configured for "Internal" users only (Google Workspace orga
 
 ### Step 3: Configure App Information
 Fill in the required fields:
-- **App name:** Theos Event Booking (or any name)
+- **App name:** theobookingapp
 - **User support email:** Your email (titus.edwards7@gmail.com)
 - **App logo:** (optional)
 - **App domain:** (optional, can leave blank)
@@ -57,9 +57,10 @@ If you can't change the existing client to External, create a new one:
 1. Go to **APIs & Services** → **Credentials**
 2. Click **+ CREATE CREDENTIALS** → **OAuth client ID**
 3. Configure OAuth consent screen (set to **External**)
+   - App name: **theobookingapp**
 4. Create OAuth client with:
    - Type: **Web application**
-   - Name: "Theos OAuth Client"
+   - Name: "theobookingapp OAuth Client"
    - Authorized redirect URIs: `http://localhost`
 5. Update your `.env.local` with the new Client ID and Secret
 

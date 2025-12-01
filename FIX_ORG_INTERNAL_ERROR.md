@@ -1,7 +1,11 @@
 # Fix "Error 403: org_internal"
 
 ## Problem
-Your OAuth client is configured for "Internal" users only (Google Workspace organization), but you're trying to sign in with a personal Google account.
+Your OAuth client is configured for "Internal" users only (Google Workspace organization). If you're using `bookings@theosgalveston.com`, you have two options:
+
+1. **Keep it Internal** - If the OAuth client is in the same Google Workspace organization as `bookings@theosgalveston.com`, it should work. Make sure `bookings@theosgalveston.com` is added as a test user.
+
+2. **Change to External** - If you want to allow personal Google accounts or accounts from other organizations, change it to External.
 
 ## Solution: Change OAuth Consent Screen to External
 
@@ -19,10 +23,10 @@ Your OAuth client is configured for "Internal" users only (Google Workspace orga
 ### Step 3: Configure App Information
 Fill in the required fields:
 - **App name:** theobookingapp
-- **User support email:** Your email (titus.edwards7@gmail.com)
+- **User support email:** bookings@theosgalveston.com
 - **App logo:** (optional)
 - **App domain:** (optional, can leave blank)
-- **Developer contact information:** Your email
+- **Developer contact information:** bookings@theosgalveston.com
 - Click **SAVE AND CONTINUE**
 
 ### Step 4: Add Scopes
@@ -35,7 +39,7 @@ Fill in the required fields:
 ### Step 5: Add Test Users (if app is in Testing mode)
 1. If the app is in "Testing" mode, add test users:
    - Click **+ ADD USERS**
-   - Add: `titus.edwards7@gmail.com`
+   - Add: `bookings@theosgalveston.com`
    - Click **ADD**
 2. Click **SAVE AND CONTINUE**
 

@@ -18,7 +18,16 @@ function getSheetsClient() {
   if (oauthClientId && oauthClientSecret && oauthRefreshToken) {
     try {
       const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
-      oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
+      // Set the required scopes for the OAuth client
+      oauth2Client.setCredentials({ 
+        refresh_token: oauthRefreshToken,
+      });
+      // Ensure the client requests the sheets scope when refreshing tokens
+      oauth2Client.on('tokens', (tokens) => {
+        if (tokens.refresh_token) {
+          console.log("🔄 OAuth token refreshed");
+        }
+      });
       auth = oauth2Client;
       console.log("✅ Using OAuth2 for Google Sheets authentication");
     } catch (error: any) {

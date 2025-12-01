@@ -20,19 +20,26 @@ function getSheetsClient() {
       const oauth2Client = new google.auth.OAuth2(oauthClientId, oauthClientSecret, "http://localhost");
       oauth2Client.setCredentials({ refresh_token: oauthRefreshToken });
       auth = oauth2Client;
-    } catch (error) {
-      console.warn("OAuth2 setup failed for Sheets, falling back to Application Default Credentials:", error);
+      console.log("✅ Using OAuth2 for Google Sheets authentication");
+    } catch (error: any) {
+      console.warn("⚠️ OAuth2 setup failed for Sheets, falling back to Application Default Credentials:", error.message);
     }
   }
 
   // Fall back to Application Default Credentials (works with gcloud auth application-default login)
   if (!auth) {
-    auth = new google.auth.GoogleAuth({
-      scopes: [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/calendar",
-      ],
-    });
+    try {
+      auth = new google.auth.GoogleAuth({
+        scopes: [
+          "https://www.googleapis.com/auth/spreadsheets",
+          "https://www.googleapis.com/auth/calendar",
+        ],
+      });
+      console.log("✅ Using Application Default Credentials for Google Sheets authentication");
+    } catch (error: any) {
+      console.error("❌ Failed to initialize Google Auth for Sheets:", error.message);
+      return null;
+    }
   }
 
   return {
@@ -127,6 +134,12 @@ export async function appendNewsletterEmail(entry: NewsletterEntry): Promise<voi
     if (error.code) {
       console.error("   Error code:", error.code);
     }
+    if (error.message?.includes("401") || error.message?.includes("unauthorized")) {
+      console.error("   ⚠️ Authentication error - check OAuth refresh token or service account permissions");
+    }
+    if (error.message?.includes("403") || error.message?.includes("permission")) {
+      console.error("   ⚠️ Permission error - ensure the sheet is shared with the authenticated account");
+    }
     // Don't throw - we still want emails to send even if Sheets fails
   }
 }
@@ -210,6 +223,12 @@ export async function appendGiveawayEntry(entry: GiveawayEntry): Promise<void> {
     }
     if (error.code) {
       console.error("   Error code:", error.code);
+    }
+    if (error.message?.includes("401") || error.message?.includes("unauthorized")) {
+      console.error("   ⚠️ Authentication error - check OAuth refresh token or service account permissions");
+    }
+    if (error.message?.includes("403") || error.message?.includes("permission")) {
+      console.error("   ⚠️ Permission error - ensure the sheet is shared with the authenticated account");
     }
     // Don't throw - we still want emails to send even if Sheets fails
   }

@@ -284,7 +284,7 @@ export default function BestMonthsToGetMarriedGalvestonPage() {
                   Check Dates &amp; Availability
                 </Link>
                 <Link
-                  href="/vendors"
+                  href="/blog/best-wedding-vendors-galveston"
                   className="inline-flex items-center justify-center rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 px-6 py-3 text-lg bg-transparent text-charcoal border border-charcoal/20 hover:bg-charcoal/5"
                 >
                   Browse Vendor Directory

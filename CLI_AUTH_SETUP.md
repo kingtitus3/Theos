@@ -7,7 +7,7 @@ Much simpler than OAuth refresh tokens! One command, and you're done.
 ## Quick Setup (One Command)
 
 ```bash
-gcloud auth application-default login --scopes=https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets
+gcloud auth application-default login --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets
 ```
 
 This will:
@@ -54,7 +54,7 @@ The code automatically falls back to OAuth if ADC isn't available.
 If credentials expire or you need to switch accounts:
 
 ```bash
-gcloud auth application-default login --scopes=https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets
+gcloud auth application-default login --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/calendar,https://www.googleapis.com/auth/spreadsheets
 ```
 
 ## Check Current Auth
